@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中国出口强在哪里</title>
+  <style>
+    :root {
+      --bg: #f7f7f3;
+      --paper: #ffffff;
+      --ink: #1f2430;
+      --muted: #656d7c;
+      --soft: #8a91a0;
+      --line: #dfe3ea;
+      --blue: #5477c4;
+      --blue-soft: #eaf1fe;
+      --orange: #cc6f47;
+      --orange-soft: #ffedde;
+      --olive: #71a63f;
+      --olive-soft: #e8f4d8;
+      --gold: #b8a037;
+      --gold-soft: #fff4c2;
+      --pink: #bd569b;
+      --pink-soft: #fcdad6;
+      --danger: #a24b36;
+      --shadow: 0 18px 40px rgba(31, 36, 48, 0.08);
+      --radius: 8px;
+      --font-ui: -apple-system, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-ui);
+      line-height: 1.75;
+      letter-spacing: 0;
+      background:
+        linear-gradient(90deg, rgba(31, 36, 48, 0.035) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(rgba(31, 36, 48, 0.03) 1px, transparent 1px) 0 0 / 32px 32px,
+        var(--bg);
+      text-wrap: pretty;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1240px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(223, 227, 234, 0.92);
+      background: rgba(247, 247, 243, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      min-height: 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+      padding: 4px;
+      background: var(--paper);
+    }
+
+    .brand-mark span { background: var(--blue); }
+    .brand-mark span:nth-child(2) { background: var(--orange); }
+    .brand-mark span:nth-child(3) { background: var(--olive); }
+    .brand-mark span:nth-child(4) { background: var(--gold); }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+      padding: 7px 9px;
+      border-radius: 6px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--ink);
+      background: var(--paper);
+      outline: none;
+    }
+
+    .hero {
+      padding: 58px 0 38px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.72fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 760;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      max-width: 940px;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 860px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.75vw, 22px);
+    }
+
+    .meta-card,
+    .panel,
+    .chart-card,
+    .callout,
+    .metric-card,
+    .scenario-card,
+    .source-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-card {
+      padding: 18px;
+    }
+
+    .meta-card h2 {
+      font-size: 18px;
+      margin: 0 0 14px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 98px 1fr;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    .meta-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .label {
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .value {
+      font-weight: 700;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 8px 0 0;
+    }
+
+    .summary {
+      padding: 24px;
+    }
+
+    .summary h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .summary-item {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fcfcfd;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .summary-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      min-height: 132px;
+      box-shadow: none;
+    }
+
+    .metric-card .num {
+      font-family: var(--font-mono);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 8px 0;
+    }
+
+    .metric-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .badge-row,
+    .tab-row,
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge,
+    .tab-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .badge.blue { background: var(--blue-soft); color: #2e4780; border-color: #cedffe; }
+    .badge.orange { background: var(--orange-soft); color: #804126; border-color: #ffbda1; }
+    .badge.olive { background: var(--olive-soft); color: #386411; border-color: #bee596; }
+    .badge.gold { background: var(--gold-soft); color: #736422; border-color: #ffea8f; }
+    .badge.pink { background: var(--pink-soft); color: #8a3a6f; border-color: #f5bacc; }
+    .badge.risk { background: #fff0ec; color: var(--danger); border-color: #efc2b4; }
+
+    .tab-button {
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .tab-button.active {
+      color: #ffffff;
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .panel {
+      padding: 22px;
+      box-shadow: none;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .chart-card {
+      padding: 14px;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .chart-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      background: #fcfcfd;
+    }
+
+    .interpretation {
+      color: var(--muted);
+      margin: 12px 0 0;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--muted);
+      background: #fafbfc;
+      font-size: 12px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    td.num,
+    th.num {
+      text-align: right;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .positive { color: #386411; font-weight: 760; }
+    .negative { color: var(--danger); font-weight: 760; }
+    .neutral { color: var(--muted); font-weight: 700; }
+
+    .tabs {
+      display: grid;
+      gap: 16px;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .chain-step {
+      border: 1px solid var(--line);
+      background: #fcfcfd;
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 150px;
+    }
+
+    .chain-step h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .chain-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .scenario-card {
+      padding: 18px;
+      box-shadow: none;
+    }
+
+    .scenario-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .scenario-card ul,
+    .source-card ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .callout {
+      padding: 18px;
+      background: #fbfcff;
+      box-shadow: none;
+      border-left: 4px solid var(--blue);
+    }
+
+    .callout.orange { border-left-color: var(--orange); background: #fffaf6; }
+    .callout.olive { border-left-color: var(--olive); background: #fbfff7; }
+    .callout.risk { border-left-color: var(--danger); background: #fff9f7; }
+
+    .callout h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .source-card {
+      padding: 16px;
+      box-shadow: none;
+    }
+
+    .source-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .source-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      padding: 34px 0 52px;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .split,
+      .summary-grid,
+      .scenario-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .chain {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100vw - 24px, 1240px);
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary,
+      .panel {
+        padding: 16px;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .tab-row {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <span>出口实证报告</span>
+      </div>
+      <nav class="nav" aria-label="报告导航">
+        <a href="#summary">结论</a>
+        <a href="#evidence">证据</a>
+        <a href="#tracks">主线</a>
+        <a href="#companies">公司</a>
+        <a href="#scenarios">情景</a>
+        <a href="#sources">来源</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="shell">
+    <header class="hero" data-screen-label="hero">
+      <div>
+        <div class="eyebrow">截至 2026年6月15日 · Q2 仅确认 4-5月</div>
+        <h1>中国出口强，但不是全面复苏。</h1>
+        <p class="lead">实证上更像一轮“机电资本品出口周期”：总量仍强，增量集中在 AI 硬件、汽车、电力设备、船舶；但利润兑现明显分层，不能把出口高增直接等同于所有出口链公司基本面同步改善。</p>
+      </div>
+      <aside class="meta-card" aria-label="研究口径">
+        <h2>研究口径</h2>
+        <div class="meta-list">
+          <div class="meta-row">
+            <div class="label">时间窗</div>
+            <div class="value">2026年1-5月；Q2 用 4-5月测算</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">事实源</div>
+            <div class="value">海关口径公开报道 + A股 2026Q1 财报摘要</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">核心问题</div>
+            <div class="value">出口增长能否转化为可投资利润弹性</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">结论等级</div>
+            <div class="value">总量强：高；结构分化：高；估值排序：需实时复核</div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <section id="summary" data-screen-label="executive-summary">
+      <article class="summary panel">
+        <h2>Executive Summary</h2>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <strong>总量没有失速，但不是消费品驱动。</strong>
+            <p>1-5月出口 11.91 万亿元，同比 +11.8%；4-5月测算约 5.06 万亿元，同比约 +11.7%。机电产品出口 +18.4%，占出口 63.6%。</p>
+          </div>
+          <div class="summary-item">
+            <strong>结构强度来自高端制造和资本品。</strong>
+            <p>汽车、电工器材、船舶分别 +45.5%、+24.7%、+22.5%；AI 服务器、光模块、电池、储能、电网设备是利润验证重点。</p>
+          </div>
+          <div class="summary-item">
+            <strong>利润兑现最干净的是 AI 硬件、船舶、电池。</strong>
+            <p>工业富联、光模块链、中国船舶、宁德时代在 2026Q1 呈现收入和利润双强；整车和部分储能/逆变器则出现“出口强、利润弱”。</p>
+          </div>
+          <div class="summary-item">
+            <strong>排序应从“出口弹性”转向“订单能见度 + 利润质量”。</strong>
+            <p>优先级：船舶/电力设备/电池储能的订单能见度，高于单纯出口量；AI 链景气最强但估值和客户集中度风险也最大。</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="evidence" data-screen-label="evidence">
+      <div class="section-head">
+        <div>
+          <h2>总量强，结构更强</h2>
+          <p class="section-note">这张图回答“出口是不是全面复苏”。结论是：总量增长仍强，但更高的斜率集中在机电和高端制造项。</p>
+        </div>
+        <div class="badge-row">
+          <span class="badge blue">海关口径</span>
+          <span class="badge orange">结构验证</span>
+        </div>
+      </div>
+      <div class="split">
+        <div class="chart-card">
+          <img src="chart-export-structure.png" alt="出口总量和结构项同比增速对比图">
+          <p class="interpretation">1-5月和 4-5月测算均维持约 12% 增长，但汽车、电工器材、船舶等结构项显著高于总量。报告不应写成“外需全面复苏”，而应写成“高端制造出口链继续扩张”。</p>
+        </div>
+        <div class="panel">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="label">1-5月出口</span>
+              <div class="num">11.91万亿</div>
+              <p>人民币口径，同比 +11.8%。</p>
+            </div>
+            <div class="metric-card">
+              <span class="label">4-5月测算</span>
+              <div class="num">5.06万亿</div>
+              <p>由 1-5月减 Q1 得出，同比约 +11.7%。</p>
+            </div>
+            <div class="metric-card">
+              <span class="label">5月出口</span>
+              <div class="num">2.59万亿</div>
+              <p>人民币口径，同比 +13.8%。</p>
+            </div>
+            <div class="metric-card">
+              <span class="label">机电占比</span>
+              <div class="num">63.6%</div>
+              <p>1-5月机电出口 7.58 万亿元，同比 +18.4%。</p>
+            </div>
+          </div>
+          <div class="callout orange" style="margin-top: 16px;">
+            <h3>关键修正</h3>
+            <p>用户原稿的“Q2 出口强”成立，但“美元口径月度增速”和部分公司估值数据未纳入核心证据，因为本报告优先保留已核到的公开统计和财报摘要。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracks" data-screen-label="tracks">
+      <div class="section-head">
+        <div>
+          <h2>四条主线的现实-预期错位</h2>
+          <p class="section-note">用“需求强度、利润兑现、订单能见度、主要风险”重新排序，而不是只按出口增速排序。</p>
+        </div>
+        <div class="tab-row" role="tablist" aria-label="主线切换">
+          <button class="tab-button active" data-tab="ai" role="tab" aria-selected="true">AI硬件</button>
+          <button class="tab-button" data-tab="auto" role="tab" aria-selected="false">汽车</button>
+          <button class="tab-button" data-tab="power" role="tab" aria-selected="false">电力设备</button>
+          <button class="tab-button" data-tab="ship" role="tab" aria-selected="false">船舶</button>
+        </div>
+      </div>
+
+      <div class="tabs panel">
+        <div class="tab-panel active" id="tab-ai" role="tabpanel">
+          <div class="badge-row">
+            <span class="badge blue">景气最强</span>
+            <span class="badge risk">估值前置</span>
+          </div>
+          <h3>AI 硬件是最强 β，但需要从出口增速切到订单和客户资本开支。</h3>
+          <p>工业富联 2026Q1 营收 2510.78 亿元，同比 +56.5%；归母净利 105.95 亿元，同比 +102.6%。中际旭创、新易盛 2026Q1 的收入和利润弹性更高，说明 AI 算力硬件链确实在利润表上兑现。</p>
+          <div class="chain" aria-label="AI硬件传导链">
+            <div class="chain-step"><h3>云厂 CAPEX</h3><p>北美云厂和 AI 数据中心资本开支决定服务器、交换机、光模块需求。</p></div>
+            <div class="chain-step"><h3>订单出货</h3><p>AI GPU 机柜、ASIC 服务器、800G/1.6T 光模块成为出货斜率。</p></div>
+            <div class="chain-step"><h3>收入兑现</h3><p>工业富联、中际旭创、新易盛已体现高收入弹性。</p></div>
+            <div class="chain-step"><h3>利润率</h3><p>光模块利润率高，但客户集中和产品迭代风险更高。</p></div>
+            <div class="chain-step"><h3>估值消化</h3><p>景气最强并不等于赔率最好，观察订单持续性和估值拥挤。</p></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-auto" role="tabpanel">
+          <div class="badge-row">
+            <span class="badge orange">量最清晰</span>
+            <span class="badge risk">利润承压</span>
+          </div>
+          <h3>汽车出口是“量”的主线，但整车利润端已经给出反证。</h3>
+          <p>中汽协口径显示，2026年5月汽车出口 93 万辆，同比 +68.7%；新能源车出口 44.6 万辆，同比约 +1.1 倍。可是比亚迪 2026Q1 营收同比 -11.8%、归母净利同比 -55.4%，说明出口量强不必然等于整车利润强。</p>
+          <div class="chain" aria-label="汽车出口传导链">
+            <div class="chain-step"><h3>海外需求</h3><p>新兴市场和新能源渗透率带来出口量增。</p></div>
+            <div class="chain-step"><h3>渠道建设</h3><p>本地销售、售后、金融、库存体系需要持续投入。</p></div>
+            <div class="chain-step"><h3>价格竞争</h3><p>国内价格战与海外 ASP 压力影响利润表。</p></div>
+            <div class="chain-step"><h3>贸易壁垒</h3><p>关税、原产地规则和本地建厂要求抬高不确定性。</p></div>
+            <div class="chain-step"><h3>更优表达</h3><p>电池、储能和供应链定价权可能优于单纯整车出口量。</p></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-power" role="tabpanel">
+          <div class="badge-row">
+            <span class="badge olive">订单能见度</span>
+            <span class="badge gold">数据中心供电</span>
+          </div>
+          <h3>电力设备是“海外电网 + 数据中心供电”的资本品逻辑。</h3>
+          <p>1-5月电工器材出口同比 +24.7%。思源电气合同负债 31.5 亿元，金盘科技 6.36 亿元，阳光电源 122.04 亿元。订单/合同负债能说明景气，但思源、金盘一季度经营现金流为负，阳光电源收入与利润同比下滑，说明兑现节奏仍需跟踪。</p>
+          <div class="chain" aria-label="电力设备传导链">
+            <div class="chain-step"><h3>海外电网</h3><p>电网更新、变压器、开关设备形成中期需求。</p></div>
+            <div class="chain-step"><h3>数据中心</h3><p>AI 数据中心带动供配电、干变、储能系统需求。</p></div>
+            <div class="chain-step"><h3>合同负债</h3><p>订单能见度比单季收入更有解释力。</p></div>
+            <div class="chain-step"><h3>现金流</h3><p>应收、备货、交付节奏可能造成利润与现金流背离。</p></div>
+            <div class="chain-step"><h3>验证点</h3><p>看新增订单、在手订单、毛利率和经营现金流是否共振。</p></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-ship" role="tabpanel">
+          <div class="badge-row">
+            <span class="badge gold">能见度最强</span>
+            <span class="badge blue">利润释放型</span>
+          </div>
+          <h3>船舶是长订单周期下的利润释放主线。</h3>
+          <p>1-5月船舶出口金额同比 +22.5%。中国船舶 2026Q1 合同负债 1523.6 亿元，归母净利 48.32 亿元，同比 +251.6%，经营现金流 81.52 亿元。相比短周期消费出口，船舶更像订单价格、交付结构和利润释放的中期兑现。</p>
+          <div class="chain" aria-label="船舶传导链">
+            <div class="chain-step"><h3>前期订单</h3><p>高价订单在交付周期中逐步转收入。</p></div>
+            <div class="chain-step"><h3>合同负债</h3><p>绝对规模显著，能见度强于多数制造公司。</p></div>
+            <div class="chain-step"><h3>交付节奏</h3><p>收入与利润释放取决于船型结构和排产。</p></div>
+            <div class="chain-step"><h3>成本变量</h3><p>钢价、汇率和人工成本影响毛利率。</p></div>
+            <div class="chain-step"><h3>周期风险</h3><p>新船价和运价周期变化会影响远期赔率。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="companies" data-screen-label="companies">
+      <div class="section-head">
+        <div>
+          <h2>公司层：把出口景气拆成利润和订单</h2>
+          <p class="section-note">同一条出口链里，公司结果差异很大。散点图用收入同比、归母净利同比和合同负债同时看，避免只看出口量。</p>
+        </div>
+        <div class="badge-row">
+          <span class="badge blue">2026Q1</span>
+          <span class="badge olive">财报摘要核验</span>
+        </div>
+      </div>
+      <div class="split">
+        <div class="chart-card">
+          <img src="chart-company-matrix.png" alt="样本公司收入同比、归母净利同比和合同负债气泡图">
+          <p class="interpretation">AI 光模块弹性最强，但合同负债口径不适合作为核心领先指标；船舶和电池链更适合用合同负债、现金流和利润释放跟踪；整车与储能逆变器显示利润端压力。</p>
+        </div>
+        <div class="chart-card">
+          <img src="chart-contract-liability.png" alt="样本公司合同负债排行图">
+          <p class="interpretation">合同负债适合比较船舶、电池、整车、储能系统、电力设备等有预收/订单特征的公司；对服务器代工和光模块链参考价值较弱，需要改看出货、客户 CAPEX 和产品迭代。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>公司</th>
+              <th>赛道</th>
+              <th class="num">营收同比</th>
+              <th class="num">归母净利同比</th>
+              <th class="num">合同负债</th>
+              <th class="num">经营现金流</th>
+              <th>投研含义</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>中国船舶</td><td>船舶</td><td class="num positive">+54.9%</td><td class="num positive">+251.6%</td><td class="num">1523.6亿</td><td class="num positive">81.52亿</td><td>订单能见度和利润释放同时强。</td></tr>
+            <tr><td>工业富联</td><td>AI服务器</td><td class="num positive">+56.5%</td><td class="num positive">+102.5%</td><td class="num">28.63亿</td><td class="num positive">250.24亿</td><td>利润兑现强，重点看客户 CAPEX。</td></tr>
+            <tr><td>宁德时代</td><td>电池/储能</td><td class="num positive">+52.5%</td><td class="num positive">+48.5%</td><td class="num">455.5亿</td><td class="num positive">336.81亿</td><td>全球供应链定价权比整车更干净。</td></tr>
+            <tr><td>比亚迪</td><td>整车</td><td class="num negative">-11.8%</td><td class="num negative">-55.4%</td><td class="num">544.24亿</td><td class="num positive">27.90亿</td><td>出口量强，但利润端被价格战/投入压制。</td></tr>
+            <tr><td>思源电气</td><td>电力设备</td><td class="num positive">+41.6%</td><td class="num positive">+23.2%</td><td class="num">31.5亿</td><td class="num negative">-4.83亿</td><td>订单强，现金流还需跟踪。</td></tr>
+            <tr><td>金盘科技</td><td>变压器</td><td class="num positive">+13.4%</td><td class="num positive">+4.8%</td><td class="num">6.36亿</td><td class="num negative">-1.67亿</td><td>景气方向对，但短期兑现不如叙事强。</td></tr>
+            <tr><td>阳光电源</td><td>储能/逆变器</td><td class="num negative">-18.3%</td><td class="num negative">-40.1%</td><td class="num">122.04亿</td><td class="num positive">12.08亿</td><td>订单不弱，但利润修复仍未确认。</td></tr>
+            <tr><td>中际旭创</td><td>光模块</td><td class="num positive">+192.1%</td><td class="num positive">+262.3%</td><td class="num">0.46亿</td><td class="num positive">33.68亿</td><td>景气和利润弹性最强，估值风险最高。</td></tr>
+            <tr><td>新易盛</td><td>光模块</td><td class="num positive">+105.8%</td><td class="num positive">+76.8%</td><td class="num">2.92亿</td><td class="num positive">6.84亿</td><td>高弹性兑现，跟踪客户集中与迭代节奏。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ranking" data-screen-label="ranking">
+      <div class="section-head">
+        <div>
+          <h2>投研排序：从“出口高增”改成“可验证利润”</h2>
+          <p class="section-note">下面是基于当前证据的结构暴露排序，不是买卖建议，也不含未经实时复核的目标价。</p>
+        </div>
+      </div>
+      <div class="split">
+        <div class="callout olive">
+          <h3>优先跟踪</h3>
+          <p><strong>1. 船舶：</strong>中国船舶。订单能见度、利润释放、现金流同时较强。</p>
+          <p><strong>2. 电池/储能供应链：</strong>宁德时代优于单纯整车逻辑；阳光电源需要等待利润修复确认。</p>
+          <p><strong>3. AI硬件：</strong>工业富联、中际旭创、新易盛。景气最强，但赔率取决于估值、客户集中和迭代节奏。</p>
+          <p><strong>4. 电力设备：</strong>思源电气、金盘科技。订单逻辑清楚，但现金流和估值容错要跟踪。</p>
+        </div>
+        <div class="callout risk">
+          <h3>谨慎跟踪</h3>
+          <p><strong>整车出口：</strong>出口量高，但比亚迪 2026Q1 已显示收入和利润承压，需看海外毛利率而非只看销量。</p>
+          <p><strong>光伏组件：</strong>量的逻辑弱于价格、反倾销、过剩产能的约束。更适合看储能、逆变器、电网设备中的利润修复。</p>
+          <p><strong>传统劳动密集品：</strong>家具、玩具、鞋服等不构成本轮出口强项，估值扩张证据不足。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="scenarios" data-screen-label="scenario-tree">
+      <div class="section-head">
+        <div>
+          <h2>情景树与失效条件</h2>
+          <p class="section-note">主线当前未证伪，但需要持续跟踪中间变量。最重要的不是出口总量，而是利润、订单和贸易壁垒。</p>
+        </div>
+      </div>
+      <div class="scenario-grid">
+        <article class="scenario-card">
+          <span class="badge olive">乐观情景</span>
+          <h3>机电资本品出口继续扩张</h3>
+          <ul>
+            <li>AI 云厂 CAPEX 继续上修，800G/1.6T 迭代顺利。</li>
+            <li>船舶高价订单继续交付，毛利率不被成本侵蚀。</li>
+            <li>海外电网/储能订单增长，并转化为现金流。</li>
+          </ul>
+        </article>
+        <article class="scenario-card">
+          <span class="badge gold">中性情景</span>
+          <h3>出口强度保持，但利润分化</h3>
+          <ul>
+            <li>总量仍强，但部分行业价格竞争抵消收入增长。</li>
+            <li>整车和储能订单强，利润修复慢。</li>
+            <li>高估值 AI 链靠业绩消化，需要避免追高拥挤。</li>
+          </ul>
+        </article>
+        <article class="scenario-card">
+          <span class="badge risk">悲观情景</span>
+          <h3>贸易壁垒和价格战压缩利润</h3>
+          <ul>
+            <li>美国和欧洲关税/原产地审查升级。</li>
+            <li>汽车、光伏、储能价格战加剧，收入不转利润。</li>
+            <li>AI 资本开支或产品迭代节奏低于预期。</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout risk" style="margin-top: 16px;">
+        <h3>失效条件</h3>
+        <p>若 6月出口明显回落，机电出口占比/增速转弱，或样本公司二季报显示订单、毛利率、经营现金流同时恶化，则“机电资本品出口周期”需要降级为阶段性抢出口或价格驱动。</p>
+      </div>
+    </section>
+
+    <section id="sources" data-screen-label="sources">
+      <div class="section-head">
+        <div>
+          <h2>来源与可验证性</h2>
+          <p class="section-note">核心结论只使用已核验来源；估值和目标价不作为本版报告核心证据。</p>
+        </div>
+      </div>
+      <div class="source-grid">
+        <article class="source-card">
+          <h3>宏观与结构数据</h3>
+          <p>人民日报海外版 / 海关统计：1-5月出口、5月出口、贸易伙伴、机电产品出口。</p>
+          <ul>
+            <li><a href="https://paper.people.com.cn/rmrbhwb/pc/content/202606/10/content_30162357.html">前5月货物贸易进出口增长15.3%</a></li>
+            <li><a href="https://jingji.cctv.com/2026/06/09/ARTIZPb1DG1Uhu4kQkGaZy7K260609.shtml">央视网：前5个月我国货物贸易进出口同比增长15.3%</a></li>
+          </ul>
+        </article>
+        <article class="source-card">
+          <h3>汽车出口数据</h3>
+          <p>央视网 / 中汽协口径：5月汽车与新能源车出口量，1-5月累计出口量。</p>
+          <ul>
+            <li><a href="https://jingji.cctv.com/2026/06/10/ARTIeF6NXZVjUnSDYd2lx4oE260610.shtml">5月汽车出口延续快速增长态势</a></li>
+          </ul>
+        </article>
+        <article class="source-card">
+          <h3>公司财务数据</h3>
+          <p>本地 A 股财务脚本抓取同花顺/AkShare 2026Q1 财务摘要与三表，覆盖 600150、601138、300750、002594、002028、688676、300274、300308、300502。</p>
+          <ul>
+            <li>已核字段：营收、归母净利、合同负债、经营现金流。</li>
+            <li>未纳入核心证据：需实时行情源复核的 PE、分位数和目标价。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <p>生成时间：2026年6月15日。用途：投研实证分析与结构暴露讨论；不构成投资建议。</p>
+  </footer>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll(".tab-button"));
+    const panels = Array.from(document.querySelectorAll(".tab-panel"));
+
+    function activateTab(id) {
+      buttons.forEach((button) => {
+        const active = button.dataset.tab === id;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle("active", panel.id === `tab-${id}`);
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => activateTab(button.dataset.tab));
+    });
+  </script>
+</body>
+</html>
