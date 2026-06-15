@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#f5f2ea">
+  <meta name="description" content="面向机构与专户客户的宏观政策专题，聚焦Warsh首秀、油价、AI生产率叙事和FOMC情景。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Warsh首秀专题｜资管客户宏观分析">
+  <meta property="og:description" content="从政策声明、SEP、记者会和市场情景四个维度，梳理2026年6月FOMC的关键变量与组合沟通口径。">
+  <title>Warsh首秀专题｜资管客户宏观分析</title>
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --paper: #fffdf8;
+      --ink: #20222a;
+      --muted: #626a76;
+      --soft: #8a8f98;
+      --line: #dfd8c8;
+      --navy: #223457;
+      --blue: #496f9f;
+      --blue-soft: #e8eff8;
+      --rust: #a65f3f;
+      --rust-soft: #f7e4d8;
+      --green: #5d7f55;
+      --green-soft: #e3eddc;
+      --gold: #b49142;
+      --gold-soft: #f5e9c4;
+      --red: #9d493b;
+      --red-soft: #f4ded9;
+      --violet: #70659a;
+      --violet-soft: #e8e3f2;
+      --shadow: 0 20px 46px rgba(32, 34, 42, 0.08);
+      --radius: 8px;
+      --font-ui: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      --font-serif: "Songti SC", "STSong", "Noto Serif SC", serif;
+      --font-mono: "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-ui);
+      line-height: 1.74;
+      letter-spacing: 0;
+      background:
+        linear-gradient(90deg, rgba(32, 34, 42, 0.035) 1px, transparent 1px) 0 0 / 34px 34px,
+        linear-gradient(rgba(32, 34, 42, 0.028) 1px, transparent 1px) 0 0 / 34px 34px,
+        radial-gradient(circle at 82% 10%, rgba(180, 145, 66, 0.12), transparent 26%),
+        var(--bg);
+      text-wrap: pretty;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1240px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(223, 216, 200, 0.92);
+      background: rgba(245, 242, 234, 0.86);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+      padding: 4px;
+      background: var(--paper);
+    }
+
+    .brand-mark span:nth-child(1) { background: var(--navy); }
+    .brand-mark span:nth-child(2) { background: var(--rust); }
+    .brand-mark span:nth-child(3) { background: var(--green); }
+    .brand-mark span:nth-child(4) { background: var(--gold); }
+
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 680;
+      padding: 7px 9px;
+      border-radius: 6px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--ink);
+      background: var(--paper);
+      outline: none;
+    }
+
+    .hero {
+      padding: 58px 0 38px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.68fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--rust);
+      font-weight: 780;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 930px;
+      font-family: var(--font-serif);
+      font-size: 68px;
+      line-height: 1.06;
+      letter-spacing: 0;
+      font-weight: 760;
+    }
+
+    .lead {
+      max-width: 850px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.75);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .card,
+    .meta-card,
+    .metric-card,
+    .callout,
+    .scenario-card,
+    .chart-card,
+    .source-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-card {
+      padding: 18px;
+    }
+
+    .meta-card h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .label {
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 780;
+    }
+
+    .value {
+      font-weight: 720;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      margin-bottom: 6px;
+      color: var(--rust);
+      font-size: 13px;
+      font-weight: 780;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 34px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .section-note {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card,
+    .metric-card,
+    .scenario-card,
+    .chart-card,
+    .source-card {
+      padding: 18px;
+    }
+
+    .card.accent-blue { border-top: 5px solid var(--blue); }
+    .card.accent-rust { border-top: 5px solid var(--rust); }
+    .card.accent-green { border-top: 5px solid var(--green); }
+    .card.accent-gold { border-top: 5px solid var(--gold); }
+    .card.accent-violet { border-top: 5px solid var(--violet); }
+
+    .card p,
+    .scenario-card p,
+    .metric-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .big-number {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 820;
+      color: var(--navy);
+    }
+
+    .metric-label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 112px 1fr 54px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .bar-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #ebe5d8;
+      border: 1px solid #ddd4c3;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--navy);
+    }
+
+    .bar-fill.rust { background: var(--rust); }
+    .bar-fill.green { background: var(--green); }
+    .bar-fill.gold { background: var(--gold); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #eee8dc;
+      color: var(--navy);
+      font-weight: 780;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    td strong {
+      color: var(--ink);
+    }
+
+    .callout {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 5px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .callout::before {
+      content: "";
+      width: 5px;
+      min-height: 100%;
+      border-radius: 999px;
+      background: var(--rust);
+    }
+
+    .callout h3 {
+      margin-bottom: 7px;
+    }
+
+    .callout p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 126px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .timeline-date {
+      color: var(--rust);
+      font-family: var(--font-mono);
+      font-weight: 820;
+      font-size: 13px;
+    }
+
+    .timeline-title {
+      font-weight: 780;
+    }
+
+    .timeline-copy {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .scenario-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 218px;
+    }
+
+    .scenario-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 6px;
+      background: var(--navy);
+    }
+
+    .scenario-card.dove::before { background: var(--green); }
+    .scenario-card.hawk::before { background: var(--red); }
+    .scenario-card.accident::before { background: var(--gold); }
+
+    .scenario-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .prob {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      line-height: 1;
+      color: var(--navy);
+      font-weight: 820;
+      white-space: nowrap;
+    }
+
+    .scenario-list,
+    .clean-list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .scenario-list li,
+    .clean-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .scenario-list li::before,
+    .clean-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: var(--rust);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .matrix-cell {
+      min-height: 132px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .matrix-cell strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+
+    .matrix-cell span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bingo {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .box {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--navy);
+      background: #f8f4ec;
+    }
+
+    .footer {
+      padding: 34px 0 54px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--navy);
+      font-weight: 720;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 48px; }
+      h2 { font-size: 30px; }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .bingo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 24px, 1240px);
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      h1 { font-size: 38px; }
+      .lead { font-size: 17px; }
+
+      .meta-row,
+      .timeline-item,
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        gap: 6px;
+      }
+    }
+
+    @media print {
+      .topbar { position: static; }
+      body { background: #fff; }
+      .card,
+      .meta-card,
+      .metric-card,
+      .callout,
+      .scenario-card,
+      .chart-card,
+      .source-card,
+      .table-wrap {
+        box-shadow: none;
+      }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand" aria-label="报告标题">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>宏观政策专题</span>
+      </div>
+      <nav class="nav" aria-label="章节导航">
+        <a href="#summary">核心观点</a>
+        <a href="#context">市场脉络</a>
+        <a href="#framework">分析框架</a>
+        <a href="#scenarios">情景推演</a>
+        <a href="#portfolio">组合启示</a>
+        <a href="#watchlist">跟踪清单</a>
+        <a href="#risk">风险提示</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow">资管客户专题观点 · FOMC预案 · 资料截至 2026年6月14日</div>
+        <h1>Warsh首秀：鹰派信用首付下的鸽派暗门。</h1>
+        <p class="lead">本材料面向机构与专户客户，梳理2026年6月FOMC前后的政策信号、资产反应和风险边界。核心不是预测一次利率动作，而是识别Warsh新主席在声明、SEP、记者会和资产负债表叙事上的路径信号。</p>
+        <div class="hero-tags" aria-label="主题标签">
+          <span class="tag">FOMC 6月会议</span>
+          <span class="tag">Warsh首秀</span>
+          <span class="tag">油价与伊朗尾部</span>
+          <span class="tag">AI生产率叙事</span>
+          <span class="tag">机构客户沟通</span>
+        </div>
+      </div>
+
+      <aside class="meta-card">
+        <h2>材料定位</h2>
+        <div class="meta-list">
+          <div class="meta-row">
+            <div class="label">时间窗</div>
+            <div class="value">2026年6月14日-6月18日；聚焦6月FOMC与记者会</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">资料基础</div>
+            <div class="value">宏观政策情景整理；数据、概率与事件线基于截至2026年6月14日的材料，未做实时行情复核</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">适用场景</div>
+            <div class="value">机构路演、专户月度沟通、宏观策略会前预案</div>
+          </div>
+          <div class="meta-row">
+            <div class="label">观点边界</div>
+            <div class="value">提供情景沟通与风险揭示；不含目标价、收益承诺或买卖建议</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell" id="summary">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Executive Summary</div>
+          <h2>核心观点</h2>
+        </div>
+        <p class="section-note">会议动作本身交易价值有限，客户沟通重点应转向路径分布、文本信号和Warsh建立信用的约束。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card accent-blue">
+          <h3>1. 利率动作几乎锁定，文本变量才是战场。</h3>
+          <p>6月维持3.50%-3.75%的概率约97%，与CME FedWatch 97.1%维持一致。会议价值集中在声明删除宽松倾向、SEP点阵图和记者会基调。</p>
+        </article>
+        <article class="card accent-rust">
+          <h3>2. Warsh需要先演“1987年的Greenspan”。</h3>
+          <p>新主席信用账户偏负，首秀不能直接顺从白宫降息诉求。更可能以鹰派外壳购买反通胀信用，再为未来AI生产率和QT换降息叙事铺路。</p>
+        </article>
+        <article class="card accent-green">
+          <h3>3. 油价回落是偏鸽信号的合规入口。</h3>
+          <p>AI通缩论争议较大，而能源价格回落更容易被委员会和市场接受。若Warsh用“油价/能源”解释通胀压力缓和，偏鸽信号的可信度高于直接诉诸AI生产率。</p>
+        </article>
+        <article class="card accent-gold">
+          <h3>4. 市场不是单边转鸽，而是双尾变厚。</h3>
+          <p>近端维持利率高度一致，但全年路径分歧很大：零降息、加息尾和降息尾并存。低信念、高方差的状态，会放大记者会措辞。</p>
+        </article>
+        <article class="card accent-violet">
+          <h3>5. 6月最重要观察不是“是否降息”。</h3>
+          <p>真正的单一观察是：Warsh偏鸽时使用“油价/能源”还是“AI/生产率”。前者是事实捷径，后者会暴露1995 vs 1999的理论软肋。</p>
+        </article>
+        <article class="card accent-blue">
+          <h3>6. 组合沟通应聚焦不对称，而非方向口号。</h3>
+          <p>若市场已充分定价偏鹰，而油价回落抬升温和鸽派实现概率，则前端利率和曲线形态的情景赔率优于单纯押注风险资产方向。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="context">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Macro Context</div>
+          <h2>市场脉络：高近端确定性，低路径信念</h2>
+        </div>
+        <p class="section-note">本部分用于把关键宏观信息压缩成客户可复述的事实框架。</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="metric-card">
+          <div class="big-number">97%</div>
+          <div class="metric-label">6月维持利率的概率判断</div>
+          <p>利率动作本身缺少交易弹性，路径信号更重要。</p>
+        </div>
+        <div class="metric-card">
+          <div class="big-number">4.2%</div>
+          <div class="metric-label">5月CPI同比，材料口径</div>
+          <p>headline受能源扰动推高，核心通胀相对温和。</p>
+        </div>
+        <div class="metric-card">
+          <div class="big-number">$81</div>
+          <div class="metric-label">周末暗盘油价，材料口径</div>
+          <p>从战争峰值回落，为“能源冲击消退”叙事提供入口。</p>
+        </div>
+        <div class="metric-card">
+          <div class="big-number">8-4</div>
+          <div class="metric-label">4月FOMC异议结构</div>
+          <p>委员会已更关注通胀和宽松倾向措辞。</p>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>关键信息</th>
+              <th>客户沟通含义</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>政策利率</strong></td>
+              <td>联邦基金目标区间3.50%-3.75%；6月维持概率约97%。</td>
+              <td>不把讨论焦点放在“本次是否行动”，而是声明措辞、点阵图和记者会的路径暗示。</td>
+            </tr>
+            <tr>
+              <td><strong>通胀结构</strong></td>
+              <td>5月CPI headline偏高，核心环比低于预期；PPI headline受能源驱动，核心略低于预期。</td>
+              <td>headline通胀约束Warsh不能显性转鸽，但核心和能源拆分给他留下解释空间。</td>
+            </tr>
+            <tr>
+              <td><strong>劳动力市场</strong></td>
+              <td>非农强于预期，工资同比从4月3.6%回落至3.4%；长期失业占比升至周期高位。</td>
+              <td>就业不是宽松触发器，但“low-hire, low-fire”结构支持政策保持双向开放。</td>
+            </tr>
+            <tr>
+              <td><strong>能源与地缘</strong></td>
+              <td>油价从战争峰值下跌，市场price in美伊和平草案；伊朗最后一刻反悔仍是尾部。</td>
+              <td>油价回落是Warsh偏鸽暗门；油价V型反弹是本轮最直接的下行尾部。</td>
+            </tr>
+            <tr>
+              <td><strong>委员会结构</strong></td>
+              <td>4月已有三位鹰派反对保留宽松倾向；Miran离场后制度性鸽派减少。</td>
+              <td>Warsh只有一票，需在比自己更鹰的委员会里争取文本共识。</td>
+            </tr>
+            <tr>
+              <td><strong>政治约束</strong></td>
+              <td>Trump公开要求更低利率，但又强调主席独立；Warsh需修复“总统的人”这一市场印象。</td>
+              <td>任何显性鸽派都会被独立性叙事折价，所以更可能通过技术口径释放信号。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="shell" id="framework">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Analytical Framework</div>
+          <h2>分析框架：1987信用首付，1996生产率伏笔</h2>
+        </div>
+        <p class="section-note">本框架把Warsh首秀放进Greenspan的历史模板里，而不是只看一次会议。</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="callout">
+          <div>
+            <h3>Warsh的两层叙事</h3>
+            <p>短期需要先证明反通胀信用，类似1987年Greenspan上任后先加息买信用；中期真正想做的是1996年式的生产率叙事，即用AI通缩论和更高潜在增速解释较低政策利率。</p>
+          </div>
+        </div>
+        <div class="callout">
+          <div>
+            <h3>油价使“暗门”提前出现</h3>
+            <p>如果没有油价回落，Warsh只能用鹰派外壳开局。油价从战争峰值回落后，他可以在不动利率、不直接挑战委员会的前提下，承认能源冲击消退可能改善通胀路径。</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="matrix" aria-label="Warsh与Greenspan映射">
+        <div class="matrix-cell">
+          <strong>科技奇点</strong>
+          <span>Greenspan面对互联网和IT资本开支，Warsh面对AI和数据中心资本开支。类比强，但不等于时点一致。</span>
+        </div>
+        <div class="matrix-cell">
+          <strong>通胀判别</strong>
+          <span>Greenspan看工资减生产率；Warsh希望AI提高生产率、压低中期通胀，但当下证据仍不足。</span>
+        </div>
+        <div class="matrix-cell">
+          <strong>信用账户</strong>
+          <span>Greenspan继承Volcker信用资产；Warsh以白宫任命的政治负债开局，行动空间更窄。</span>
+        </div>
+        <div class="matrix-cell">
+          <strong>财政背景</strong>
+          <span>90年代赤字收敛，2026年赤字和财政主导压力更强，长端term premium更敏感。</span>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>问题</th>
+              <th>Warsh想要的答案</th>
+              <th>市场/委员会的质疑</th>
+              <th>报告判断</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2026更像1995还是1999？</strong></td>
+              <td>像1995：生产率红利尚未充分计入，增长可以不带来通胀。</td>
+              <td>像1999：AI已经成为共识，估值和资本开支已经提前反映需求。</td>
+              <td>报告倾向认为现实更像1999，因此Warsh不宜过早用AI论证降息。</td>
+            </tr>
+            <tr>
+              <td><strong>偏鸽论证用什么？</strong></td>
+              <td>长期想用AI通缩论和QT换降息。</td>
+              <td>学界对未来两年AI通胀影响存疑，数据中心建设阶段还可能推高电力、铜和设备价格。</td>
+              <td>6月更可能用油价和能源冲击消退，暂时雪藏AI。</td>
+            </tr>
+            <tr>
+              <td><strong>资产负债表如何影响曲线？</strong></td>
+              <td>通过缩表重建机构边界，让政策利率未来更有下调空间。</td>
+              <td>若缩表时间表过快，长端和流动性风险会立即重定价。</td>
+              <td>6月大概率只给原则，不给可交易时间表；若给细节即为鹰派意外。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="shell" id="scenarios">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Scenario Tree</div>
+          <h2>情景推演：基准不是最有赔率的情景</h2>
+        </div>
+        <p class="section-note">概率为会前情景假设。重点是将市场语言转成客户可理解的资产反应路径。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="scenario-card">
+          <div class="scenario-top">
+            <h3>A. 基准：鹰派外壳 + 鸽派暗门</h3>
+            <div class="prob">50%</div>
+          </div>
+          <p>Hold、删除宽松倾向、强调抗通胀信用，同时用油价/能源压力缓和给后续政策留下空间。</p>
+          <ul class="scenario-list">
+            <li>美债前端稳定或小幅走强，曲线温和走陡。</li>
+            <li>美元/日元中性偏软，风险资产温和偏多。</li>
+            <li>黄金企稳或小幅反弹。</li>
+          </ul>
+        </article>
+
+        <article class="scenario-card hawk">
+          <div class="scenario-top">
+            <h3>B. 鹰派惊吓：点阵图或缩表意外</h3>
+            <div class="prob">10%</div>
+          </div>
+          <p>出现多个加息点、声明使用强对称威慑，或资产负债表给出超预期时间表。</p>
+          <ul class="scenario-list">
+            <li>前端领跌，曲线bear flattening。</li>
+            <li>美元先强，风险资产受压。</li>
+            <li>若长端term premium快速抬升，波动率放大。</li>
+          </ul>
+        </article>
+
+        <article class="scenario-card dove">
+          <div class="scenario-top">
+            <h3>C. 温和惊喜：能源冲击消退被重锤</h3>
+            <div class="prob">32%</div>
+          </div>
+          <p>和平签署或油价继续回落，Warsh明确承认能源压力消退改善通胀前景，甚至引入trimmed mean等替代通胀度量。</p>
+          <ul class="scenario-list">
+            <li>前端利率rally更明显，bull steepening。</li>
+            <li>风险资产普涨，周期和高估值成长均受益。</li>
+            <li>黄金和长久期资产获得支撑。</li>
+          </ul>
+        </article>
+
+        <article class="scenario-card accident">
+          <div class="scenario-top">
+            <h3>D. 事故：沟通失误或伊朗反悔</h3>
+            <div class="prob">8%</div>
+          </div>
+          <p>记者会在Accord、缩表或独立性问题上失言；或美伊协议最后一刻变卦，油价V型反弹。</p>
+          <ul class="scenario-list">
+            <li>利率和汇率波动率跳升，资产反应方向取决于事故来源。</li>
+            <li>油价反弹会迫使Warsh收回鸽派暗门。</li>
+            <li>黄金受地缘风险支撑，风险资产承压。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="chart-card">
+        <h3>会议结果概率：动作确定，路径不确定</h3>
+        <div class="bar-list">
+          <div class="bar-row">
+            <span>维持利率</span>
+            <span class="bar-track"><span class="bar-fill" style="width:97%"></span></span>
+            <span>97%</span>
+          </div>
+          <div class="bar-row">
+            <span>加息25bp</span>
+            <span class="bar-track"><span class="bar-fill rust" style="width:2%"></span></span>
+            <span>2%</span>
+          </div>
+          <div class="bar-row">
+            <span>降息25bp</span>
+            <span class="bar-track"><span class="bar-fill green" style="width:1%"></span></span>
+            <span>1%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" id="portfolio">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Portfolio Read-Through</div>
+          <h2>组合启示：把“鹰鸽判断”拆成四类风险预算</h2>
+        </div>
+        <p class="section-note">下列内容是组合沟通方向，不是具体买卖建议；实际执行需结合账户约束、久期、杠杆和流动性。</p>
+      </div>
+
+      <div class="grid-4">
+        <article class="card accent-blue">
+          <h3>利率</h3>
+          <p>会议前端定价已经高度锁定，赔率来自路径修正。若Warsh用油价释放温和鸽派，前端利率和曲线走陡更受益；若缩表时间表提前，长端term premium先受压。</p>
+        </article>
+        <article class="card accent-rust">
+          <h3>美元与日元</h3>
+          <p>BoJ加息不是单腿决定carry trade的变量，增速差和资产承接更重要。若FOMC偏鸽，美元/日元上行动能可能受抑；若油价反弹带来避险，方向需重新评估。</p>
+        </article>
+        <article class="card accent-green">
+          <h3>风险资产</h3>
+          <p>AI不是简单泡沫破裂叙事，国家安全和战略冗余逻辑仍支撑资本开支。但“1999式共识交易”意味着估值和拥挤度需要与业绩兑现同步管理。</p>
+        </article>
+        <article class="card accent-gold">
+          <h3>黄金与大宗</h3>
+          <p>黄金在温和鸽派和地缘尾部下都有支撑，但路径不同。油价是本轮宏观情景的关键开关，协议落地和反悔对应完全不同的资产组合。</p>
+        </article>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>客户问题</th>
+              <th>建议沟通口径</th>
+              <th>需要避免的表述</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Warsh会不会马上降息？</strong></td>
+              <td>首秀直接降息概率低，原因不是没有偏鸽理由，而是独立性和反通胀信用约束太强。</td>
+              <td>避免把油价回落直接等同于马上降息。</td>
+            </tr>
+            <tr>
+              <td><strong>AI会不会改变通胀框架？</strong></td>
+              <td>长期可能改变潜在增速讨论，但6月更可能被雪藏；短期更可交易的解释是能源冲击消退。</td>
+              <td>避免把AI生产率当作已经验证的通缩事实。</td>
+            </tr>
+            <tr>
+              <td><strong>市场为什么会大幅波动？</strong></td>
+              <td>近端动作锁定，但全年路径分布很平，任何记者会措辞都会影响两端尾部概率。</td>
+              <td>避免只用“鹰/鸽”二分法解释全资产反应。</td>
+            </tr>
+            <tr>
+              <td><strong>最大风险是什么？</strong></td>
+              <td>伊朗协议反悔导致油价V型反弹，或Warsh在缩表/Accord上给出过早细节。</td>
+              <td>避免只盯点阵图个数，忽略能源和资产负债表尾部。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="shell" id="watchlist">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Event Checklist</div>
+          <h2>6月FOMC跟踪清单</h2>
+        </div>
+        <p class="section-note">这张清单用于会前预案和会后复盘，帮助把主观“语气”转成可记录的信号。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">6/14</div>
+          <div>
+            <div class="timeline-title">会前情景形成</div>
+            <div class="timeline-copy">核心判断形成：动作锁定、文本变量重要，油价回落抬升温和鸽派暗示概率。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">6/16-17</div>
+          <div>
+            <div class="timeline-title">FOMC会议</div>
+            <div class="timeline-copy">观察声明是否删除“additional adjustments”，以及是否加入能源压力回落的措辞。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">6/18 JST</div>
+          <div>
+            <div class="timeline-title">记者会与SEP消化</div>
+            <div class="timeline-copy">观察Warsh偏鸽论证使用“油价/能源”还是“AI/生产率”，并记录点阵图和PCE预测变化。</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="bingo" aria-label="跟踪清单">
+        <div class="check"><span class="box" aria-hidden="true"></span><span>声明中“additional adjustments”是否消失。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>是否新增“能源价格回落/见顶”类表述。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>是否出现“in either direction”对称威慑。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>2026点阵图是否归零，是否出现加息点。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>2026 PCE中位数是否因油价下调。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>记者会是否提到trimmed mean或替代通胀度量。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>资产负债表只给原则，还是给review/时间表。</span></div>
+        <div class="check"><span class="box" aria-hidden="true"></span><span>Warsh如何回应Trump压力、Powell留任和伊朗问题。</span></div>
+      </div>
+    </section>
+
+    <section class="shell" id="risk">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Risk & Compliance</div>
+          <h2>风险提示：哪些条件会推翻基准判断</h2>
+        </div>
+        <p class="section-note">面向资管客户时，风险提示应放在与观点同等重要的位置。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card accent-rust">
+          <h3>能源尾部</h3>
+          <p>若美伊协议未落地或伊朗最后一刻反悔，油价V型反弹将削弱“能源冲击消退”的鸽派暗门，并可能迫使Warsh强化抗通胀口径。</p>
+        </article>
+        <article class="card accent-blue">
+          <h3>通胀传导</h3>
+          <p>若能源和关税压力向核心商品、服务和通胀预期扩散，核心温和这一叙事会失效，市场会重新定价更高的政策路径。</p>
+        </article>
+        <article class="card accent-gold">
+          <h3>缩表沟通</h3>
+          <p>如果Warsh过早给出QT或Treasury-Fed Accord细节，短端鸽派信号可能被长端term premium上行抵消。</p>
+        </article>
+        <article class="card accent-violet">
+          <h3>AI叙事时点</h3>
+          <p>若Warsh过早把AI生产率当作降息理由，容易被“2026更像1999”这一反驳击中，并加重政治顺从的市场解读。</p>
+        </article>
+        <article class="card accent-green">
+          <h3>委员会约束</h3>
+          <p>三位鹰派轮值主席已对宽松倾向不满；若Warsh过度偏鸽，异议数本身会成为市场信号。</p>
+        </article>
+        <article class="card accent-rust">
+          <h3>资料边界</h3>
+          <p>本报告为会前宏观情景材料，未对CME、Polymarket、油价、通胀和机构观点做实时复核，使用前需按正式投研流程更新数据。</p>
+        </article>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="source-card">
+        <h3>资料附录与合规提示</h3>
+        <ul class="clean-list">
+          <li>资料时间：核心观点与事件线截至2026年6月14日。</li>
+          <li>材料目的：把会前宏观交易框架转化为机构客户/专户客户可沟通的报告结构。</li>
+          <li>合规边界：本材料不构成投资建议，不代表任何买卖建议、目标价判断或收益承诺。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    生成时间：2026年6月15日。用途：机构客户/专户客户宏观沟通、会前预案和风险揭示；不构成投资建议、买卖建议或收益承诺。
+  </footer>
+</body>
+</html>
