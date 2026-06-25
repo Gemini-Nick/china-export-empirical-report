@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#f7f9fc">
-<meta name="description" content="兴证资管市场部系统与销售数据平台调研方案，明确IT、运营、综合、销售、产品等关键部门，以及恒生CRM、集团CRM、智达、TA、产品生命周期、BI之间的数据关系。">
+<meta name="description" content="兴证资管市场部系统与销售数据计算平台调研方案精简版，基于20260618流程梳理、特殊业绩归属方案、销售补充和截图字段整理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="兴证资管市场部系统与销售数据平台调研方案">
-<meta property="og:description" content="调研方案聚焦一个销售数据计算层、多个业务前端的系统边界和数据关系。">
+<meta property="og:title" content="兴证资管市场部系统与销售数据计算平台调研方案">
+<meta property="og:description" content="不是恒生CRM与集团CRM二选一，而是集团协同报送、资管内部销售管理、智达机构端展示共用销售数据计算层的问题。">
 <meta property="og:url" content="https://gemini-nick.github.io/china-export-empirical-report/xzzg-market-survey-plan/report.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5496'/%3E%3Cpath d='M16 40h32v6H16zm0-11h32v6H16zm0-11h32v6H16z' fill='white'/%3E%3C/svg%3E">
-<title>兴证资管市场部系统与销售数据平台调研方案</title>
+<title>兴证资管市场部系统与销售数据计算平台调研方案</title>
 <style>
-@page{margin:18mm 14mm}
+@page{size:A4;margin:16mm 13mm}
 *{box-sizing:border-box}
 :root{
   --ink:#1f2937;
@@ -21,279 +21,102 @@
   --blue:#1f3864;
   --blue2:#2f5496;
   --blue3:#5b9bd5;
-  --line:#dce4ee;
-  --paper:#ffffff;
+  --line:#d7e0eb;
+  --paper:#fff;
   --wash:#f7f9fc;
-  --soft:#edf4fb;
-  --green:#1f7a4d;
-  --green-bg:#eaf7ef;
-  --amber:#9a6700;
+  --soft:#eef5fc;
+  --amber:#8a5a00;
   --amber-bg:#fff7df;
-  --red:#a33a2a;
+  --green:#176446;
+  --green-bg:#eaf7ef;
+  --red:#9e2f24;
   --red-bg:#fff0ed;
 }
 html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--ink);
-  background:linear-gradient(180deg,#f5f8fc 0,#fff 360px);
+  background:linear-gradient(180deg,#f4f8fd 0,#fff 280px);
   font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
   font-size:16px;
-  line-height:1.78;
+  line-height:1.72;
 }
 a{color:var(--blue2);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1120px;margin:0 auto;padding:36px 34px 72px}
-.hero{
-  padding:52px 0 34px;
-  display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);
-  gap:30px;
-  align-items:end;
-}
-.eyebrow{
-  color:var(--blue2);
-  font-size:13px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:14px;
-}
-h1{
-  margin:0;
-  color:var(--blue);
-  font-size:42px;
-  line-height:1.18;
-  font-weight:700;
-  letter-spacing:0;
-}
-.subtitle{
-  color:var(--muted);
-  margin:18px 0 0;
-  max-width:760px;
-  font-size:18px;
-}
-.meta-card{
-  background:rgba(255,255,255,.78);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:18px 20px;
-  box-shadow:0 18px 48px rgba(31,56,100,.08);
-}
-.meta-card dl{margin:0;display:grid;grid-template-columns:76px 1fr;gap:8px 12px}
-.meta-card dt{color:var(--muted)}
-.meta-card dd{margin:0;color:var(--ink)}
-.download-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:38px;
-  padding:8px 14px;
-  border-radius:8px;
-  border:1px solid var(--blue2);
-  background:var(--blue2);
-  color:#fff;
-  font-size:14px;
-  font-weight:600;
-}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 30px 68px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:30px;align-items:end;padding:30px 0 24px}
+.eyebrow{color:var(--blue2);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+h1{margin:0;color:var(--blue);font-size:40px;line-height:1.18;font-weight:760;letter-spacing:0}
+.subtitle{margin:14px 0 0;color:#344054;font-size:18px;max-width:760px}
+.meta{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 16px 40px rgba(31,56,100,.08)}
+.meta div{display:grid;grid-template-columns:70px 1fr;gap:6px 10px;font-size:14px}
+.meta b{color:var(--muted);font-weight:500}
+.download-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 13px;border-radius:8px;border:1px solid var(--blue2);background:var(--blue2);color:#fff;font-size:14px;font-weight:650}
 .button.secondary{background:#fff;color:var(--blue2)}
-.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;align-items:start}
-.toc{
-  position:sticky;
-  top:16px;
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:18px;
-  box-shadow:0 12px 36px rgba(31,56,100,.06);
-}
-.toc h2{font-size:15px;margin:0 0 10px;padding:0;border:0;color:var(--blue)}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 12px 30px rgba(31,56,100,.055)}
+.toc h2{font-size:15px;margin:0 0 10px;color:var(--blue);border:0;padding:0}
 .toc ol{list-style:none;margin:0;padding:0}
-.toc li{margin:7px 0;font-size:14px;line-height:1.45}
+.toc li{margin:7px 0;font-size:14px;line-height:1.42}
 .toc a{color:#344054}
-main{min-width:0}
-section{
-  background:var(--paper);
-  border:1px solid #e8eef7;
-  border-radius:14px;
-  padding:26px 28px;
-  margin-bottom:22px;
-  box-shadow:0 10px 32px rgba(31,56,100,.045);
-}
-h2{
-  margin:0 0 16px;
-  color:var(--blue);
-  font-size:26px;
-  line-height:1.35;
-  font-weight:700;
-  padding-bottom:10px;
-  border-bottom:2px solid #edf2f7;
-}
-h3{
-  color:var(--blue2);
-  font-size:19px;
-  margin:24px 0 10px;
-  line-height:1.45;
-}
-p{margin:10px 0}
-.lead{
-  font-size:18px;
-  color:#344054;
-  margin:0 0 16px;
-}
-.callout{
-  margin:16px 0;
-  padding:16px 18px;
-  border-radius:10px;
-  border:1px solid #c9ddf2;
-  border-left:5px solid var(--blue3);
-  background:#eef6fd;
-}
-.callout strong{display:block;color:var(--blue);margin-bottom:6px}
-.callout.warn{background:var(--amber-bg);border-color:#f2d38c;border-left-color:#d19b18}
+section{background:var(--paper);border:1px solid #e6edf6;border-radius:14px;padding:24px 26px;margin-bottom:20px;box-shadow:0 10px 30px rgba(31,56,100,.04)}
+h2{margin:0 0 14px;color:var(--blue);font-size:25px;line-height:1.35;padding-bottom:9px;border-bottom:2px solid #edf2f7}
+h3{margin:20px 0 9px;color:var(--blue2);font-size:18px}
+p{margin:9px 0}
+.lead{font-size:18px;color:#344054}
+.callout{margin:14px 0;padding:15px 17px;border-radius:10px;border:1px solid #c9ddf2;border-left:5px solid var(--blue3);background:#eef6fd}
+.callout b{display:block;color:var(--blue);margin-bottom:5px}
+.callout.warn{background:var(--amber-bg);border-color:#efd58c;border-left-color:#d19b18}
 .callout.success{background:var(--green-bg);border-color:#b7dec8;border-left-color:var(--green)}
-.callout.danger{background:var(--red-bg);border-color:#f0b8ad;border-left-color:var(--red)}
-table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;line-height:1.58}
-caption{text-align:left;color:var(--muted);font-size:13px;margin-bottom:6px}
-th{
-  background:var(--blue2);
-  color:#fff;
-  text-align:left;
-  font-weight:600;
-  padding:10px 11px;
-  border:1px solid var(--blue2);
-  vertical-align:top;
-}
-td{
-  padding:10px 11px;
-  border:1px solid var(--line);
-  vertical-align:top;
-}
+.callout.danger{background:var(--red-bg);border-color:#efb4ad;border-left-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:14px;line-height:1.52}
+th{background:var(--blue2);color:#fff;text-align:left;font-weight:650;padding:9px 10px;border:1px solid var(--blue2);vertical-align:top}
+td{padding:9px 10px;border:1px solid var(--line);vertical-align:top}
 tbody tr:nth-child(even) td{background:#f8fafc}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.tag{
-  border:1px solid #cbd7e8;
-  background:#fff;
-  color:#344054;
-  border-radius:999px;
-  padding:4px 10px;
-  font-size:13px;
-}
-.stage-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-  margin:18px 0 20px;
-}
-.stage{
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:10px;
-  padding:14px 12px;
-  min-height:142px;
-}
-.stage .num{
-  display:inline-flex;
-  width:24px;
-  height:24px;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:var(--blue2);
-  color:#fff;
-  font-size:13px;
-  margin-bottom:8px;
-}
-.stage h4{margin:0 0 8px;color:var(--blue);font-size:15px}
-.stage p{font-size:13px;line-height:1.55;margin:0;color:#475467}
-.data-map{
-  margin:18px 0;
-  background:#f8fafc;
-  border:1px solid #e8eef7;
-  border-radius:14px;
-  padding:18px;
-}
-.map-title{color:var(--blue);font-weight:700;margin-bottom:14px}
-.map-grid{
-  display:grid;
-  grid-template-columns:1fr 1.05fr 1fr;
-  gap:18px;
-  align-items:center;
-}
-.stack{display:grid;gap:10px}
-.node{
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:#fff;
-  padding:10px 12px;
-  text-align:center;
-}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.signal-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px 17px;box-shadow:0 8px 22px rgba(31,56,100,.04)}
+.signal-card.featured{grid-column:1/-1;background:linear-gradient(180deg,#fff,#f8fbff)}
+.source-pill{display:inline-flex;align-items:center;border:1px solid #c9d8eb;background:#f4f8fd;color:var(--blue2);border-radius:999px;padding:3px 9px;font-size:12px;margin-bottom:8px}
+.signal-card h3{margin:0 0 8px;color:var(--blue);font-size:18px;line-height:1.42}
+.signal-card ul{margin:8px 0 0;padding-left:20px}
+.signal-card li{margin:4px 0}
+.ask{margin-top:12px;border-top:1px solid #e8eef7;padding-top:10px;color:#344054}
+.ask b{color:var(--blue2)}
+.chain{display:grid;gap:10px;margin:14px 0}
+.chain div{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px}
+.chain b{color:var(--blue)}
+.map{background:#f8fafc;border:1px solid #e4ebf5;border-radius:14px;padding:16px;margin:14px 0}
+.map-grid{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:15px;align-items:center}
+.stack{display:grid;gap:9px}
+.node{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px;text-align:center}
 .node b{display:block;color:var(--blue);font-size:15px;margin-bottom:3px}
-.node span{display:block;color:#475467;font-size:13px;line-height:1.45}
-.core{
-  border:2px solid var(--blue2);
-  background:#eaf2f8;
-  min-height:190px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.arrow-label{
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-  margin:9px 0 0;
-}
-.rule-list{
-  counter-reset:rule;
-  list-style:none;
-  padding:0;
-  margin:14px 0;
-  display:grid;
-  gap:10px;
-}
-.rule-list li{
-  counter-increment:rule;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:10px;
-  padding:12px 14px 12px 48px;
-  position:relative;
-}
-.rule-list li:before{
-  content:"TOP" counter(rule);
-  position:absolute;
-  left:12px;
-  top:13px;
-  background:var(--blue2);
-  color:#fff;
-  border-radius:6px;
-  font-size:11px;
-  padding:2px 6px;
-}
-.footer{
-  color:#98a2b3;
-  font-size:13px;
-  text-align:center;
-  padding:36px 0 8px;
-}
-@media (max-width:900px){
-  .wrap{padding:22px 16px 48px}
-  .hero{grid-template-columns:1fr;padding-top:26px}
-  h1{font-size:32px}
+.node span{display:block;color:#475467;font-size:13px;line-height:1.42}
+.core{border:2px solid var(--blue2);background:#eaf2f8;min-height:176px;display:flex;flex-direction:column;justify-content:center}
+.small{font-size:13px;color:var(--muted)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compact-list{margin:8px 0 0;padding-left:20px}
+.compact-list li{margin:4px 0}
+.footer{text-align:center;color:#98a2b3;font-size:13px;padding:32px 0 6px}
+@media(max-width:900px){
+  .wrap{padding:22px 16px 46px}
+  .hero{grid-template-columns:1fr;padding-top:20px}
+  h1{font-size:31px}
   .layout{grid-template-columns:1fr}
   .toc{position:static}
-  .stage-grid{grid-template-columns:1fr}
-  .map-grid{grid-template-columns:1fr}
-  section{padding:20px 16px}
-  table{display:block;overflow-x:auto;white-space:normal}
+  section{padding:19px 15px}
+  .map-grid,.cols,.signal-grid{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto}
 }
 @media print{
-  body{background:#fff}
+  body{background:#fff;font-size:14px}
   .wrap{max-width:none;padding:0}
   .hero,.layout{display:block}
-  .toc,.download-row{display:none}
-  section{break-inside:avoid;box-shadow:none;border-color:#ddd}
+  .toc,.download-row,.button{display:none!important}
+  section{box-shadow:none;border-color:#ddd;break-inside:avoid}
+  .signal-card,.callout,.map,.chain div{break-inside:avoid;page-break-inside:avoid}
+  h1{font-size:28px}
+  h2{font-size:20px}
 }
 </style>
 </head>
@@ -301,27 +124,19 @@ tbody tr:nth-child(even) td{background:#f8fafc}
 <div class="wrap">
   <header class="hero">
     <div>
-      <div class="eyebrow">Market Department Survey Plan</div>
-      <h1>兴证资管市场部系统与销售数据平台调研方案</h1>
-      <p class="subtitle">围绕恒生CRM、集团CRM、智达、运营TA、产品生命周期系统、BI和驾驶舱，明确部门职责、数据源、计算规则和系统边界。</p>
-      <div class="tags">
-        <span class="tag">一个计算层</span>
-        <span class="tag">多个业务前端</span>
-        <span class="tag">协同报送</span>
-        <span class="tag">业绩归属</span>
-        <span class="tag">营销展示</span>
-      </div>
+      <div class="eyebrow">Focused Survey Plan</div>
+      <h1>兴证资管市场部系统与销售数据计算平台调研方案</h1>
+      <p class="subtitle">基于 20260618 流程梳理、特殊业绩归属方案、销售补充和截图字段整理。重点不是“选哪个 CRM”，而是先确认销售数据如何计算、校验和分发。</p>
     </div>
-    <aside class="meta-card">
-      <dl>
-        <dt>文档性质</dt><dd>调研方案</dd>
-        <dt>使用场景</dt><dd>会前准备、跨部门访谈、二轮细化需求、IT方案评审</dd>
-        <dt>编制时间</dt><dd>2026年6月25日</dd>
-        <dt>核心判断</dt><dd>不是简单系统选型，而是销售数据计算平台缺位</dd>
-      </dl>
+    <aside class="meta">
+      <div>
+        <b>版本</b><span>精简重写版</span>
+        <b>日期</b><span>2026年6月25日</span>
+        <b>用途</b><span>专项培训会后调研、跨部门访谈、方案评审</span>
+      </div>
       <div class="download-row">
         <a class="button" href="xzzg-market-survey-plan-20260625.pdf">下载PDF</a>
-        <a class="button secondary" href="#data-map">查看数据关系</a>
+        <a class="button secondary" href="#questions">会议问题</a>
       </div>
     </aside>
   </header>
@@ -330,201 +145,202 @@ tbody tr:nth-child(even) td{background:#f8fafc}
     <nav class="toc" aria-label="目录">
       <h2>目录</h2>
       <ol>
-        <li><a href="#summary">一、调研总览</a></li>
-        <li><a href="#process">二、流程全量还原</a></li>
-        <li><a href="#departments">三、关键部门访谈</a></li>
-        <li><a href="#systems">四、系统与数据关系</a></li>
-        <li><a href="#issues">五、核心问题清单</a></li>
-        <li><a href="#scenes">六、重点调研场景</a></li>
-        <li><a href="#deliverables">七、交付物与排期</a></li>
-        <li><a href="#meeting">八、会议问题</a></li>
+        <li><a href="#conclusion">一、结论先行</a></li>
+        <li><a href="#evidence">二、附件上下文</a></li>
+        <li><a href="#chain">三、真正的问题链</a></li>
+        <li><a href="#data">四、数据对象与字段</a></li>
+        <li><a href="#systems">五、系统关系</a></li>
+        <li><a href="#departments">六、部门访谈</a></li>
+        <li><a href="#questions">七、会议问题清单</a></li>
       </ol>
     </nav>
 
     <main>
-      <section id="summary">
-        <h2>一、调研总览</h2>
-        <p class="lead">本次调研不应预设为“恒生方案还是集团CRM”的二选一。更准确的问题是：兴证资管市场部是否缺少一个统一承载销售数据计算、规则入库、结果校验和多系统分发的数据平台。</p>
-        <div class="callout warn">
-          <strong>一句话问题定义</strong>
-          市场部需要把产品、账户、客户、交易、保有、费用、协同分成和业绩归属统一到一套销售数据计算层，再分别服务内部CRM、集团CRM、智达、驾驶舱、大屏和报表。
-        </div>
+      <section id="conclusion">
+        <h2>一、结论先行</h2>
+        <p class="lead">目前兴证资管市场部遇到的不是单纯 CRM 选型问题，而是三个业务场景同时要求使用同一套资管销售数据，但底层没有统一的数据计算与规则承载层。</p>
         <table>
-          <thead><tr><th>核心问题</th><th>需要形成的结论</th></tr></thead>
+          <thead><tr><th>场景</th><th>真实需求</th><th>为什么不能只靠前端系统解决</th></tr></thead>
           <tbody>
-            <tr><td>谁是销售数据权威源</td><td>产品、交易、保有、申赎、管理费、服务记录分别来自哪里，是否需要统一汇总、清洗、校验后再使用。</td></tr>
-            <tr><td>谁负责计算</td><td>协同分成、特殊业绩归属、管理费金额、渠道及区域兜底等规则是否由统一计算层承担。</td></tr>
-            <tr><td>谁负责展示和报送</td><td>恒生CRM、集团CRM、智达、BI、大屏分别是操作入口、报送入口、客户端展示还是管理驾驶舱。</td></tr>
-            <tr><td>谁负责维护和复核</td><td>IT、运营、综合、销售、产品、市场部之间如何划分字段维护、规则维护、数据核验、报送签发和异常处理责任。</td></tr>
+            <tr><td>集团CRM</td><td>集团协同报送需要协同产品、协同单位、交易、保有、管理费率分成和具体管理费金额。</td><td>它更像集团报送入口。金额级报送依赖资管内部的产品、TA、经纪关系和协同规则计算。</td></tr>
+            <tr><td>恒生/资管CRM</td><td>内部销售过程、日程服务、客户关系、经纪关系挂接、归属配置和驾驶舱。</td><td>现有痛点集中在客户-产品维度不适配、产品数据缺失、当天申赎不可见、服务记录未闭环。</td></tr>
+            <tr><td>智达</td><td>类似道合的机构服务客户端，资管目前只有一张图片，后续可能放营销类数据。</td><td>它是客户侧展示门户，不应承担管理费、协同分成、业绩归属计算。</td></tr>
           </tbody>
         </table>
+        <div class="callout warn"><b>本次调研应改写为</b>不是“恒生方案还是集团 CRM”，而是“资管销售数据计算在哪里完成，哪些系统只做录入、展示、报送或客户端触达”。</div>
       </section>
 
-      <section id="process">
-        <h2>二、市场部销售经营流程全量还原</h2>
-        <p>参考IPO调研方案的方法，本次调研先还原业务时序，再拆系统和数据。市场部销售经营链路可以分为五个阶段。</p>
-        <div class="stage-grid">
-          <div class="stage"><span class="num">1</span><h4>产品与资料准备</h4><p>产品要素、费率、投资范围、产品经理、信披、合同和营销材料维护。</p></div>
-          <div class="stage"><span class="num">2</span><h4>销售触达与服务</h4><p>联系人、渠道服务、拜访日程、工作日报、勤勉尽责邮件和服务留痕。</p></div>
-          <div class="stage"><span class="num">3</span><h4>交易申赎与保有</h4><p>申购、赎回、大额申赎、保有规模、日均规模和渠道销售数据。</p></div>
-          <div class="stage"><span class="num">4</span><h4>归属与协同分成</h4><p>客户产品维度经纪关系、账户产品特殊归属、交易流水归属和渠道兜底。</p></div>
-          <div class="stage"><span class="num">5</span><h4>报送与展示</h4><p>集团协同报送、领导驾驶舱、9楼大屏、智达机构端营销展示。</p></div>
+      <section id="evidence">
+        <h2>二、附件里真正有价值的上下文</h2>
+        <p class="lead">这几份材料里最重要的不是“又提了很多功能”，而是已经暴露出一条共同主线：集团报送、管理费分配、业绩归属、驾驶舱和智达展示都在抢同一套资管销售数据。</p>
+
+        <div class="signal-grid">
+          <article class="signal-card featured">
+            <span class="source-pill">20260618 PDF｜协同报送</span>
+            <h3>集团报送从“新增协同业务核对”升级为“金额级精细报送”</h3>
+            <ul>
+              <li>集团月度协同报送需要协同产品信息、协同单位、交易信息、保有信息、管理费率分成和具体管理费金额。</li>
+              <li>现有模式是综合部牵头、IT 开发智能报表，每月与市场部核对新增协同业务后报送。</li>
+              <li>当前 CRM 卡住的原因很具体：协同分成规则未入库、客户-产品维度不适配、缺少与运营 TA 的双边核验。</li>
+              <li>材料里已经给出过渡路径：CRM 就绪前，由综合和 IT 对现有 BI 报表二次开发；规则导入后，一周内完成管理费数据双边核对。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>集团 CRM 到底要原始明细、汇总结果，还是经过资管内部计算和 TA 核验后的最终报送结果？如果是最终金额，计算权威不应放在集团 CRM 前端。</div>
+          </article>
+
+          <article class="signal-card">
+            <span class="source-pill">20260618 PDF｜产品数据</span>
+            <h3>客户-产品经纪关系是核心堵点，不是一个字段缺失</h3>
+            <ul>
+              <li>材料明确写到：当前系统只支持客户及交易维度经纪关系，无法实现客户-产品维度挂接。</li>
+              <li>影响不是展示层，而是管理费分配准确计算、全维度关系管理和财务核算。</li>
+              <li>部分单一产品、QDII 产品的产品要素、申赎详情缺失；投资目标、投资范围、投资经理等深度要素不完整。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>客户、机构户、产品户、基金账号、产品、渠道、销售人员之间，是否先有统一关系模型，再谈 CRM 菜单和驾驶舱？</div>
+          </article>
+
+          <article class="signal-card">
+            <span class="source-pill">特殊业绩归属 Word</span>
+            <h3>特殊归属方案已经给出“规则引擎”的雏形</h3>
+            <ul>
+              <li>新增“账户+产品”特殊业绩归属：如“兴业银行理财2号+产品B”归属张三70%、上海分公司30%。</li>
+              <li>这部分业绩要从天天基金渠道经理李四的渠道兜底业绩里排除。</li>
+              <li>如果某笔交易流水001另由福建分公司推荐，则交易流水归属优先，并排除下层账户+产品归属。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>系统是否支持“交易流水 override > 账户+产品 > 客户经纪关系 > 区域/渠道兜底”的优先级、排重、比例合计、起止日期和历史版本？</div>
+          </article>
+
+          <article class="signal-card">
+            <span class="source-pill">20260618 PDF｜驾驶舱</span>
+            <h3>驾驶舱不是缺页面，而是底层指标和时效不够</h3>
+            <ul>
+              <li>当前看板只展示业绩概览、销售商排行、产品排行等部分指标。</li>
+              <li>市场部需要扩展到交易、收入、任务完成、规模、客户等多维分析。</li>
+              <li>CRM 目前无法展示当天申赎和大额申赎汇总，只支持前一天数据。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>驾驶舱的 T 日数据从哪里来？当天申赎、大额申赎、收入和规模是否都由同一指标字典和计算层输出？</div>
+          </article>
+
+          <article class="signal-card">
+            <span class="source-pill">20260618 PDF｜日程/服务</span>
+            <h3>销售过程数据本身还没有稳定沉淀</h3>
+            <ul>
+              <li>PC 端已有日志、服务记录、工作日报，移动端还未上线。</li>
+              <li>联系人无法新建；导入需完整客户名称，不支持模糊匹配；导入后页面无法顺利显示。</li>
+              <li>日报入口不能跳转新增服务记录，服务记录不能进入日报，一键总结失效。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>如果服务记录都无法进入日报，客户分析、拜访统计和管理驾驶舱的数据基础从哪里来？</div>
+          </article>
+
+          <article class="signal-card">
+            <span class="source-pill">销售补充｜智达</span>
+            <h3>智达是机构客户端，不是内部计算系统</h3>
+            <ul>
+              <li>销售补充说明：智达类似道合，是机构服务客户端。</li>
+              <li>资管目前在智达上只有一张图片，后续可能需要放营销类数据。</li>
+              <li>这类数据应来自经过筛选、审核和授权的资管产品/营销数据，而不是让智达承接归属或管理费计算。</li>
+            </ul>
+            <div class="ask"><b>会上要追问：</b>智达展示的是产品资料、业绩、观点、信披、路演材料还是客户服务内容？谁审核、谁授权、谁留痕？</div>
+          </article>
         </div>
-        <table>
-          <thead><tr><th>阶段</th><th>主责/参与部门</th><th>涉及系统</th><th>核心数据</th></tr></thead>
-          <tbody>
-            <tr><td>产品与资料准备</td><td>产品、IT、市场部</td><td>产品生命周期系统、CRM、智达</td><td>产品主数据、产品文件、费率、投资目标、QDII信息</td></tr>
-            <tr><td>销售触达与服务记录</td><td>销售、市场部、IT</td><td>恒生/资管CRM、公邮RPA、移动端</td><td>客户、联系人、服务记录、渠道、销售人员</td></tr>
-            <tr><td>交易申赎与保有变动</td><td>运营、销售、市场部</td><td>运营TA、CRM、BI</td><td>交易流水、基金账号、产品户、保有、申赎</td></tr>
-            <tr><td>业绩归属与协同分成</td><td>市场部、销售、运营、综合、IT</td><td>CRM、智能报表、目标销售数据平台</td><td>归属规则、协同单位、分成比例、管理费金额</td></tr>
-            <tr><td>报送、看板与客户展示</td><td>综合、市场部、IT、销售</td><td>集团CRM、驾驶舱、智达、大屏</td><td>报送结果、经营指标、营销材料、客户可见内容</td></tr>
-          </tbody>
-        </table>
       </section>
 
-      <section id="departments">
-        <h2>三、关键部门与访谈清单</h2>
+      <section id="chain">
+        <h2>三、真正的问题链</h2>
+        <div class="chain">
+          <div><b>1. 集团要金额级协同报送。</b> 报送字段不是简单客户清单，而是协同产品、协同单位、交易信息、保有信息、管理费率分成和具体管理费金额。</div>
+          <div><b>2. 金额级报送依赖管理费和分成规则。</b> 规则未入库、客户-产品维度不适配，就无法自动算协同费用。</div>
+          <div><b>3. 分成规则依赖客户-账户-产品-交易关系。</b> 机构户、产品户、基金账号、渠道、分公司、销售人员、产品之间有交叉归属，必须先建模。</div>
+          <div><b>4. 关系建模依赖产品主数据和 TA 数据。</b> 产品要素、申赎详情、保有、管理费基础金额、当天大额申赎都要有权威来源和核验机制。</div>
+          <div><b>5. CRM、集团 CRM、智达、大屏只是消费结果。</b> 它们可以录入、展示、报送，但不应各自独立计算同一套管理口径。</div>
+        </div>
+      </section>
+
+      <section id="data">
+        <h2>四、必须拉齐的数据对象与字段</h2>
         <table>
-          <thead><tr><th>部门</th><th>本次调研中的核心角色</th><th>必须确认的问题</th></tr></thead>
+          <thead><tr><th>对象</th><th>关键字段/口径</th><th>主要确认部门</th></tr></thead>
           <tbody>
-            <tr><td>IT/信息技术部</td><td>系统架构、接口、数据集成、供应商沟通、开发排期与可行性评估。</td><td>现有CRM、BI、TA、产品生命周期、集团CRM、智达之间能否打通；哪些是标准模块，哪些是个性化改造。</td></tr>
-            <tr><td>运营</td><td>TA、交易、申赎、保有、管理费基础数据的权威来源和核验方。</td><td>交易、保有、管理费字段口径、更新频率、当天数据能力、与CRM测算结果双边核对方式。</td></tr>
-            <tr><td>综合</td><td>集团协同报送牵头、现有智能报表报送流程、制度与签发责任。</td><td>集团需要原始数据还是计算结果；报送字段、频率、责任人、过渡期BI二开方案。</td></tr>
-            <tr><td>销售/渠道发展</td><td>客户关系、渠道服务、销售过程、账户产品归属、实际业务例外规则。</td><td>机构户、产品户、渠道、分公司推荐等真实归属场景；CRM使用痛点；智达营销展示需求。</td></tr>
-            <tr><td>产品</td><td>产品要素、产品资料、费率、投资目标、投资范围、产品经理等主数据维护。</td><td>产品主数据缺口、字段维护责任、文件版本管理、哪些内容可进入智达或客户侧展示。</td></tr>
-            <tr><td>市场部管理/业务负责人</td><td>需求优先级、指标口径、归属规则最终解释、驾驶舱管理目标。</td><td>哪些指标用于管理考核，哪些用于报送，哪些用于客户展示；短期和长期优先级。</td></tr>
+            <tr><td>客户/账户</td><td>机构客户、产品户、基金账号、证件号码、账户客户挂靠、模糊匹配规则，例如“兴业银行理财xx号”自动挂靠兴银理财。</td><td>销售、运营、IT</td></tr>
+            <tr><td>产品</td><td>产品要素、单一产品/QDII 标识、投资目标、投资范围、投资经理、费用、申赎规则、合同/信披文件有效版本。</td><td>产品、IT</td></tr>
+            <tr><td>交易/申赎</td><td>确认日期、确认单号、交易账号、基金账号、产品、销售商、渠道、账户类型、申购/赎回金额和份额、大额申赎。</td><td>运营、IT</td></tr>
+            <tr><td>保有/规模</td><td>期初金额/份额/客户数、期末金额/份额/客户数、日均份额/金额、净申购金额/份额、客户数、销售商排行、产品排行。</td><td>运营、市场部</td></tr>
+            <tr><td>费用/协同</td><td>管理费率、管理费基础金额、协同单位、分成比例、具体管理费金额、规则版本、规则生效日期、TA 双边核验结果。</td><td>综合、运营、市场部</td></tr>
+            <tr><td>销售过程</td><td>联系人、服务记录、渠道服务、拜访次数、营销团队、工作日报、勤勉尽责邮件、服务留痕。</td><td>销售、市场部、IT</td></tr>
+            <tr><td>营销展示</td><td>智达可展示的产品资料、净值/业绩、观点、信披、路演材料、客户服务内容；需确认合规审核、权限和版本。</td><td>销售、产品、合规/市场部</td></tr>
           </tbody>
         </table>
       </section>
 
       <section id="systems">
-        <h2>四、系统与数据关系梳理</h2>
-        <div class="data-map" id="data-map">
-          <div class="map-title">目标态数据关系：一个计算层，多个业务前端</div>
+        <h2>五、系统关系：一个计算层，多个消费端</h2>
+        <div class="map">
           <div class="map-grid">
             <div class="stack">
-              <div class="node"><b>运营/TA</b><span>交易、申赎、保有、管理费基础金额</span></div>
-              <div class="node"><b>产品/生命周期</b><span>产品要素、文件、费率、投资范围</span></div>
-              <div class="node"><b>销售/CRM</b><span>服务记录、日程、联系人、客户关系</span></div>
-              <div class="node"><b>协同规则台账</b><span>协同单位、分成比例、特殊归属规则</span></div>
+              <div class="node"><b>运营TA</b><span>交易、申赎、保有、管理费基础金额</span></div>
+              <div class="node"><b>产品生命周期</b><span>产品要素、合同、信披、文件版本</span></div>
+              <div class="node"><b>CRM/销售过程</b><span>联系人、服务记录、日程、客户关系</span></div>
+              <div class="node"><b>规则台账</b><span>协同规则、账户+产品归属、渠道兜底</span></div>
             </div>
-            <div class="node core"><b>销售数据平台/计算层</b><span>主数据统一<br>关系建模<br>归属规则引擎<br>管理费与协同分成计算<br>指标集市与校验留痕</span></div>
+            <div class="node core"><b>销售数据计算层</b><span>主数据统一<br>客户-账户-产品关系<br>归属规则优先级与排重<br>管理费/协同分成计算<br>指标字典与核验留痕</span></div>
             <div class="stack">
-              <div class="node"><b>资管CRM/恒生</b><span>内部销售过程、归属配置入口</span></div>
-              <div class="node"><b>集团CRM</b><span>协同报送、集团统一管理</span></div>
+              <div class="node"><b>恒生/资管CRM</b><span>内部销售流程、归属配置、报表查询</span></div>
+              <div class="node"><b>集团CRM</b><span>协同报送入口、集团统一管理</span></div>
               <div class="node"><b>智达</b><span>机构客户端、营销数据展示</span></div>
-              <div class="node"><b>驾驶舱/大屏/BI</b><span>经营指标、管理看板</span></div>
+              <div class="node"><b>驾驶舱/大屏/BI</b><span>经营指标、渠道战报、任务达成</span></div>
             </div>
           </div>
-          <div class="arrow-label">调研需确认：哪些数据进入计算层、谁维护规则、谁审核结果、哪些系统只展示或报送。</div>
-        </div>
-
-        <h3>系统定位假设</h3>
-        <table>
-          <thead><tr><th>系统/平台</th><th>建议定位</th><th>不建议承担</th></tr></thead>
-          <tbody>
-            <tr><td>销售数据平台/计算层</td><td>统一汇总产品、客户、账户、交易、保有、费用、归属和协同规则；输出计算结果和指标集市。</td><td>不直接替代所有前端操作系统。</td></tr>
-            <tr><td>恒生/资管CRM</td><td>内部销售过程管理、客户/联系人/服务记录、归属配置入口、报表查询入口。</td><td>不宜单独成为所有管理费和协同报送的唯一计算权威，除非底层数据与规则已统一。</td></tr>
-            <tr><td>集团CRM</td><td>集团协同报送入口、集团统一管理视图、协同数据接收方。</td><td>不宜承担资管内部复杂归属规则的源头计算。</td></tr>
-            <tr><td>智达</td><td>机构客户服务客户端和营销展示门户，发布经过审核和授权的产品及营销类数据。</td><td>不宜作为内部CRM或协同分成计算系统。</td></tr>
-            <tr><td>运营TA/运营系统</td><td>交易、申赎、保有、管理费基础数据权威来源及核验方。</td><td>不承载销售过程和营销展示。</td></tr>
-            <tr><td>产品生命周期系统</td><td>产品主数据、产品文件、信披公告、合同版本的源头治理系统。</td><td>不承担销售归属和协同分成计算。</td></tr>
-          </tbody>
-        </table>
-
-        <h3>特殊业绩归属规则待确认</h3>
-        <ol class="rule-list">
-          <li><b>交易流水归属。</b> 某笔交易由特定分公司或人员推荐，需要覆盖其他归属规则。</li>
-          <li><b>账户+产品特殊归属。</b> 某产品户购买某产品时，按特殊比例分配给销售人员和部门。</li>
-          <li><b>客户经纪关系。</b> 整个机构客户或产品户归属某客户经理或部门。</li>
-          <li><b>区域/渠道兜底。</b> 渠道经理、区域、直销虚拟户兜底，避免业绩遗漏。</li>
-        </ol>
-      </section>
-
-      <section id="issues">
-        <h2>五、核心问题清单</h2>
-        <table>
-          <thead><tr><th>序号</th><th>问题</th><th>影响</th><th>需调研确认</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>缺少统一销售数据计算层</td><td>CRM、集团CRM、智达、驾驶舱各自取数会造成口径分裂。</td><td>是否建设独立数据平台，还是以CRM为承载并补齐规则层。</td></tr>
-            <tr><td>2</td><td>权威数据源不清</td><td>产品、交易、保有、管理费、服务记录分散在不同系统。</td><td>每个字段的来源、维护人、更新频率、校验机制。</td></tr>
-            <tr><td>3</td><td>客户账户产品关系模型不足</td><td>无法准确表达机构户、产品户、基金账号、产品、渠道和销售人员关系。</td><td>是否建立统一主数据模型及账户挂靠规则。</td></tr>
-            <tr><td>4</td><td>客户产品维度经纪关系缺失</td><td>协同分成和管理费分配无法自动准确计算。</td><td>CRM能否支持账户+产品、渠道+产品、产品维度归属。</td></tr>
-            <tr><td>5</td><td>归属规则优先级和排重机制未固化</td><td>容易重复归属、漏归属或兜底规则覆盖特殊规则。</td><td>四层优先级是否被业务接受，是否需要审批和版本。</td></tr>
-            <tr><td>6</td><td>管理费和协同分成仍依赖人工核对</td><td>集团报送要求提高后，现有报表难以支撑金额级精细报送。</td><td>规则入库、计算频率、运营TA核验、综合签发流程。</td></tr>
-            <tr><td>7</td><td>产品主数据不完整</td><td>影响销售分析、智达展示、客户服务和驾驶舱。</td><td>缺失字段清单、维护责任和补录节奏。</td></tr>
-            <tr><td>8</td><td>数据时效不足</td><td>当天申赎、大额申赎、实时经营变化无法及时呈现。</td><td>T日数据可用性、接口频率、延迟容忍度。</td></tr>
-            <tr><td>9</td><td>智达定位未明确</td><td>容易被误解为替代CRM或计算系统。</td><td>智达展示哪些营销数据，客户可见权限和合规审核怎么做。</td></tr>
-            <tr><td>10</td><td>系统边界和责任人不清</td><td>后续开发、报送、核验、维护容易互相推诿。</td><td>形成RACI责任矩阵和系统分工表。</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="scenes">
-        <h2>六、重点场景调研任务</h2>
-        <table>
-          <thead><tr><th>场景</th><th>调研任务</th><th>产出物</th></tr></thead>
-          <tbody>
-            <tr><td>销售数据计算平台</td><td>确认是否需要统一计算层；设计客户、账户、产品、交易、保有、费用、归属规则的数据模型。</td><td>数据模型图、字段清单、规则引擎清单、目标态数据流。</td></tr>
-            <tr><td>集团协同报送</td><td>确认集团CRM要求的报送字段、频率、金额口径、协同规则、签发责任和过渡期方案。</td><td>集团报送字段矩阵、过渡期BI方案、长期接口方案。</td></tr>
-            <tr><td>恒生/资管CRM</td><td>确认CRM作为销售过程入口和归属配置入口的能力边界，区分标准模块与个性化改造。</td><td>CRM问题清单、改造清单、二次测试用例。</td></tr>
-            <tr><td>智达机构客户端</td><td>确认智达面向机构客户展示什么，哪些内容需要产品或合规审核和权限控制。</td><td>智达数据清单、内容发布流程、权限和留痕要求。</td></tr>
-            <tr><td>驾驶舱与9楼大屏</td><td>确认管理指标、刷新频率、展示口径、异常预警和大屏展示场景。</td><td>指标字典、看板原型范围、大屏展示清单。</td></tr>
-            <tr><td>流程自动化</td><td>确认公邮RPA、勤勉尽责邮件、信披转发、费用支付、证照用印与CRM数据闭环的关系。</td><td>自动化流程清单、系统接口和留痕要求。</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="deliverables">
-        <h2>七、调研交付物与排期</h2>
-        <table>
-          <thead><tr><th>交付物</th><th>内容</th><th>用途</th></tr></thead>
-          <tbody>
-            <tr><td>业务流程全量还原</td><td>市场部从产品准备、销售触达、交易保有、归属分成到报送展示的完整流程图。</td><td>避免系统选型脱离真实业务。</td></tr>
-            <tr><td>部门责任矩阵</td><td>IT、运营、综合、销售、产品、市场部在数据维护、规则维护、核验、报送中的RACI。</td><td>明确谁负责、谁审核、谁使用。</td></tr>
-            <tr><td>系统边界图</td><td>恒生CRM、集团CRM、智达、TA、产品生命周期、BI、大屏等系统的源头、计算、展示、报送关系。</td><td>作为后续接口和架构评审依据。</td></tr>
-            <tr><td>数据字典与字段矩阵</td><td>核心数据对象、字段来源、维护部门、更新频率、校验规则和下游系统。</td><td>支撑技术方案和供应商沟通。</td></tr>
-            <tr><td>归属与协同规则清单</td><td>特殊业绩归属、客户经纪关系、区域渠道兜底、协同分成、管理费计算规则。</td><td>支撑规则入库和计算引擎建设。</td></tr>
-            <tr><td>问题清单与优先级</td><td>短期报送、CRM缺陷、主数据补齐、智达展示、驾驶舱实时性等问题分级。</td><td>形成实施路线和立项边界。</td></tr>
-          </tbody>
-        </table>
-        <table>
-          <thead><tr><th>阶段</th><th>时间</th><th>关键动作</th><th>阶段产出</th></tr></thead>
-          <tbody>
-            <tr><td>启动与资料收集</td><td>D0-D1</td><td>收集现有方案、CRM测试清单、集团报送模板、协同规则台账、产品字段清单。</td><td>资料目录、访谈安排、问题初稿。</td></tr>
-            <tr><td>部门访谈</td><td>D2-D4</td><td>分别访谈IT、运营、综合、销售、产品、市场部管理。</td><td>访谈纪要、待确认事项、流程草图。</td></tr>
-            <tr><td>数据关系梳理</td><td>D5-D7</td><td>整理字段矩阵、系统流向、规则优先级、过渡期报送路径和目标态架构。</td><td>系统边界图、字段矩阵、规则清单。</td></tr>
-            <tr><td>方案评审</td><td>D8-D10</td><td>组织跨部门评审，确认短期过渡方案和长期销售数据平台建设范围。</td><td>调研报告、实施优先级、供应商沟通清单。</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="meeting">
-        <h2>八、会议可直接使用的问题</h2>
-        <div class="callout success">
-          <strong>建议会议开场问题</strong>
-          今天是否先不把议题定义为“恒生还是集团CRM”，而是先确认：资管销售数据计算应该在哪里完成？集团CRM、恒生CRM、智达分别消费哪些结果？
         </div>
         <table>
-          <thead><tr><th>类别</th><th>问题</th></tr></thead>
+          <thead><tr><th>系统</th><th>建议定位</th><th>调研时要避免的误区</th></tr></thead>
           <tbody>
-            <tr><td>系统边界</td><td>集团CRM需要的是原始明细、计算后的协同报送结果，还是两者都要？</td></tr>
-            <tr><td>计算责任</td><td>客户产品维度经纪关系、账户+产品特殊归属、协同分成规则由哪个系统入库并计算？</td></tr>
-            <tr><td>数据权威</td><td>管理费金额以运营TA为准，还是CRM按规则自行计算后再与TA核对？</td></tr>
-            <tr><td>产品数据</td><td>产品主数据缺失由产品部补录，还是由IT通过产品生命周期系统源头治理？</td></tr>
-            <tr><td>智达定位</td><td>智达是客户服务和营销展示门户，还是内部CRM功能延伸？客户可见内容如何审核？</td></tr>
-            <tr><td>驾驶舱</td><td>驾驶舱和大屏指标是否必须与集团报送、销售报表共用同一指标字典？</td></tr>
-            <tr><td>过渡方案</td><td>在统一销售数据平台就绪前，是否由综合牵头用BI二次开发满足集团报送，市场部和运营共同核验？</td></tr>
+            <tr><td>恒生/资管CRM</td><td>内部销售过程和归属配置入口；承接日程、服务记录、客户/产品关系、销售报表。</td><td>不要把它简单当成所有协同金额的计算权威，除非客户-产品关系、规则和 TA 核验都已打通。</td></tr>
+            <tr><td>集团CRM</td><td>集团协同报送和集团统一视图入口。</td><td>不要让集团 CRM 反向定义资管内部业务口径。</td></tr>
+            <tr><td>智达</td><td>机构客户服务和营销展示门户。</td><td>不要把客户端展示平台当作内部 CRM 或费用分成计算系统。</td></tr>
+            <tr><td>BI/智能报表</td><td>过渡期满足集团报送和人工核验。</td><td>不要长期把复杂规则藏在报表里形成黑箱。</td></tr>
           </tbody>
         </table>
-        <div class="callout">
-          <strong>最终建议表达</strong>
-          不要把本次专项培训后的讨论收敛成“恒生CRM与集团CRM二选一”。更合理的方向是：先建立资管市场部统一销售数据计算层，恒生CRM、集团CRM、智达、驾驶舱和大屏分别作为不同场景前端，共用同一套产品、客户、账户、交易、保有、费用、归属和协同分成口径。
+      </section>
+
+      <section id="departments">
+        <h2>六、部门访谈要问什么</h2>
+        <table>
+          <thead><tr><th>部门</th><th>这次必须问清的问题</th></tr></thead>
+          <tbody>
+            <tr><td>IT</td><td>恒生标准模块清单何时反馈？客户-产品经纪关系、账户+产品归属、交易流水 override、排重和比例校验是标准能力还是定制？TA、产品生命周期、集团 CRM、智达接口如何做？</td></tr>
+            <tr><td>运营</td><td>交易、申赎、保有、管理费基础金额的权威字段在哪里？是否支持当天数据和大额申赎？CRM/计算层测算结果如何与 TA 双边核验？</td></tr>
+            <tr><td>综合</td><td>集团协同报送模板到底要明细还是汇总？报送频率和签发责任是什么？过渡期 BI 二开能覆盖哪些字段，哪些仍需人工补充？</td></tr>
+            <tr><td>销售/渠道发展</td><td>有哪些真实交叉归属案例：机构户、产品户、渠道、分公司、销售人员、产品如何冲突？是否需要渠道+产品、产品维度归属？智达要展示哪些营销内容？</td></tr>
+            <tr><td>产品</td><td>哪些产品要素缺失最影响销售和报送？单一产品、QDII、申赎详情、投资目标、投资范围、投资经理、费用字段由谁维护？哪些资料可以客户侧展示？</td></tr>
+            <tr><td>市场部管理</td><td>短期优先集团报送、CRM修复、产品数据补录、还是归属规则？驾驶舱指标和集团报送指标是否共用同一口径？</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="questions">
+        <h2>七、会议问题清单</h2>
+        <div class="cols">
+          <div class="callout success"><b>建议开场问题</b>今天先不讨论“恒生还是集团 CRM 二选一”，先确认资管销售数据计算应该在哪里完成，以及集团 CRM、恒生 CRM、智达分别消费哪些结果。</div>
+          <div class="callout"><b>建议落点</b>形成一张字段矩阵、一张归属规则优先级表、一张系统数据流图、一张部门责任矩阵，再讨论系统选型和改造排期。</div>
         </div>
+        <table>
+          <thead><tr><th>主题</th><th>问题</th></tr></thead>
+          <tbody>
+            <tr><td>集团报送</td><td>集团 CRM 要原始明细、汇总结果，还是金额级计算结果？字段模板是否已经固定？</td></tr>
+            <tr><td>计算位置</td><td>协同分成、管理费金额、特殊业绩归属到底由 CRM 算、BI 算，还是单独销售数据计算层算？</td></tr>
+            <tr><td>规则入库</td><td>协同业务分成规则、账户+产品特殊归属、交易流水归属、渠道兜底规则由谁维护、谁审批、谁生效？</td></tr>
+            <tr><td>关系模型</td><td>客户-产品维度经纪关系如何落地？机构户、产品户、基金账号、产品、渠道、销售人员之间是否有统一模型？</td></tr>
+            <tr><td>排重机制</td><td>交易流水归属覆盖账户+产品归属后，下级规则如何自动排除，避免重复计算？</td></tr>
+            <tr><td>TA核验</td><td>管理费和协同分成结果如何与运营 TA 双边核验？核验失败如何追溯到字段、规则或源数据？</td></tr>
+            <tr><td>产品数据</td><td>产品要素、QDII、申赎详情、投资目标、投资范围、投资经理、费用字段由谁补齐，何时补齐？</td></tr>
+            <tr><td>智达</td><td>智达要放哪些营销类数据？客户可见内容是否需要产品/合规审核、权限控制、历史版本留痕？</td></tr>
+            <tr><td>过渡期</td><td>7月规则入 CRM 前后，综合+IT 的 BI 二开、市场部维护、运营核验分别怎么分工？</td></tr>
+          </tbody>
+        </table>
       </section>
     </main>
   </div>
-  <footer class="footer">兴证资管市场部系统与销售数据平台调研方案｜2026年6月25日</footer>
+
+  <footer class="footer">兴证资管市场部系统与销售数据计算平台调研方案｜精简重写版｜2026年6月25日</footer>
 </div>
 </body>
 </html>
