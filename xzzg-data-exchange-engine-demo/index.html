@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#f6f7f2">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23315f9f'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='34' fill='white' font-family='Arial'%3E数%3C/text%3E%3C/svg%3E">
+    <title>兴证资管数据交换与计算平台 Demo</title>
+    <style>
+      :root {
+        --ink: #20241f;
+        --muted: #6b736a;
+        --paper: #f6f7f2;
+        --panel: #ffffff;
+        --line: #dfe3d9;
+        --line-strong: #c6d0c2;
+        --green: #2f7a56;
+        --green-weak: #e7f2ea;
+        --blue: #315f9f;
+        --blue-weak: #e8eef9;
+        --amber: #b46b1e;
+        --amber-weak: #fff0dc;
+        --red: #a34747;
+        --red-weak: #fae8e8;
+        --charcoal: #262d28;
+        --code: #17211a;
+        --shadow: 0 18px 42px rgba(31, 39, 31, .10);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(47, 122, 86, .05) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(180, 107, 30, .05) 1px, transparent 1px),
+          var(--paper);
+        background-size: 30px 30px;
+        font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      }
+
+      button,
+      textarea,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        color: inherit;
+      }
+
+      .app {
+        min-height: 100vh;
+        padding: 22px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        max-width: 1480px;
+        margin: 0 auto 16px;
+      }
+
+      .brand {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--charcoal);
+        box-shadow: 0 10px 24px rgba(38, 45, 40, .16);
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: clamp(22px, 2.6vw, 34px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .brand p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .top-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .pill,
+      .danger-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #3f493f;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .pill::before,
+      .danger-pill::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+
+      .danger-pill {
+        border-color: #e4c6c6;
+        color: var(--red);
+        background: var(--red-weak);
+      }
+
+      .danger-pill::before {
+        background: var(--red);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 304px minmax(0, 1fr);
+        gap: 16px;
+        max-width: 1480px;
+        margin: 0 auto;
+      }
+
+      .sidebar,
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .94);
+        box-shadow: var(--shadow);
+      }
+
+      .sidebar {
+        align-self: start;
+        padding: 14px;
+        position: sticky;
+        top: 14px;
+      }
+
+      .side-section + .side-section {
+        margin-top: 18px;
+      }
+
+      .side-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .side-title h2,
+      .panel-title h2 {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      .side-title span,
+      .panel-title span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .source-list,
+      .stage-list,
+      .dispatch-list,
+      .metric-grid,
+      .diff-list {
+        display: grid;
+        gap: 9px;
+      }
+
+      .source-card {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        gap: 9px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcf8;
+      }
+
+      .source-icon {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--green);
+        background: var(--green-weak);
+        font-weight: 900;
+      }
+
+      .source-card:nth-child(2n) .source-icon {
+        color: var(--blue);
+        background: var(--blue-weak);
+      }
+
+      .source-card:nth-child(3n) .source-icon {
+        color: var(--amber);
+        background: var(--amber-weak);
+      }
+
+      .source-card h3 {
+        margin: 0;
+        font-size: 13px;
+        letter-spacing: 0;
+      }
+
+      .source-card p {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .status {
+        padding: 4px 7px;
+        border-radius: 999px;
+        color: #1d5d3b;
+        background: var(--green-weak);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .status.warn {
+        color: #8a5519;
+        background: var(--amber-weak);
+      }
+
+      .status.lock {
+        color: var(--red);
+        background: var(--red-weak);
+      }
+
+      .ghost-button,
+      .primary-button,
+      .quiet-button,
+      .toggle-button,
+      .dispatch-button {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform .14s ease, background .14s ease, border-color .14s ease;
+      }
+
+      .ghost-button:active,
+      .primary-button:active,
+      .quiet-button:active,
+      .toggle-button:active,
+      .dispatch-button:active {
+        transform: translateY(1px);
+      }
+
+      .ghost-button {
+        width: 100%;
+        padding: 9px 10px;
+        color: #314139;
+        background: #fff;
+        border-color: var(--line);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .primary-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 39px;
+        padding: 9px 13px;
+        color: #fff;
+        background: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .quiet-button {
+        min-height: 39px;
+        padding: 9px 13px;
+        color: #263027;
+        background: #fff;
+        border-color: var(--line);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .primary-button:disabled,
+      .quiet-button:disabled,
+      .dispatch-button:disabled {
+        cursor: not-allowed;
+        opacity: .46;
+        transform: none;
+      }
+
+      .main {
+        display: grid;
+        gap: 16px;
+      }
+
+      .panel {
+        overflow: hidden;
+      }
+
+      .panel-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 14px 12px;
+        border-bottom: 1px solid var(--line);
+        background: #fbfcf8;
+      }
+
+      .panel-body {
+        padding: 14px;
+      }
+
+      .workbench {
+        display: grid;
+        grid-template-columns: minmax(320px, .9fr) minmax(380px, 1.1fr);
+        gap: 14px;
+      }
+
+      .editor-card,
+      .draft-card,
+      .result-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .card-head h3 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0;
+      }
+
+      .card-head span {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      textarea,
+      pre,
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 366px;
+        margin: 0;
+        padding: 13px;
+        border: 0;
+        color: var(--code);
+        background:
+          linear-gradient(90deg, rgba(47, 122, 86, .055) 1px, transparent 1px),
+          #fbfdf8;
+        background-size: 24px 24px;
+        resize: vertical;
+        outline: none;
+        line-height: 1.58;
+        font-size: 13px;
+      }
+
+      .editor-actions,
+      .draft-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .toggle {
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        padding: 3px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #f3f5f0;
+      }
+
+      .toggle-button {
+        min-width: 72px;
+        padding: 7px 10px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .toggle-button.active {
+        color: #fff;
+        background: var(--charcoal);
+      }
+
+      .draft-code {
+        min-height: 366px;
+        margin: 0;
+        overflow: auto;
+        padding: 14px;
+        color: #e9f0e6;
+        background:
+          linear-gradient(90deg, rgba(231, 242, 234, .06) 1px, transparent 1px),
+          var(--code);
+        background-size: 24px 24px;
+        line-height: 1.55;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
+
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .stage {
+        position: relative;
+        min-height: 108px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .stage strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .stage span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .stage::before {
+        content: "";
+        display: block;
+        width: 26px;
+        height: 4px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        background: var(--line-strong);
+      }
+
+      .stage.done::before {
+        background: var(--green);
+      }
+
+      .stage.active {
+        border-color: #9dc8ae;
+        background: var(--green-weak);
+      }
+
+      .stage.active::before {
+        background: var(--amber);
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 14px;
+      }
+
+      .result-card {
+        overflow: hidden;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px 11px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        font-size: 12px;
+      }
+
+      th {
+        color: #3c483e;
+        background: #f5f7f1;
+        font-size: 11px;
+        letter-spacing: 0;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .empty {
+        padding: 22px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .metric {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--green);
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .diff-list {
+        margin-top: 12px;
+      }
+
+      .diff-item {
+        display: grid;
+        gap: 5px;
+        padding: 11px;
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--amber);
+        border-radius: 8px;
+        background: #fffdfa;
+      }
+
+      .diff-item.high {
+        border-left-color: var(--red);
+        background: #fff9f9;
+      }
+
+      .diff-item strong {
+        font-size: 13px;
+      }
+
+      .diff-item span {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.42;
+      }
+
+      .dispatch-list {
+        gap: 10px;
+      }
+
+      .dispatch-item {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        gap: 10px;
+        align-items: center;
+        padding: 11px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .dispatch-index {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--green);
+        background: var(--green-weak);
+        font-weight: 900;
+      }
+
+      .dispatch-item h3 {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .dispatch-item p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.38;
+      }
+
+      .dispatch-button {
+        min-width: 82px;
+        padding: 8px 10px;
+        color: #fff;
+        background: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .dispatch-button.done {
+        background: var(--green);
+      }
+
+      .dispatch-button.locked {
+        background: var(--red);
+      }
+
+      .log {
+        margin-top: 12px;
+        min-height: 56px;
+        padding: 10px 12px;
+        border: 1px solid #d7e0d3;
+        border-radius: 8px;
+        color: #39443d;
+        background: #f7fbf4;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .mini-flow {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+      }
+
+      .flow-card {
+        min-height: 94px;
+        padding: 11px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .flow-card b {
+        display: block;
+        font-size: 13px;
+      }
+
+      .flow-card span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .flow-card:first-child {
+        border-color: #cce0d2;
+        background: var(--green-weak);
+      }
+
+      .flow-card:nth-child(2) {
+        border-color: #d3dbed;
+        background: var(--blue-weak);
+      }
+
+      .flow-card:nth-child(3) {
+        border-color: #ecd5bd;
+        background: var(--amber-weak);
+      }
+
+      .toast {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 20;
+        display: none;
+        max-width: min(420px, calc(100vw - 44px));
+        padding: 12px 14px;
+        border-radius: 8px;
+        color: #fff;
+        background: rgba(31, 39, 31, .94);
+        box-shadow: 0 14px 34px rgba(31, 39, 31, .22);
+        font-size: 13px;
+      }
+
+      .toast.show {
+        display: block;
+        animation: toast .22s ease both;
+      }
+
+      @keyframes toast {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .layout,
+        .workbench,
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .app {
+          padding: 12px;
+        }
+
+        .topbar,
+        .panel-title,
+        .card-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .top-actions {
+          justify-content: flex-start;
+        }
+
+        .pipeline,
+        .metric-grid,
+        .mini-flow {
+          grid-template-columns: 1fr;
+        }
+
+        .dispatch-item,
+        .source-card {
+          grid-template-columns: 34px 1fr;
+        }
+
+        .dispatch-button,
+        .status {
+          grid-column: 2;
+          justify-self: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="mark">数</span>
+          <div>
+            <h1>数据交换与计算平台</h1>
+            <p>市场部规则维护、AI 草稿生成、沙箱试算、TA 核验和结果分发</p>
+          </div>
+        </div>
+        <div class="top-actions" aria-label="运行边界">
+          <span class="pill">测试环境</span>
+          <span class="pill">只读取凭证</span>
+          <span class="danger-pill">生产写入禁用</span>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <section class="side-section">
+            <div class="side-title">
+              <h2>数据源状态</h2>
+              <span id="sourceTime">刚刚刷新</span>
+            </div>
+            <div class="source-list">
+              <article class="source-card">
+                <span class="source-icon">资</span>
+                <div>
+                  <h3>资管 CRM</h3>
+                  <p>客户、销售归属、服务记录</p>
+                </div>
+                <span class="status">只读</span>
+              </article>
+              <article class="source-card">
+                <span class="source-icon">集</span>
+                <div>
+                  <h3>集团 CRM</h3>
+                  <p>分支机构、协同报送、人员确认</p>
+                </div>
+                <span class="status">只读</span>
+              </article>
+              <article class="source-card">
+                <span class="source-icon">产</span>
+                <div>
+                  <h3>产品全生命周期</h3>
+                  <p>产品主数据、策略分类、状态</p>
+                </div>
+                <span class="status">只读</span>
+              </article>
+              <article class="source-card">
+                <span class="source-icon">TA</span>
+                <div>
+                  <h3>运营 TA</h3>
+                  <p>份额、交易、账户和分红</p>
+                </div>
+                <span class="status warn">待核验</span>
+              </article>
+              <article class="source-card">
+                <span class="source-icon">BI</span>
+                <div>
+                  <h3>BI / 历史台账</h3>
+                  <p>口径沉淀、历史核对、报表</p>
+                </div>
+                <span class="status">只读</span>
+              </article>
+              <article class="source-card">
+                <span class="source-icon">智</span>
+                <div>
+                  <h3>兴证智达</h3>
+                  <p>机构端展示、专区结果分发</p>
+                </div>
+                <span class="status lock">推送锁定</span>
+              </article>
+            </div>
+            <button class="ghost-button" type="button" id="refreshSources">刷新连接状态</button>
+          </section>
+
+          <section class="side-section">
+            <div class="side-title">
+              <h2>使用对象</h2>
+              <span>后台边界</span>
+            </div>
+            <div class="mini-flow">
+              <div class="flow-card">
+                <b>市场部</b>
+                <span>维护 Markdown / Skill 规则、确认业务口径。</span>
+              </div>
+              <div class="flow-card">
+                <b>数据平台</b>
+                <span>连接源系统、执行沙箱、保留审计日志。</span>
+              </div>
+              <div class="flow-card">
+                <b>销售侧</b>
+                <span>只接收分发结果，不进入该计算后台。</span>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <main class="main">
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>规则到计算草稿</h2>
+                <span>Markdown / Skill 规则由市场部维护，AI 生成 SQL 或 Python 草稿供数据平台审核</span>
+              </div>
+              <div class="toggle" aria-label="脚本语言">
+                <button class="toggle-button active" type="button" data-lang="sql">SQL</button>
+                <button class="toggle-button" type="button" data-lang="python">Python</button>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="workbench">
+                <section class="editor-card">
+                  <div class="card-head">
+                    <h3>Markdown / Skill 规则</h3>
+                    <span>归属计算示例</span>
+                  </div>
+                  <textarea id="ruleEditor" spellcheck="false"># 特殊业绩归属试算
+
+目标：按客户、产品、销售归属和 TA 份额计算测试口径，不写生产。
+
+数据源：
+- 资管 CRM：customer_id、owner_id、service_region、relation_status
+- 集团 CRM：branch_id、collab_owner、personnel_confirmed
+- 产品全生命周期：product_code、strategy_type、active_flag
+- 运营 TA：account_id、product_code、share_amount、trade_date
+- BI / 历史台账：last_month_aum、manual_adjustment
+- 兴证智达：只接收结果展示，不参与计算
+
+规则：
+1. 只取 active_flag = 1 的产品。
+2. 归属比例优先采用资管 CRM 维护结果。
+3. 集团协同人员未确认时进入差异清单。
+4. TA 份额与 BI 资产偏差超过 2% 时进入核验。
+5. 默认输出测试包，生产写入和智达推送需要人工审批。</textarea>
+                  <div class="editor-actions">
+                    <button class="primary-button" type="button" id="generateDraft">生成脚本草稿</button>
+                    <button class="quiet-button" type="button" id="resetRule">恢复示例规则</button>
+                  </div>
+                </section>
+
+                <section class="draft-card">
+                  <div class="card-head">
+                    <h3 id="draftTitle">AI SQL 草稿</h3>
+                    <span id="draftState">等待生成</span>
+                  </div>
+                  <pre class="draft-code"><code id="draftCode">-- 点击“生成脚本草稿”后，这里会生成只读 SQL 或 Python 草稿。
+-- 草稿需要数据平台审核后才能进入沙箱执行。</code></pre>
+                  <div class="draft-actions">
+                    <button class="primary-button" type="button" id="runSandbox">运行样本试算</button>
+                    <button class="quiet-button" type="button" id="buildDiff">生成差异清单</button>
+                    <button class="quiet-button" type="button" id="copyDraft">复制草稿</button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>取数、试算、核验、分发</h2>
+                <span>流程聚焦读取、沙箱和对账，生产写入默认关闭</span>
+              </div>
+              <span id="runState">尚未试算</span>
+            </div>
+            <div class="panel-body">
+              <div class="pipeline" id="pipeline">
+                <div class="stage active" data-stage="fetch"><strong>取数</strong><span>从 CRM、产品主数据、TA 和 BI 台账读取样本。</span></div>
+                <div class="stage" data-stage="sandbox"><strong>沙箱试算</strong><span>在测试库计算客户-产品-归属口径。</span></div>
+                <div class="stage" data-stage="verify"><strong>TA 核验</strong><span>对份额、交易日期、账户状态做差异核对。</span></div>
+                <div class="stage" data-stage="diff"><strong>差异清单</strong><span>形成待确认条目和业务责任人。</span></div>
+                <div class="stage" data-stage="dispatch"><strong>结果分发</strong><span>生成测试包、推送测试环境、保留审计。</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>样本试算输出</h2>
+                <span>输出字段面向核验与分发，不直接写回生产</span>
+              </div>
+              <span id="rowCount">0 行</span>
+            </div>
+            <div class="panel-body">
+              <div class="results-grid">
+                <section class="result-card">
+                  <table aria-label="试算输出表">
+                    <thead>
+                      <tr>
+                        <th>客户</th>
+                        <th>产品</th>
+                        <th>销售归属</th>
+                        <th>TA 份额</th>
+                        <th>BI 资产</th>
+                        <th>状态</th>
+                      </tr>
+                    </thead>
+                    <tbody id="resultRows">
+                      <tr><td class="empty" colspan="6">运行样本试算后显示字段和样本结果</td></tr>
+                    </tbody>
+                  </table>
+                </section>
+                <aside>
+                  <div class="metric-grid">
+                    <div class="metric"><strong id="metricRows">0</strong><span>样本记录</span></div>
+                    <div class="metric"><strong id="metricDiffs">0</strong><span>差异条目</span></div>
+                    <div class="metric"><strong>0</strong><span>生产写入</span></div>
+                  </div>
+                  <div class="diff-list" id="diffList">
+                    <div class="empty">生成差异清单后显示 TA、集团协同和历史台账差异。</div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>结果分发</h2>
+                <span>测试环境优先，生产写入和正式推送保持禁用</span>
+              </div>
+              <span id="dispatchState">等待差异清单</span>
+            </div>
+            <div class="panel-body">
+              <div class="dispatch-list">
+                <article class="dispatch-item">
+                  <span class="dispatch-index">1</span>
+                  <div>
+                    <h3>生成测试结果包</h3>
+                    <p>导出客户-产品-归属明细、TA 核验字段和差异原因。</p>
+                  </div>
+                  <button class="dispatch-button" type="button" data-dispatch="package">生成</button>
+                </article>
+                <article class="dispatch-item">
+                  <span class="dispatch-index">2</span>
+                  <div>
+                    <h3>推送测试环境</h3>
+                    <p>供市场部、产品、运营在测试专区交叉确认。</p>
+                  </div>
+                  <button class="dispatch-button" type="button" data-dispatch="test">推送</button>
+                </article>
+                <article class="dispatch-item">
+                  <span class="dispatch-index">3</span>
+                  <div>
+                    <h3>生成销售侧只读视图</h3>
+                    <p>销售只看到确认后的客户服务结果，不进入后台。</p>
+                  </div>
+                  <button class="dispatch-button" type="button" data-dispatch="readonly">生成</button>
+                </article>
+                <article class="dispatch-item">
+                  <span class="dispatch-index">4</span>
+                  <div>
+                    <h3>生产写入 / 智达正式推送</h3>
+                    <p>默认禁用，需要审批、回滚包和双人复核。</p>
+                  </div>
+                  <button class="dispatch-button locked" type="button" disabled title="生产写入默认禁用">禁用</button>
+                </article>
+              </div>
+              <div class="log" id="actionLog">操作日志：等待脚本生成。</div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const defaultRule = document.getElementById("ruleEditor").value;
+      const ruleEditor = document.getElementById("ruleEditor");
+      const draftCode = document.getElementById("draftCode");
+      const draftTitle = document.getElementById("draftTitle");
+      const draftState = document.getElementById("draftState");
+      const runState = document.getElementById("runState");
+      const rowCount = document.getElementById("rowCount");
+      const resultRows = document.getElementById("resultRows");
+      const diffList = document.getElementById("diffList");
+      const metricRows = document.getElementById("metricRows");
+      const metricDiffs = document.getElementById("metricDiffs");
+      const dispatchState = document.getElementById("dispatchState");
+      const actionLog = document.getElementById("actionLog");
+      const toast = document.getElementById("toast");
+      let currentLang = "sql";
+      let draftGenerated = false;
+      let sandboxRan = false;
+      let diffGenerated = false;
+      let toastTimer;
+
+      const samples = [
+        {
+          customer: "C-1027 华南机构客户",
+          product: "XZAM-FI-203 固收+",
+          owner: "林经理 70% / 集团协同 30%",
+          ta: "12,560,000.00",
+          bi: "12,604,800.00",
+          status: "偏差 0.36%，通过"
+        },
+        {
+          customer: "C-2049 兴证银行私行部",
+          product: "XZAM-QA-118 量化增强",
+          owner: "待确认",
+          ta: "8,320,500.00",
+          bi: "8,870,000.00",
+          status: "偏差 6.20%，需核验"
+        },
+        {
+          customer: "C-3118 东南渠道客户",
+          product: "XZAM-FOF-021 多资产",
+          owner: "陈经理 100%",
+          ta: "5,410,700.00",
+          bi: "5,410,700.00",
+          status: "通过"
+        }
+      ];
+
+      const diffs = [
+        {
+          level: "high",
+          title: "集团协同人员未确认",
+          body: "C-2049 兴证银行私行部缺少 personnel_confirmed，需要集团 CRM 责任人确认后进入正式口径。"
+        },
+        {
+          level: "high",
+          title: "TA 与 BI 资产偏差超过阈值",
+          body: "XZAM-QA-118 TA 份额折算资产与 BI 历史台账偏差 6.20%，超过 2% 核验阈值。"
+        },
+        {
+          level: "medium",
+          title: "历史手工调整需复核",
+          body: "BI 台账存在 manual_adjustment，建议由市场部确认是否沿用上月特殊归属。"
+        }
+      ];
+
+      function showToast(message) {
+        window.clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.classList.add("show");
+        toastTimer = window.setTimeout(() => toast.classList.remove("show"), 1800);
+      }
+
+      function log(message) {
+        actionLog.textContent = `操作日志：${message}`;
+      }
+
+      function setStages(activeName, doneNames = []) {
+        document.querySelectorAll(".stage").forEach((stage) => {
+          stage.classList.toggle("active", stage.dataset.stage === activeName);
+          stage.classList.toggle("done", doneNames.includes(stage.dataset.stage));
+        });
+      }
+
+      function buildSql(ruleText) {
+        const hasSpecial = ruleText.includes("特殊业绩归属") || ruleText.includes("归属比例");
+        const comment = hasSpecial ? "特殊业绩归属试算" : "市场部规则试算";
+        return `-- ${comment}
+-- 环境：test_sandbox；凭证：readonly；生产写入：disabled
+WITH crm_owner AS (
+  SELECT customer_id, owner_id, attribution_ratio, service_region
+  FROM asset_mgmt_crm.sales_attribution
+  WHERE relation_status = 'active'
+),
+group_confirm AS (
+  SELECT customer_id, branch_id, collab_owner, personnel_confirmed
+  FROM group_crm.collaboration_owner
+),
+product_master AS (
+  SELECT product_code, strategy_type, active_flag
+  FROM product_lifecycle.product_master
+  WHERE active_flag = 1
+),
+ta_position AS (
+  SELECT account_id, customer_id, product_code, SUM(share_amount) AS ta_share
+  FROM ops_ta.share_position
+  WHERE trade_date = :sample_date
+  GROUP BY account_id, customer_id, product_code
+),
+bi_book AS (
+  SELECT customer_id, product_code, last_month_aum, manual_adjustment
+  FROM bi_history.sales_ledger
+)
+SELECT
+  t.customer_id,
+  t.product_code,
+  c.owner_id,
+  c.attribution_ratio,
+  g.collab_owner,
+  g.personnel_confirmed,
+  t.ta_share,
+  b.last_month_aum,
+  ABS(t.ta_share - b.last_month_aum) / NULLIF(b.last_month_aum, 0) AS ta_bi_diff_rate,
+  CASE
+    WHEN g.personnel_confirmed <> 1 THEN 'DIFF_GROUP_CONFIRM'
+    WHEN ABS(t.ta_share - b.last_month_aum) / NULLIF(b.last_month_aum, 0) > 0.02 THEN 'DIFF_TA_BI'
+    ELSE 'PASS'
+  END AS verify_status
+FROM ta_position t
+JOIN product_master p ON p.product_code = t.product_code
+LEFT JOIN crm_owner c ON c.customer_id = t.customer_id
+LEFT JOIN group_confirm g ON g.customer_id = t.customer_id
+LEFT JOIN bi_book b ON b.customer_id = t.customer_id AND b.product_code = t.product_code;`;
+      }
+
+      function buildPython(ruleText) {
+        const hasTa = ruleText.includes("TA");
+        const threshold = hasTa ? "0.02" : "0.03";
+        return `# 市场部规则试算
+# 环境：test_sandbox；凭证：readonly；生产写入：disabled
+from decimal import Decimal
+
+DIFF_THRESHOLD = Decimal("${threshold}")
+
+sources = {
+    "asset_mgmt_crm": "readonly://asset_mgmt_crm/sales_attribution",
+    "group_crm": "readonly://group_crm/collaboration_owner",
+    "product_lifecycle": "readonly://product_lifecycle/product_master",
+    "ops_ta": "readonly://ops_ta/share_position",
+    "bi_history": "readonly://bi_history/sales_ledger",
+}
+
+def verify_row(row):
+    ta_share = Decimal(str(row["ta_share"]))
+    bi_aum = Decimal(str(row["last_month_aum"] or 0))
+    diff_rate = abs(ta_share - bi_aum) / bi_aum if bi_aum else Decimal("1")
+
+    if row.get("personnel_confirmed") != 1:
+        return "DIFF_GROUP_CONFIRM"
+    if diff_rate > DIFF_THRESHOLD:
+        return "DIFF_TA_BI"
+    if row.get("manual_adjustment"):
+        return "CHECK_MANUAL_ADJUSTMENT"
+    return "PASS"
+
+def run_sandbox(sample_date):
+    rows = readonly_join(
+        sources=sources,
+        sample_date=sample_date,
+        active_products_only=True,
+    )
+    return [
+        {
+            **row,
+            "verify_status": verify_row(row),
+            "write_mode": "disabled",
+        }
+        for row in rows
+    ]`;
+      }
+
+      function generateDraft() {
+        const ruleText = ruleEditor.value;
+        draftCode.textContent = currentLang === "sql" ? buildSql(ruleText) : buildPython(ruleText);
+        draftTitle.textContent = currentLang === "sql" ? "AI SQL 草稿" : "AI Python 草稿";
+        draftState.textContent = "已生成，待审核";
+        draftGenerated = true;
+        setStages("fetch", []);
+        log(`${currentLang.toUpperCase()} 草稿已生成，使用测试环境和只读凭证。`);
+        showToast("脚本草稿已生成");
+      }
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === lang);
+        });
+        draftTitle.textContent = lang === "sql" ? "AI SQL 草稿" : "AI Python 草稿";
+        if (draftGenerated) {
+          generateDraft();
+        }
+      }
+
+      function runSandbox() {
+        if (!draftGenerated) {
+          generateDraft();
+        }
+
+        resultRows.innerHTML = "";
+        samples.forEach((sample) => {
+          const row = document.createElement("tr");
+          [sample.customer, sample.product, sample.owner, sample.ta, sample.bi, sample.status].forEach((value) => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+          resultRows.appendChild(row);
+        });
+
+        sandboxRan = true;
+        rowCount.textContent = `${samples.length} 行`;
+        metricRows.textContent = String(samples.length);
+        runState.textContent = "样本试算完成";
+        setStages("verify", ["fetch", "sandbox"]);
+        log("样本试算完成：读取 6 个数据源，输出 3 行测试结果，生产写入 0。");
+        showToast("样本试算完成");
+      }
+
+      function buildDiffList() {
+        if (!sandboxRan) {
+          runSandbox();
+        }
+        diffList.innerHTML = "";
+        diffs.forEach((diff) => {
+          const item = document.createElement("article");
+          item.className = `diff-item ${diff.level === "high" ? "high" : ""}`;
+          item.innerHTML = "<strong></strong><span></span>";
+          item.querySelector("strong").textContent = diff.title;
+          item.querySelector("span").textContent = diff.body;
+          diffList.appendChild(item);
+        });
+        diffGenerated = true;
+        metricDiffs.textContent = String(diffs.length);
+        dispatchState.textContent = "可生成测试分发";
+        setStages("dispatch", ["fetch", "sandbox", "verify", "diff"]);
+        log("差异清单已生成：2 条高优先级，1 条待复核，正式推送仍禁用。");
+        showToast("差异清单已生成");
+      }
+
+      document.getElementById("generateDraft").addEventListener("click", generateDraft);
+      document.getElementById("runSandbox").addEventListener("click", runSandbox);
+      document.getElementById("buildDiff").addEventListener("click", buildDiffList);
+
+      document.getElementById("resetRule").addEventListener("click", () => {
+        ruleEditor.value = defaultRule;
+        log("规则已恢复为示例版本。");
+        showToast("示例规则已恢复");
+      });
+
+      document.getElementById("copyDraft").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(draftCode.textContent);
+          showToast("草稿已复制");
+          log("脚本草稿已复制到剪贴板。");
+        } catch (error) {
+          showToast("当前浏览器限制复制，可直接选中草稿");
+          log("复制被浏览器限制，草稿仍可手动选中。");
+        }
+      });
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      document.getElementById("refreshSources").addEventListener("click", () => {
+        document.getElementById("sourceTime").textContent = new Date().toLocaleTimeString("zh-CN", {
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+        log("连接状态已刷新：运营 TA 保持待核验，智达正式推送保持锁定。");
+        showToast("连接状态已刷新");
+      });
+
+      document.querySelectorAll("[data-dispatch]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!diffGenerated) {
+            showToast("请先生成差异清单");
+            log("分发被拦截：需要先完成差异清单。");
+            return;
+          }
+
+          const label = {
+            package: "测试结果包已生成",
+            test: "已推送测试环境",
+            readonly: "销售侧只读视图已生成"
+          }[button.dataset.dispatch];
+          button.classList.add("done");
+          button.textContent = "完成";
+          log(`${label}；生产写入和智达正式推送仍为禁用状态。`);
+          showToast(label);
+        });
+      });
+    </script>
+  </body>
+</html>
