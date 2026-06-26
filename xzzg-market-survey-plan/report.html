@@ -142,7 +142,29 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 .mobile-item-title{font-size:9pt;font-weight:700;color:#34495E;line-height:1.35}
 .mobile-item-sub{font-size:8pt;color:#7F8C9A;line-height:1.35}
 .mobile-status{font-size:8pt;color:#27AE60;font-weight:700}
-.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#fff;border-top:1px solid #DCE4EE;padding:8px 6px 10px;margin-top:6px}
+.kpi-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
+.kpi-tile{background:#fff;border:1px solid #DCE4EE;border-radius:9px;padding:7px 8px}
+.kpi-tile b{display:block;color:#2F5496;font-size:12pt;line-height:1.15}
+.kpi-tile span{color:#7F8C9A;font-size:7.7pt}
+.timeline-card{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:9px;padding:8px;margin-bottom:8px}
+.time-badge{font-size:8pt;color:#2F5496;font-weight:700;text-align:center}
+.mini-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:8px}
+.mini-day{border:1px solid #DCE4EE;border-radius:8px;background:#fff;text-align:center;padding:7px 0;font-size:8pt;color:#7F8C9A}
+.mini-day.active{background:#2F5496;color:#fff;border-color:#2F5496;font-weight:700}
+.mini-day.mark{border-color:#ABEBC6;color:#1E5631;background:#EAFBF1;font-weight:700}
+.stat-ring{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:10px;padding:10px;margin-bottom:10px}
+.ring{width:78px;height:78px;border-radius:50%;background:conic-gradient(#2F5496 0 68%,#27AE60 68% 84%,#F4C542 84% 100%);display:grid;place-items:center;color:#1F3864;font-weight:700}
+.ring span{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;font-size:8pt;line-height:1.2;text-align:center}
+.rank-list{display:grid;gap:7px}
+.rank-item{display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:8px;padding:7px;font-size:8pt}
+.rank-item b{color:#2F5496}
+.rank-item span{color:#34495E}
+.rank-item em{font-style:normal;color:#27AE60;font-weight:700}
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}
+.process-card{border:1px solid #DCE4EE;border-radius:10px;background:#F8FAFC;padding:10px 11px;font-size:8.8pt;line-height:1.55}
+.process-card b{display:block;color:#1F3864;margin-bottom:4px}
+.process-card span{display:inline-block;background:#EBF1F7;color:#2F5496;border-radius:12px;padding:2px 7px;font-size:7.6pt;font-weight:700;margin-bottom:5px}
+.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:#fff;border-top:1px solid #DCE4EE;padding:8px 6px 10px;margin-top:6px}
 .mobile-nav button{border:0;background:transparent;text-align:center;font-size:8pt;color:#7F8C9A;font-family:inherit;padding:3px 0;cursor:pointer}
 .mobile-nav button.active{color:#2F5496;font-weight:700}
 .web-frame{border:1px solid #DCE4EE;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 32px rgba(31,56,100,.08)}
@@ -257,8 +279,9 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 @media print{
   body{padding:0;max-width:none;font-size:10.5pt}
   h2,h3,h4{page-break-after:avoid}
+  .section-break{page-break-before:always;break-before:page}
   table,blockquote,.box,.metric-card,.flow,.timeline,.prototype-grid,.web-frame,.proto-callouts{page-break-inside:avoid;break-inside:avoid}
-  .web-frame{page-break-before:always;break-before:page;zoom:.82;width:100%}
+  .web-frame{zoom:.78;width:100%}
   .web-chrome{height:20px}
   .web-body{grid-template-columns:1fr;min-height:auto}
   .web-side{display:none}
@@ -276,6 +299,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
   .logic-result-row{padding:6px;font-size:7.4pt}
   .logic-log{font-size:7.3pt;padding:6px}
   .web-frame .pipeline{display:none}
+  .prototype-note{display:none}
   .toc{page-break-after:always}
 }
 
@@ -291,7 +315,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
   .prototype-grid{grid-template-columns:1fr}
   .web-body{grid-template-columns:1fr}
   .web-side{display:none}
-  .web-metrics,.engine-layout,.source-grid,.proto-callouts,.logic-layout,.logic-sample,.sim-body,.persona-strip,.seg-options{grid-template-columns:1fr}
+  .web-metrics,.engine-layout,.source-grid,.proto-callouts,.logic-layout,.logic-sample,.sim-body,.persona-strip,.seg-options,.process-grid{grid-template-columns:1fr}
   .sim-head{display:block}
   .flow{padding:14px}
   .flow-row{display:block}
@@ -333,7 +357,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 </li>
 <li><a href="#part2">第二部分　关键问题及解决思路</a>
 <ol>
-<li><a href="#p2-crm">一、CRM销售过程管理</a></li>
+<li><a href="#p2-crm">一、CRM销售记录沉淀</a></li>
 <li><a href="#p2-product">二、产品数据与客户-产品经纪关系</a></li>
 <li><a href="#p2-dashboard">三、驾驶舱与数据时效</a></li>
 <li><a href="#p2-reporting">四、集团协同报送与管理费金额计算</a></li>
@@ -377,7 +401,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 <tr><th>关键问题</th><th>材料中的表现</th><th>影响</th><th>解决方向</th></tr>
 </thead>
 <tbody>
-<tr><td>移动展业与过程管理缺口</td><td>CRM PC端已有部分日志、服务记录、日报能力，但移动端未形成可用闭环；外出拜访、协同拜访、材料分享和日报仍不顺畅。</td><td>销售过程数据不能及时沉淀，影响客户跟进、过程考核、领导驾驶舱和后续分析。</td><td>建设面向销售人员的移动展业工作台；短期评估集团CRM移动端服务记录能力，关键是回写资管CRM。</td></tr>
+<tr><td>移动展业与记录沉淀缺口</td><td>CRM PC端已有部分日志、服务记录、日报能力，但移动端未形成可用闭环；外出拜访、协同拜访、材料分享和日报仍不顺畅。</td><td>销售服务数据不能及时沉淀，影响客户跟进、团队复盘、领导驾驶舱和后续分析。</td><td>建设面向销售人员的移动展业工作台；短期评估集团CRM移动端服务记录能力，关键是回写资管CRM。</td></tr>
 <tr><td>销售数据计算底座缺失</td><td>产品、客户、账户、基金账号、TA交易保有、协同规则、特殊归属规则尚未形成统一计算引擎。</td><td>集团报送、管理费分成、特殊业绩归属、渠道报表和驾驶舱容易口径不一致。</td><td>建设资管侧销售数据计算引擎，统一规则、TA核验和结果分发。</td></tr>
 <tr><td>客户-产品经纪关系缺失</td><td>当前系统仅支持客户及交易维度经纪关系挂接，无法实现客户-产品维度挂接。</td><td>影响管理费分配、协同报送、财务核算和全维度关系管理。</td><td>优先设计客户、账户、产品、基金账号、渠道、销售人员之间的统一关系模型。</td></tr>
 <tr><td>产品数据完整性不足</td><td>部分单一产品、QDII产品、申赎详情、投资目标、投资范围、投资经理等字段缺失。</td><td>影响销售展业、产品展示、集团报送和驾驶舱指标。</td><td>由我部牵头建立产品主数据缺口清单，请产品部和IT协助明确字段维护及校验责任。</td></tr>
@@ -433,9 +457,9 @@ CRM、集团CRM、智达、驾驶舱、BI、大屏
 <tr><th>系统/能力</th><th>建议承担</th><th>不宜承担</th></tr>
 </thead>
 <tbody>
-<tr><td>移动展业与过程管理能力</td><td>销售拜访、客户跟进、服务记录、协同拜访、工作日报、材料分享、过程统计和移动端填报。</td><td>不宜承接管理费金额、协同分成和特殊业绩归属等后台计算。</td></tr>
+<tr><td>移动展业与记录沉淀能力</td><td>销售拜访、客户跟进、服务记录、协同拜访、工作日报、材料分享、记录统计和移动端填报。</td><td>不宜承接管理费金额、协同分成和特殊业绩归属等后台计算。</td></tr>
 <tr><td>销售数据计算引擎和数据底座</td><td>客户-产品关系、账户+产品归属、交易流水优先级、协同分成、管理费计算、特殊归属、TA核验、结果分发。</td><td>不宜替代产品主数据源，也不直接承担对客营销展示。</td></tr>
-<tr><td>资管CRM（恒生实施）</td><td>销售过程管理、客户/联系人/服务记录、日报、归属规则配置入口、报表查询入口。</td><td>在规则和TA核验机制未稳定前，不宜单独作为全部管理费金额和协同分成计算权威。</td></tr>
+<tr><td>资管CRM（恒生实施）</td><td>销售记录沉淀、客户/联系人/服务记录、日报、归属规则配置入口、报表查询入口。</td><td>在规则和TA核验机制未稳定前，不宜单独作为全部管理费金额和协同分成计算权威。</td></tr>
 <tr><td>集团CRM</td><td>集团协同报送入口、集团统一视图、协同数据接收和展示。</td><td>不宜反向定义资管内部客户-产品经纪关系、特殊归属和管理费计算口径。</td></tr>
 <tr><td>智达</td><td>机构客户服务客户端、产品及营销内容展示、客户触达。</td><td>不宜作为内部CRM、业绩归属、管理费分成和协同金额计算系统。</td></tr>
 <tr><td>BI/智能报表</td><td>过渡期满足集团报送、人工核验和汇总查询。</td><td>不宜长期沉淀复杂业务规则，避免形成黑箱。</td></tr>
@@ -447,171 +471,213 @@ CRM、集团CRM、智达、驾驶舱、BI、大屏
 
 <div class="box box-success">
 <div class="box-title">原型定位</div>
-<p>兴证资管市场部当前需要补齐两项核心能力：一是面向销售人员的移动展业及过程管理能力，二是面向业绩归属、协同报送和管理费分成的销售数据计算引擎及数据底座。资管CRM、集团CRM、智达、产品全生命周期系统及恒生开发资源，应围绕上述两项能力进行边界划分、接口建设和功能补齐。</p>
+<p>兴证资管市场部当前需要补齐两项核心能力：一是面向销售人员的移动展业及记录沉淀能力，二是面向业绩归属、协同报送和管理费分成的销售数据计算引擎及数据底座。资管CRM、集团CRM、智达、产品全生命周期系统及恒生开发资源，应围绕上述两项能力进行边界划分、接口建设和功能补齐。</p>
 </div>
 
-<h3>4.1 移动端原型：销售展业工作台</h3>
+<h3>4.1 移动端原型：销售记录沉淀与展业赋能工作台</h3>
 
-<p>移动端原型面向销售人员、渠道经理和市场部管理人员，解决“人怎么展业、怎么记录、怎么跟进”的问题。短期可评估复用集团CRM移动端服务记录能力，长期应形成资管自己的移动展业入口，并保证数据回写资管CRM。</p>
+<p>参考集团CRM移动端截图后，资管侧不宜以人员管理为主，而应转译为销售记录沉淀和展业赋能工具：围绕拜访计划、服务记录、客户反馈、营销材料、记录补充和统计复盘形成闭环。系统重点沉淀客户服务过程、产品反馈、材料使用和后续任务，不以人员管控为目标；关键数据必须回写资管CRM，并为后续客户分析、日报、驾驶舱和销售数据计算提供可信来源。</p>
 
 <div class="flow">
 <div class="flow-row">
 <div class="flow-step">
 <span class="step-num">A</span>
-<strong>移动展业端</strong>
-拜访、服务记录、协同线索、材料分享、日报
+<strong>计划排程</strong>
+月度计划、今日行程、客户提醒、随同拜访
 </div>
 <div class="flow-arrow">→</div>
 <div class="flow-step">
 <span class="step-num">B</span>
-<strong>资管数据底座</strong>
-客户+产品、TA核验、归属规则、管理费计算
+<strong>记录与赋能</strong>
+客户拜访、服务纪要、营销材料、后续任务
 </div>
 <div class="flow-arrow">→</div>
 <div class="flow-step terminal">
 <span class="step-num">C</span>
-<strong>多系统消费</strong>
-资管CRM、集团CRM、智达、驾驶舱、BI、大屏
+<strong>复盘与回写</strong>
+记录补充、客户覆盖、团队复盘、数据回写
 </div>
 </div>
+</div>
+
+<div class="process-grid">
+<div class="process-card"><span>入口一</span><b>工作台</b>当天行程、待补记录、后续任务和重点客户提醒。</div>
+<div class="process-card"><span>入口二</span><b>日程计划</b>月视图和周视图管理拜访计划，支持会议、电话和现场拜访。</div>
+<div class="process-card"><span>入口三</span><b>服务记录</b>按客户、联系人、产品、随同人员和服务内容沉淀。</div>
+<div class="process-card"><span>入口四</span><b>展业工具</b>承接产品资料、投研观点、活动邀请和智达分享。</div>
+<div class="process-card"><span>入口五</span><b>统计复盘</b>统计服务记录、客户覆盖、材料使用和后续任务。</div>
 </div>
 
 <div class="prototype-grid">
 <div>
 <div class="phone-frame">
 <div class="phone-screen">
-<div class="mini-status-bar"><span>微信小程序</span><span>09:41 · · ·</span></div>
+<div class="mini-status-bar"><span>兴证资管展业助手</span><span>10:43 · · ·</span></div>
 <div class="mobile-top">
 <div class="mobile-kicker">兴证资管市场部</div>
-<div class="mobile-title" id="mini-screen-title">展业首页</div>
-<div class="mobile-sub">今日拜访 3｜待跟进 8｜大额申赎 2</div>
+<div class="mobile-title" id="mini-screen-title">今日工作台</div>
+<div class="mobile-sub">今日计划 3｜待跟进 2｜可用材料 8</div>
 </div>
 <div class="mobile-section mini-screen active" data-mini-screen="home">
+<div class="kpi-strip">
+<div class="kpi-tile"><b>3</b><span>今日计划</span></div>
+<div class="kpi-tile"><b>2</b><span>待跟进</span></div>
+<div class="kpi-tile"><b>8</b><span>可用材料</span></div>
+</div>
 <div class="mobile-card">
-<strong>今日重点客户</strong>
-<div class="mobile-row"><span>兴业银行理财</span><span>客户+产品已确认</span></div>
-<div class="mobile-row"><span>持有产品：现金管理1号</span><span>日均保有跟踪</span></div>
+<strong>今日行程</strong>
+<div class="timeline-card">
+<div class="time-badge">09:30</div>
+<div><div class="mobile-item-title">兴业银行理财｜现金管理1号</div><div class="mobile-item-sub">客户交流｜已生成服务记录草稿</div></div>
+<div class="mobile-status">已记录</div>
+</div>
+<div class="timeline-card">
+<div class="time-badge">14:30</div>
+<div><div class="mobile-item-title">福州分公司协同拜访</div><div class="mobile-item-sub">随同人员、协同关系和后续安排待确认</div></div>
+<div class="mobile-status">待跟进</div>
+</div>
 <div class="mobile-actions">
-<button class="mobile-action primary" data-mini-target="visit" type="button">新增服务记录</button>
-<button class="mobile-action" data-mini-target="customer" type="button">查看客户360</button>
+<button class="mobile-action primary" data-mini-target="record" type="button">记录服务</button>
+<button class="mobile-action" data-mini-target="plan" type="button">查看日程</button>
 </div>
 </div>
 <div class="mobile-list">
 <div class="mobile-list-item">
-<div class="mobile-dot">拜</div>
-<div><div class="mobile-item-title">14:30 客户拜访</div><div class="mobile-item-sub">随同：福州分公司｜材料：固收周报</div></div>
-<div class="mobile-status">待填</div>
+<div class="mobile-dot">补</div>
+<div><div class="mobile-item-title">服务记录待补充</div><div class="mobile-item-sub">昨日线上路演需补充客户联系人和产品反馈</div></div>
+<div class="mobile-status">待补充</div>
+</div>
+<div class="mobile-list-item">
+<div class="mobile-dot">纪</div>
+<div><div class="mobile-item-title">客户反馈待整理</div><div class="mobile-item-sub">已带入客户、产品、随同和材料</div></div>
+<div class="mobile-status">草稿</div>
 </div>
 <div class="mobile-list-item">
 <div class="mobile-dot">协</div>
-<div><div class="mobile-item-title">协同确认</div><div class="mobile-item-sub">客户+产品｜比例待分公司确认</div></div>
-<div class="mobile-status">流转中</div>
-</div>
-<div class="mobile-list-item">
-<div class="mobile-dot">报</div>
-<div><div class="mobile-item-title">工作日报</div><div class="mobile-item-sub">服务记录自动回写，补充摘要后提交</div></div>
-<div class="mobile-status">草稿</div>
+<div><div class="mobile-item-title">分公司协同待确认</div><div class="mobile-item-sub">分公司协同事项需继续跟进</div></div>
+<div class="mobile-status">待确认</div>
 </div>
 </div>
 <div class="mobile-card">
 <strong>展业工具</strong>
 <div class="mobile-actions">
-<button class="mobile-action" data-mini-target="materials" type="button">产品资料</button>
-<button class="mobile-action" data-mini-target="materials" type="button">智达分享</button>
-<button class="mobile-action" data-mini-target="customer" type="button">客户标签</button>
-<button class="mobile-action" data-mini-target="tasks" type="button">任务跟进</button>
+<button class="mobile-action" data-mini-target="tools" type="button">产品资料</button>
+<button class="mobile-action" data-mini-target="tools" type="button">投研观点</button>
+<button class="mobile-action" data-mini-target="tools" type="button">智达分享</button>
+<button class="mobile-action" data-mini-target="tools" type="button">活动邀请</button>
 </div>
 </div>
 </div>
-<div class="mobile-section mini-screen" data-mini-screen="customer">
+<div class="mobile-section mini-screen" data-mini-screen="plan">
 <div class="mobile-card">
-<strong>客户360｜兴业银行理财</strong>
-<div><span class="mini-pill">银行理财子</span><span class="mini-pill">重点机构</span><span class="mini-pill">固收偏好</span></div>
-<div class="mini-progress">
-<div><b>1</b><span>客户+产品关系：现金管理1号</span><strong>已确认</strong></div>
-<div><b>2</b><span>协同单位：福州分公司</span><strong>流转中</strong></div>
-<div><b>3</b><span>近30日服务记录</span><strong>5条</strong></div>
+<strong>日程计划</strong>
+<div class="mobile-row"><span>2026年6月</span><span>本月计划 21｜已记录 16</span></div>
+<div class="mini-calendar">
+<div class="mini-day">22</div><div class="mini-day">23</div><div class="mini-day mark">24</div><div class="mini-day mark">25</div><div class="mini-day active">26</div><div class="mini-day">27</div><div class="mini-day">28</div>
 </div>
 </div>
 <div class="mobile-card">
-<strong>当前产品持有</strong>
-<div class="mobile-row"><span>现金管理1号</span><span>日均保有 1,000万</span></div>
-<div class="mobile-row"><span>固收增强A</span><span>待补产品经理观点</span></div>
+<strong>今日安排</strong>
+<div class="timeline-card"><div class="time-badge">09:30</div><div><div class="mobile-item-title">客户现场交流</div><div class="mobile-item-sub">兴业银行理财｜产品运作沟通</div></div><div class="mobile-status">完成</div></div>
+<div class="timeline-card"><div class="time-badge">14:30</div><div><div class="mobile-item-title">协同拜访</div><div class="mobile-item-sub">福州分公司｜协同关系确认</div></div><div class="mobile-status">待办</div></div>
+<div class="timeline-card"><div class="time-badge">17:30</div><div><div class="mobile-item-title">日报提交</div><div class="mobile-item-sub">自动汇总服务记录和后续任务</div></div><div class="mobile-status">草稿</div></div>
+</div>
 <div class="mobile-actions">
-<button class="mobile-action primary" data-mini-target="visit" type="button">记录拜访</button>
-<button class="mobile-action" data-mini-target="materials" type="button">发送材料</button>
+<button class="mobile-action primary" data-mini-target="record" type="button">新增记录</button>
+<button class="mobile-action" data-mini-target="tools" type="button">准备材料</button>
 </div>
 </div>
-</div>
-<div class="mobile-section mini-screen" data-mini-screen="visit">
+<div class="mobile-section mini-screen" data-mini-screen="record">
 <div class="mobile-card">
 <strong>新增服务记录</strong>
-<div class="mini-form">
+<div><span class="mini-pill">客户拜访</span><span class="mini-pill">产品反馈</span><span class="mini-pill">可补充</span></div>
+<div class="mini-form" style="margin-top:8px">
 <div class="mini-input">客户：兴业银行理财</div>
-<div class="mini-input">拜访方式：现场拜访｜随同：福州分公司</div>
-<div class="mini-input mini-textarea">内容：沟通现金管理1号运作情况，客户关注申赎效率和周报材料。</div>
-<div class="mini-input">后续任务：T+1 推送固收周报并跟进申购意向</div>
+<div class="mini-input">联系人：机构业务部 王经理</div>
+<div class="mini-input">服务方式：现场交流</div>
+<div class="mini-input">随同：福州分公司 渠道经理</div>
+<div class="mini-input mini-textarea">服务内容：沟通现金管理1号申赎安排、固收周报材料和后续申购意向。</div>
+<div class="mini-input">使用材料：现金管理1号产品页、固收周报、申赎说明</div>
+<div class="mini-input">后续任务：T+1 推送材料，分公司确认协同信息</div>
 </div>
 <div class="mobile-actions">
-<button class="mobile-action primary" data-mini-target="tasks" type="button">提交并生成日报</button>
-<button class="mobile-action" data-mini-target="home" type="button">返回首页</button>
+<button class="mobile-action primary" data-mini-target="home" type="button">提交记录</button>
+<button class="mobile-action" data-mini-target="tools" type="button">选择材料</button>
 </div>
-<div class="mini-toast">原型交互：提交后服务记录回写资管CRM，并可同步进入工作日报。</div>
+<div class="mini-toast">保存后可自动生成日报草稿；涉及协同事项时同步生成跟进提醒。</div>
 </div>
 </div>
-<div class="mobile-section mini-screen" data-mini-screen="materials">
+<div class="mobile-section mini-screen" data-mini-screen="tools">
 <div class="mobile-card">
-<strong>资管专区材料</strong>
+<strong>展业工具与营销材料</strong>
 <div class="mobile-list">
-<div class="mobile-list-item"><div class="mobile-dot">周</div><div><div class="mobile-item-title">固收市场周报</div><div class="mobile-item-sub">产品部审核｜智达可分享</div></div><div class="mobile-status">新版</div></div>
-<div class="mobile-list-item"><div class="mobile-dot">产</div><div><div class="mobile-item-title">现金管理1号产品页</div><div class="mobile-item-sub">来自产品全生命周期</div></div><div class="mobile-status">有效</div></div>
-<div class="mobile-list-item"><div class="mobile-dot">会</div><div><div class="mobile-item-title">线上交流会邀请</div><div class="mobile-item-sub">白名单客户可见</div></div><div class="mobile-status">可发</div></div>
+<div class="mobile-list-item"><div class="mobile-dot">产</div><div><div class="mobile-item-title">现金管理1号产品页</div><div class="mobile-item-sub">产品资料｜可智达分享</div></div><div class="mobile-status">有效</div></div>
+<div class="mobile-list-item"><div class="mobile-dot">周</div><div><div class="mobile-item-title">固收市场周报</div><div class="mobile-item-sub">已审核｜可带入记录</div></div><div class="mobile-status">新版</div></div>
+<div class="mobile-list-item"><div class="mobile-dot">投</div><div><div class="mobile-item-title">投研观点摘要</div><div class="mobile-item-sub">适合白名单客户｜可微信/智达分享</div></div><div class="mobile-status">可发</div></div>
 </div>
 <div class="mobile-actions">
-<button class="mobile-action primary" data-mini-target="customer" type="button">微信分享给客户</button>
-<button class="mobile-action" data-mini-target="home" type="button">返回首页</button>
+<button class="mobile-action primary" data-mini-target="record" type="button">带入记录</button>
+<button class="mobile-action" data-mini-target="home" type="button">智达分享</button>
+</div>
+<div class="mini-toast">选中材料后可带入服务记录，便于下次继续跟进客户反馈。</div>
 </div>
 </div>
-</div>
-<div class="mobile-section mini-screen" data-mini-screen="tasks">
+<div class="mobile-section mini-screen" data-mini-screen="stats">
 <div class="mobile-card">
-<strong>任务跟进</strong>
-<div class="mobile-list">
-<div class="mobile-list-item"><div class="mobile-dot">1</div><div><div class="mobile-item-title">补发固收周报</div><div class="mobile-item-sub">关联客户：兴业银行理财</div></div><div class="mobile-status">今日</div></div>
-<div class="mobile-list-item"><div class="mobile-dot">2</div><div><div class="mobile-item-title">确认协同比例</div><div class="mobile-item-sub">福州分公司人员比例待确认</div></div><div class="mobile-status">待办</div></div>
-<div class="mobile-list-item"><div class="mobile-dot">3</div><div><div class="mobile-item-title">日报提交</div><div class="mobile-item-sub">服务记录已自动带入</div></div><div class="mobile-status">草稿</div></div>
+<strong>我的服务概览</strong>
+<div class="stat-ring">
+<div class="ring"><span>本月<br>68%</span></div>
+<div>
+<div class="mobile-row"><span>本月计划</span><span>21</span></div>
+<div class="mobile-row"><span>已记录服务</span><span>16</span></div>
+<div class="mobile-row"><span>材料使用</span><span>8</span></div>
+</div>
+</div>
+<div class="rank-list">
+<div class="rank-item"><b>1</b><span>兴业银行理财｜服务 5 次</span><em>重点</em></div>
+<div class="rank-item"><b>2</b><span>某城商行｜跟进 3 次</span><em>待跟进</em></div>
+<div class="rank-item"><b>3</b><span>福州分公司协同｜确认 2 单</span><em>协同</em></div>
+</div>
+</div>
+<div class="mobile-card">
+<strong>跟进提醒</strong>
+<div class="mini-progress">
+<div><b>1</b><span>兴业银行理财材料反馈</span><strong>今日</strong></div>
+<div><b>2</b><span>补充线上路演服务记录</span><strong>待办</strong></div>
+<div><b>3</b><span>确认分公司协同事项</span><strong>协同</strong></div>
 </div>
 </div>
 </div>
 <div class="mobile-nav">
-<button class="active" data-mini-target="home" type="button">首页</button>
-<button data-mini-target="customer" type="button">客户</button>
-<button data-mini-target="visit" type="button">记录</button>
-<button data-mini-target="tasks" type="button">我的</button>
+<button class="active" data-mini-target="home" type="button">工作台</button>
+<button data-mini-target="plan" type="button">日程</button>
+<button data-mini-target="record" type="button">记录</button>
+<button data-mini-target="tools" type="button">工具</button>
+<button data-mini-target="stats" type="button">我的</button>
 </div>
 </div>
 </div>
-<div class="prototype-note">线上HTML中可点击小程序底部导航及按钮，切换客户360、服务记录、材料分享和任务跟进页面。</div>
+<div class="prototype-note">线上HTML中可点击底部导航及按钮，切换工作台、日程计划、服务记录、展业工具和我的服务。</div>
 </div>
 
 <div>
 <table>
-<caption>表 1-3　移动展业端需要解决的核心事项</caption>
+<caption>表 1-3　销售记录沉淀与展业赋能设计要点</caption>
 <thead>
 <tr><th>能力</th><th>原型含义</th><th>系统边界</th></tr>
 </thead>
 <tbody>
-<tr><td>客户与联系人</td><td>销售人员可在移动端查看客户360、联系人、标签、服务历史和产品持有情况。</td><td>资管CRM承接主数据；集团CRM可补充集团视图标签；敏感数据按权限展示。</td></tr>
-<tr><td>拜访与服务记录</td><td>移动端现场填报拜访、随同拜访、服务内容、后续任务，并自动进入日报。</td><td>短期可复用集团CRM移动端；关键要求是回写资管CRM，形成统计和考核依据。</td></tr>
-<tr><td>协同过程</td><td>销售可发起协同线索或查看协同状态，分公司侧确认人员比例和协同关系。</td><td>集团CRM适合承接协同确认流程；资管侧接收确认结果用于规则计算。</td></tr>
-<tr><td>展业赋能</td><td>销售可一键查看产品材料、投研观点、活动资料，并通过智达或微信链路分享。</td><td>产品全生命周期提供产品资料源头；智达承接对客展示和分享。</td></tr>
-<tr><td>管理统计</td><td>市场部管理人员可查看拜访量、跟进状态、客户覆盖、销售过程质量。</td><td>资管CRM或统一数据底座形成统计口径，驾驶舱消费结果。</td></tr>
+<tr><td>拜访计划</td><td>销售人员维护月度计划、今日行程、拜访类型、随同人员和客户提醒。</td><td>可借鉴集团CRM日程能力；资管CRM需保存计划与客户、产品、渠道关系。</td></tr>
+<tr><td>服务记录</td><td>沉淀客户、联系人、产品、沟通内容、客户反馈、后续任务和协同线索。</td><td>资管CRM作为服务记录权威库；集团CRM可接收协同申请和确认结果。</td></tr>
+<tr><td>展业工具</td><td>销售可在记录过程中调用产品资料、投研观点、周报、路演材料、活动邀请和智达分享。</td><td>产品全生命周期和智达提供资料源头与对客展示；使用痕迹回写服务记录。</td></tr>
+<tr><td>记录补充</td><td>会后补充、修改拜访对象、补充纪要均需原因、复核人、状态和历史版本。</td><td>复核链路可复用集团CRM或OA能力；最终记录必须回写资管CRM。</td></tr>
+<tr><td>统计复盘</td><td>市场部查看有效记录量、客户覆盖、材料使用、待补充事项、协同跟进和日报提交。</td><td>驾驶舱消费记录统计结果，不直接承担销售归属、管理费分成和TA核验计算。</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<h3>4.2 Web端原型：业务版规则配置工作台</h3>
+<h3 class="section-break">4.2 Web端原型：业务版规则配置工作台</h3>
 
 <p>Web端不应要求一线销售或普通业务人员写代码。建议将用户分层：销售只使用小程序完成展业动作；市场部业务管理员使用规则配置向导维护口径；运营负责TA核验；IT及恒生负责字段、接口和高级规则模板。AI的作用是把业务口径翻译成配置草稿和差异解释，而不是让AI直接发布生产规则。</p>
 
@@ -761,7 +827,7 @@ return {
 <div class="proto-callouts">
 <div class="proto-callout">
 <strong>前台：移动展业</strong>
-以微信小程序方式承载客户360、拜访记录、协同线索、材料分享和任务跟进，核心是提升销售过程数据的及时性和完整性。
+以微信小程序方式承载拜访计划、服务记录、客户反馈、协同线索、展业工具和营销材料，核心是沉淀销售过程数据并提升展业效率。
 </div>
 <div class="proto-callout">
 <strong>后台：计算引擎</strong>
@@ -773,10 +839,10 @@ return {
 
 <p>本部分按照我部前期材料中的“需求总结、当前情况及问题、进度及解决方案”口径展开，并补充后续可落地的系统解决思路。</p>
 
-<h2 id="p2-crm">一、CRM销售过程管理</h2>
+<h2 id="p2-crm">一、CRM销售记录沉淀</h2>
 
 <h3>1.1 需求总结</h3>
-<p>实现销售日常工作流程的事前、事中、事后全流程管理，形成可用于客户分析、拜访统计、工作日报、管理驾驶舱和销售过程管理的基础数据。</p>
+<p>实现销售日常工作的事前、事中、事后全流程记录沉淀，形成可用于客户分析、拜访统计、工作日报、管理驾驶舱和销售服务复盘的基础数据。</p>
 
 <h3>1.2 当前情况及解决思路</h3>
 <p>CRM系统已完成交付，信息技术部与恒生整体处于大立项阶段。若功能为标准模块，可申请先行测试并加快投入使用；若为个性化改造，则需信息技术部与供应商沟通，周期较长。目前已与恒生沟通梳理标准化模块清单，等待答复。</p>
@@ -795,7 +861,7 @@ return {
 
 <div class="box box-success">
 <div class="box-title">建议推进方式</div>
-<p>对CRM销售过程管理，我部拟采用“问题修复清单 + 标准模块先行测试 + 个性化需求入大立项”的方式推进。我部负责业务验收口径，需请IT与恒生确认标准能力和修复排期，并请销售团队提供真实使用场景和测试样本。</p>
+<p>对CRM销售记录沉淀，我部拟采用“问题修复清单 + 标准模块先行测试 + 个性化需求入大立项”的方式推进。我部负责业务验收口径，需请IT与恒生确认标准能力和修复排期，并请销售团队提供真实使用场景和测试样本。</p>
 </div>
 
 <div class="box box-info">
@@ -1131,11 +1197,11 @@ return {
 <script>
 (() => {
   const miniTitles = {
-    home: "展业首页",
-    customer: "客户360",
-    visit: "服务记录",
-    materials: "智达材料",
-    tasks: "任务跟进"
+    home: "今日工作台",
+    plan: "日程计划",
+    record: "服务记录",
+    tools: "展业工具",
+    stats: "我的服务"
   };
 
   function switchMiniScreen(target) {
@@ -1148,7 +1214,7 @@ return {
       }
     });
     const title = document.getElementById("mini-screen-title");
-    if (title) title.textContent = miniTitles[target] || "展业首页";
+    if (title) title.textContent = miniTitles[target] || "今日工作台";
   }
 
   document.querySelectorAll("[data-mini-target]").forEach((button) => {
