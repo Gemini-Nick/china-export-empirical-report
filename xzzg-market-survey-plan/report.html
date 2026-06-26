@@ -112,17 +112,17 @@ details[open] summary{margin-bottom:10px}
 .prototype-grid{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start;margin:24px 0}
 .prototype-note{font-size:9.2pt;color:#5D6D7E;line-height:1.6;margin-top:8px}
 .phone-frame{width:300px;margin:0 auto;border:10px solid #1F2D3D;border-radius:32px;background:#1F2D3D;box-shadow:0 18px 36px rgba(31,45,61,.16)}
-.phone-screen{background:#F5F7FA;border-radius:22px;overflow:hidden;min-height:620px;border:1px solid #2C3E50}
-.mobile-top{background:#2F5496;color:#fff;padding:16px 16px 14px}
-.mobile-kicker{font-size:8.5pt;opacity:.85}
-.mobile-title{font-size:15pt;font-weight:700;margin-top:4px;line-height:1.35}
-.mobile-sub{font-size:9pt;margin-top:4px;opacity:.9}
-.mobile-section{padding:12px 14px}
-.mobile-card{background:#fff;border:1px solid #DCE4EE;border-radius:10px;padding:10px 12px;margin-bottom:10px}
-.mobile-card strong{display:block;color:#1F3864;margin-bottom:4px}
+.phone-screen{background:#F5F6F8;border-radius:22px;overflow:hidden;min-height:620px;border:1px solid #2C3E50}
+.mobile-top{background:#fff;color:#1F2D3D;padding:12px 14px 10px;border-bottom:1px solid #E8EEF7}
+.mobile-kicker{font-size:7.8pt;color:#7F8C9A}
+.mobile-title{font-size:13.5pt;font-weight:700;margin-top:3px;line-height:1.35;color:#1F3864}
+.mobile-sub{font-size:8.4pt;margin-top:3px;color:#7F8C9A}
+.mobile-section{padding:10px 10px 12px}
+.mobile-card{background:#fff;border:1px solid #E5EBF3;border-radius:8px;padding:9px 10px;margin-bottom:8px}
+.mobile-card strong{display:block;color:#1F3864;margin-bottom:5px}
 .mobile-row{display:flex;justify-content:space-between;gap:8px;font-size:9pt;color:#5D6D7E}
 .mobile-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.mobile-action{background:#EBF1F7;border:1px solid #C8D6E5;color:#1F3864;border-radius:8px;text-align:center;padding:7px 4px;font-size:8.5pt;font-weight:600}
+.mobile-action{background:#F7F9FC;border:1px solid #C8D6E5;color:#1F3864;border-radius:7px;text-align:center;padding:7px 4px;font-size:8.5pt;font-weight:600}
 button.mobile-action{font-family:inherit;cursor:pointer}
 .mobile-action.primary{background:#2F5496;color:#fff;border-color:#2F5496}
 .mini-status-bar{display:flex;justify-content:space-between;align-items:center;background:#fff;color:#7F8C9A;font-size:7.8pt;padding:7px 14px;border-bottom:1px solid #E8EEF7}
@@ -136,17 +136,31 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 .mini-progress{display:grid;gap:6px;margin-top:8px}
 .mini-progress div{display:grid;grid-template-columns:18px 1fr auto;gap:6px;align-items:center;font-size:8.2pt;color:#5D6D7E}
 .mini-progress b{background:#2F5496;color:#fff;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:7.5pt}
-.mobile-list{display:grid;gap:8px}
-.mobile-list-item{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:9px;padding:8px}
-.mobile-dot{width:28px;height:28px;border-radius:50%;background:#EBF5FB;color:#2F5496;text-align:center;line-height:28px;font-weight:700;font-size:9pt}
+.mobile-list{display:grid;gap:7px}
+.mobile-list-item{display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #E5EBF3;border-radius:8px;padding:7px 8px}
+.mobile-dot{width:26px;height:26px;border-radius:7px;background:#EBF5FB;color:#2F5496;text-align:center;line-height:26px;font-weight:700;font-size:8.5pt}
 .mobile-item-title{font-size:9pt;font-weight:700;color:#34495E;line-height:1.35}
 .mobile-item-sub{font-size:8pt;color:#7F8C9A;line-height:1.35}
 .mobile-status{font-size:8pt;color:#27AE60;font-weight:700}
-.kpi-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
-.kpi-tile{background:#fff;border:1px solid #DCE4EE;border-radius:9px;padding:7px 8px}
-.kpi-tile b{display:block;color:#2F5496;font-size:12pt;line-height:1.15}
-.kpi-tile span{color:#7F8C9A;font-size:7.7pt}
-.timeline-card{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:9px;padding:8px;margin-bottom:8px}
+.workbench-summary{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid #E5EBF3;border-radius:8px;margin-bottom:8px}
+.workbench-summary div{padding:8px 6px;text-align:center;border-right:1px solid #E8EEF7}
+.workbench-summary div:last-child{border-right:none}
+.workbench-summary b{display:block;color:#2F5496;font-size:12pt;line-height:1.1}
+.workbench-summary span{display:block;color:#7F8C9A;font-size:7.6pt;margin-top:3px}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid #E5EBF3;border-radius:8px;overflow:hidden;margin-bottom:8px}
+.quick-item{border:0;border-right:1px solid #E8EEF7;border-bottom:1px solid #E8EEF7;background:#fff;padding:9px 2px 8px;text-align:center;font-family:inherit;color:#34495E;cursor:pointer}
+.quick-item:nth-child(4n){border-right:none}
+.quick-item:nth-last-child(-n+4){border-bottom:none}
+.quick-icon{display:block;width:26px;height:26px;border-radius:8px;background:#EBF1F7;color:#2F5496;margin:0 auto 4px;line-height:26px;font-weight:700;font-size:8.5pt}
+.quick-item span:last-child{display:block;font-size:7.6pt;line-height:1.2}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:9px 2px 6px;color:#1F3864;font-size:9pt;font-weight:700}
+.section-head button{border:0;background:transparent;color:#2F5496;font-size:7.8pt;font-family:inherit;cursor:pointer;padding:0}
+.work-list{display:grid;gap:7px;margin-bottom:8px}
+.work-item{display:grid;grid-template-columns:42px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #E5EBF3;border-radius:8px;padding:8px}
+.work-time{color:#2F5496;font-weight:700;font-size:8pt;text-align:center}
+.work-action{border:1px solid #C8D6E5;background:#F7F9FC;color:#1F3864;border-radius:12px;padding:3px 7px;font-size:7.6pt;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
+.work-action.primary{background:#2F5496;color:#fff;border-color:#2F5496}
+.timeline-card{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #DCE4EE;border-radius:8px;padding:8px;margin-bottom:7px}
 .time-badge{font-size:8pt;color:#2F5496;font-weight:700;text-align:center}
 .mini-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:8px}
 .mini-day{border:1px solid #DCE4EE;border-radius:8px;background:#fff;text-align:center;padding:7px 0;font-size:8pt;color:#7F8C9A}
@@ -260,6 +274,12 @@ button.mobile-action{font-family:inherit;cursor:pointer}
 .sim-actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 14px 14px}
 .sim-log{margin:0 14px 14px;border-left:4px solid #5B9BD5;background:#F8FAFC;border-radius:0 8px 8px 0;padding:9px 11px;color:#34495E;font-size:8.6pt;line-height:1.55}
 .sim-log strong{display:block;margin-bottom:4px}
+.test-table{display:grid;gap:8px;padding:0 14px 14px}
+.test-row{display:grid;grid-template-columns:1fr 1.15fr 1.25fr;gap:10px;border:1px solid #E8EEF7;background:#fff;border-radius:8px;padding:9px 10px;font-size:8.5pt;line-height:1.55}
+.test-row b{color:#1F3864}
+.test-row span{color:#7F8C9A}
+.skill-editor{min-height:260px;background:#fff;color:#34495E;font-family:"SF Mono",Consolas,Monaco,monospace;white-space:pre-wrap}
+.script-note{font-size:7.8pt;color:#7F8C9A;line-height:1.5;margin-top:6px}
 .proto-callouts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
 .proto-callout{border-left:4px solid #5B9BD5;background:#F8FAFC;border-radius:0 8px 8px 0;padding:10px 12px;font-size:9.4pt}
 .proto-callout strong{display:block;margin-bottom:4px}
@@ -280,7 +300,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
   body{padding:0;max-width:none;font-size:10.5pt}
   h2,h3,h4{page-break-after:avoid}
   .section-break{page-break-before:always;break-before:page}
-  table,blockquote,.box,.metric-card,.flow,.timeline,.prototype-grid,.web-frame,.proto-callouts{page-break-inside:avoid;break-inside:avoid}
+  table,blockquote,.box,.metric-card,.flow,.timeline,.prototype-grid,.web-frame,.proto-callouts,.simulation-panel{page-break-inside:avoid;break-inside:avoid}
   .web-frame{zoom:.78;width:100%}
   .web-chrome{height:20px}
   .web-body{grid-template-columns:1fr;min-height:auto}
@@ -298,6 +318,8 @@ button.mobile-action{font-family:inherit;cursor:pointer}
   .code-editor{min-height:138px;max-height:138px;font-size:7.2pt;line-height:1.35;padding:8px}
   .logic-result-row{padding:6px;font-size:7.4pt}
   .logic-log{font-size:7.3pt;padding:6px}
+  .skill-editor{min-height:152px;max-height:152px;font-size:6.8pt;line-height:1.28}
+  .test-row{font-size:7.3pt;padding:6px;gap:6px}
   .web-frame .pipeline{display:none}
   .prototype-note{display:none}
   .toc{page-break-after:always}
@@ -315,7 +337,7 @@ button.mobile-action{font-family:inherit;cursor:pointer}
   .prototype-grid{grid-template-columns:1fr}
   .web-body{grid-template-columns:1fr}
   .web-side{display:none}
-  .web-metrics,.engine-layout,.source-grid,.proto-callouts,.logic-layout,.logic-sample,.sim-body,.persona-strip,.seg-options,.process-grid{grid-template-columns:1fr}
+  .web-metrics,.engine-layout,.source-grid,.proto-callouts,.logic-layout,.logic-sample,.sim-body,.persona-strip,.seg-options,.process-grid,.test-row{grid-template-columns:1fr}
   .sim-head{display:block}
   .flow{padding:14px}
   .flow-row{display:block}
@@ -519,28 +541,35 @@ CRM、集团CRM、智达、驾驶舱、BI、大屏
 <div class="mobile-sub">今日计划 3｜待跟进 2｜可用材料 8</div>
 </div>
 <div class="mobile-section mini-screen active" data-mini-screen="home">
-<div class="kpi-strip">
-<div class="kpi-tile"><b>3</b><span>今日计划</span></div>
-<div class="kpi-tile"><b>2</b><span>待跟进</span></div>
-<div class="kpi-tile"><b>8</b><span>可用材料</span></div>
+<div class="workbench-summary">
+<div><b>3</b><span>今日事项</span></div>
+<div><b>2</b><span>待补记录</span></div>
+<div><b>8</b><span>可用材料</span></div>
 </div>
-<div class="mobile-card">
-<strong>今日行程</strong>
-<div class="timeline-card">
-<div class="time-badge">09:30</div>
-<div><div class="mobile-item-title">兴业银行理财｜现金管理1号</div><div class="mobile-item-sub">客户交流｜已生成服务记录草稿</div></div>
-<div class="mobile-status">已记录</div>
+<div class="quick-grid">
+<button class="quick-item" data-mini-target="record" type="button"><span class="quick-icon">记</span><span>服务记录</span></button>
+<button class="quick-item" data-mini-target="plan" type="button"><span class="quick-icon">程</span><span>日程计划</span></button>
+<button class="quick-item" data-mini-target="tools" type="button"><span class="quick-icon">料</span><span>产品资料</span></button>
+<button class="quick-item" data-mini-target="tools" type="button"><span class="quick-icon">智</span><span>智达分享</span></button>
+<button class="quick-item" data-mini-target="record" type="button"><span class="quick-icon">客</span><span>客户反馈</span></button>
+<button class="quick-item" data-mini-target="record" type="button"><span class="quick-icon">协</span><span>协同事项</span></button>
+<button class="quick-item" data-mini-target="tools" type="button"><span class="quick-icon">投</span><span>投研观点</span></button>
+<button class="quick-item" data-mini-target="stats" type="button"><span class="quick-icon">我</span><span>我的服务</span></button>
 </div>
-<div class="timeline-card">
-<div class="time-badge">14:30</div>
-<div><div class="mobile-item-title">福州分公司协同拜访</div><div class="mobile-item-sub">随同人员、协同关系和后续安排待确认</div></div>
-<div class="mobile-status">待跟进</div>
+<div class="section-head"><span>今日事项</span><button data-mini-target="plan" type="button">全部</button></div>
+<div class="work-list">
+<div class="work-item">
+<div class="work-time">09:30</div>
+<div><div class="mobile-item-title">兴业银行理财｜产品交流</div><div class="mobile-item-sub">现金管理1号，已生成服务记录草稿</div></div>
+<button class="work-action primary" data-mini-target="record" type="button">补充</button>
 </div>
-<div class="mobile-actions">
-<button class="mobile-action primary" data-mini-target="record" type="button">记录服务</button>
-<button class="mobile-action" data-mini-target="plan" type="button">查看日程</button>
+<div class="work-item">
+<div class="work-time">14:30</div>
+<div><div class="mobile-item-title">福州分公司协同拜访</div><div class="mobile-item-sub">随同人员、后续安排待确认</div></div>
+<button class="work-action" data-mini-target="record" type="button">记录</button>
 </div>
 </div>
+<div class="section-head"><span>待处理</span><button data-mini-target="record" type="button">新增</button></div>
 <div class="mobile-list">
 <div class="mobile-list-item">
 <div class="mobile-dot">补</div>
@@ -556,15 +585,6 @@ CRM、集团CRM、智达、驾驶舱、BI、大屏
 <div class="mobile-dot">协</div>
 <div><div class="mobile-item-title">分公司协同待确认</div><div class="mobile-item-sub">分公司协同事项需继续跟进</div></div>
 <div class="mobile-status">待确认</div>
-</div>
-</div>
-<div class="mobile-card">
-<strong>展业工具</strong>
-<div class="mobile-actions">
-<button class="mobile-action" data-mini-target="tools" type="button">产品资料</button>
-<button class="mobile-action" data-mini-target="tools" type="button">投研观点</button>
-<button class="mobile-action" data-mini-target="tools" type="button">智达分享</button>
-<button class="mobile-action" data-mini-target="tools" type="button">活动邀请</button>
 </div>
 </div>
 </div>
@@ -677,108 +697,146 @@ CRM、集团CRM、智达、驾驶舱、BI、大屏
 </div>
 </div>
 
-<h3 class="section-break">4.2 Web端原型：业务版规则配置工作台</h3>
+<div class="box box-info">
+<div class="box-title">线上可交互原型</div>
+<p>为避免报告中的原型停留在静态示意，本方案同步提供两个可直接访问的GitHub Pages Demo：<a href="https://gemini-nick.github.io/china-export-empirical-report/xzzg-sales-mobile-demo/" target="_blank" rel="noopener">移动端销售展业助手 Demo</a>用于验证销售日常工作台、服务记录、日程和营销材料交互；<a href="https://gemini-nick.github.io/china-export-empirical-report/xzzg-data-exchange-engine-demo/" target="_blank" rel="noopener">数据交换与计算平台 Demo</a>用于验证Markdown/Skill规则、SQL/Python草稿、沙箱试算、差异清单和分发控制。</p>
+</div>
 
-<p>Web端不应要求一线销售或普通业务人员写代码。建议将用户分层：销售只使用小程序完成展业动作；市场部业务管理员使用规则配置向导维护口径；运营负责TA核验；IT及恒生负责字段、接口和高级规则模板。AI的作用是把业务口径翻译成配置草稿和差异解释，而不是让AI直接发布生产规则。</p>
+<h3>4.2 Web端原型：数据交换与计算平台</h3>
+
+<p>Web端不应定位为新的CRM页面，也不应要求一线销售或普通业务人员写代码。更合适的定位是“数据交换与计算平台”：兴证资管市场部用Markdown/Skill维护业务规则，AI将规则转译为SQL或Python任务草稿，平台在内网沙箱连接资管CRM、集团CRM、产品全生命周期、运营TA、BI/历史台账等数据源，完成取数、计算、TA核验、差异清单和结果分发。AI只负责“口径转脚本”和“差异解释”，不能直接访问生产库、发布生产规则或执行生产写入。</p>
 
 <div class="web-frame">
 <div class="web-chrome"><span class="web-dot"></span><span class="web-dot"></span><span class="web-dot"></span></div>
 <div class="web-body">
 <div class="web-side">
-<div class="web-side-title">销售数据底座</div>
-<div class="web-side-item active">总览看板</div>
-<div class="web-side-item">数据接入</div>
+<div class="web-side-title">数据交换平台</div>
+<div class="web-side-item active">任务总览</div>
+<div class="web-side-item">数据源接入</div>
 <div class="web-side-item">客户+产品关系</div>
-<div class="web-side-item active">规则配置</div>
-<div class="web-side-item">特殊归属</div>
-<div class="web-side-item">TA核验</div>
-<div class="web-side-item">分发报送</div>
+<div class="web-side-item active">规则Skill</div>
+<div class="web-side-item">SQL/Python任务</div>
+<div class="web-side-item">试算核验</div>
+<div class="web-side-item">结果分发</div>
 </div>
 <div class="web-main">
 <div class="web-head">
-<div><h4>规则配置工作台</h4><p>业务人员按向导选择口径、填写比例和生效规则；IT/恒生在高级模式维护字段映射与模板</p></div>
-<div class="web-badge">业务版 v0.4 草稿</div>
+<div><h4>数据交换与计算平台</h4><p>市场部维护规则Skill；AI生成SQL/Python；平台取数、计算、核验、分发</p></div>
+<div class="web-badge">内网沙箱 v0.6 草稿</div>
 </div>
 <div class="web-metrics">
-<div class="web-metric"><b>4</b><span>用户角色</span></div>
-<div class="web-metric"><b>6</b><span>业务字段</span></div>
-<div class="web-metric"><b>3</b><span>核验状态</span></div>
-<div class="web-metric"><b>5</b><span>推送去向</span></div>
+<div class="web-metric"><b>6</b><span>数据源</span></div>
+<div class="web-metric"><b>2</b><span>脚本类型</span></div>
+<div class="web-metric"><b>4</b><span>核验关口</span></div>
+<div class="web-metric"><b>5</b><span>分发去向</span></div>
 </div>
 <div class="persona-strip">
-<div class="persona-card"><b>销售</b><span>只用小程序，不进规则后台</span></div>
-<div class="persona-card"><b>市场部管理员</b><span>配置规则、发起试算</span></div>
-<div class="persona-card"><b>运营</b><span>TA核验、差异确认</span></div>
-<div class="persona-card"><b>IT/恒生</b><span>接口、字段、高级模板</span></div>
+<div class="persona-card"><b>市场部规则管理员</b><span>维护Markdown/Skill业务规则</span></div>
+<div class="persona-card"><b>运营TA核验</b><span>确认交易、保有、费用权威口径</span></div>
+<div class="persona-card"><b>IT/恒生</b><span>字段映射、脚本沙箱、接口发布</span></div>
+<div class="persona-card"><b>综合/集团报送</b><span>接收经核验的协同报送结果</span></div>
 </div>
 <div class="logic-layout">
 <div class="engine-panel">
-<h5>数据源与字段映射</h5>
+<h5>数据源与交换任务</h5>
 <div class="field-map">
-<div class="field-row"><b>恒生/资管CRM</b><span>客户、服务记录</span></div>
+<div class="field-row"><b>资管CRM/恒生</b><span>客户、服务记录、关系</span></div>
+<div class="field-row"><b>集团CRM</b><span>协同确认、分成比例</span></div>
+<div class="field-row"><b>产品全生命周期</b><span>产品要素、费率、版本</span></div>
 <div class="field-row"><b>运营TA</b><span>交易、保有、费用</span></div>
-<div class="field-row"><b>产品全生命周期</b><span>产品要素、费率</span></div>
-<div class="field-row"><b>集团CRM</b><span>协同确认、比例</span></div>
-<div class="field-row"><b>BI/历史台账</b><span>过渡校验样本</span></div>
+<div class="field-row"><b>智达</b><span>对客展示白名单</span></div>
+<div class="field-row"><b>BI/历史台账</b><span>过渡核验样本</span></div>
 </div>
 <div class="logic-sample" style="grid-template-columns:1fr;margin-top:8px">
-<div><b>样例客户</b><span>兴业银行理财｜现金管理1号</span></div>
-<div><b>样例数据</b><span>日均保有 10,000,000｜费率 0.30%｜协同比例 30%</span></div>
-<div><b>生效约束</b><span>2026-06-25 起生效，不倒算历史</span></div>
+<div><b>样本A</b><span>客户+产品协同，验证分公司分成</span></div>
+<div><b>样本B</b><span>交易流水优先，验证特殊归属覆盖</span></div>
+<div><b>样本C</b><span>当日申赎/大额申赎，验证T日数据时效</span></div>
 </div>
 </div>
 <div class="engine-panel">
-<h5>AI辅助生成配置草稿</h5>
+<h5>Markdown / Skill 业务规则</h5>
 <div class="ai-box">
-<strong>业务口径输入</strong>
-<textarea id="ai-prompt" class="ai-prompt" spellcheck="false">客户+产品确认为协同关系后，按日均保有和管理费率计算管理费；分公司按30%分成；从确认日开始生效，不倒算历史。</textarea>
+<strong>由市场部维护，作为规则入口</strong>
+<textarea id="rule-spec" class="ai-prompt skill-editor" spellcheck="false">---
+rule_id: collab_fee_split.v1
+name: 客户产品协同管理费分成规则
+owner: 兴证资管市场部
+scope: 客户+产品协同
+effective_from: 2026-07-01
+retroactive: false
+approval: 市场部确认 -> 运营TA核验 -> IT/恒生发布
+sources:
+  asset_crm: customer_id, product_code, service_record_id
+  group_crm: collaboration_id, branch, share_ratio, approval_status
+  product_lifecycle: product_code, management_fee_rate, product_status
+  ta: fund_account, avg_holding, confirmed_fee
+outputs:
+  - management_fee_base
+  - branch_share
+  - asset_management_share
+  - attribution_reason
+  - rule_version
+---
+
+## 计算规则
+1. 仅处理集团CRM或协同流程中已确认的客户+产品协同关系。
+2. 管理费基础金额 = 运营TA日均保有 * 产品全生命周期系统中的管理费率。
+3. 分公司分成 = 管理费基础金额 * 已确认协同比例。
+4. 如同一客户同一产品存在交易流水优先特殊归属，以特殊归属规则覆盖。
+
+## 校验规则
+- 协同比例必须在0到1之间。
+- 产品费率必须来自有效版本。
+- TA保有与历史台账差异超阈值时阻断发布。</textarea>
 <div class="logic-actions">
-<button id="ai-generate-rule" class="logic-button secondary" type="button">AI填充配置草稿</button>
-<span class="logic-hint">AI只辅助填表，正式规则仍需试算、TA核验和审批。</span>
+<button id="ai-generate-rule" class="logic-button secondary" type="button">AI生成SQL/Python草稿</button>
+<span class="logic-hint">草稿进入测试分支，不直接发布生产。</span>
 </div>
-</div>
-<div class="config-form">
-<div class="config-row"><b>规则类型</b><div class="seg-options"><div class="seg-option active">客户+产品协同</div><div class="seg-option">交易流水优先</div></div></div>
-<div class="config-row"><b>客户</b><input id="cfg-customer" value="兴业银行理财"></div>
-<div class="config-row"><b>产品</b><input id="cfg-product" value="现金管理1号"></div>
-<div class="config-row"><b>协同单位</b><input id="cfg-branch" value="福州分公司"></div>
-<div class="config-row"><b>分成比例</b><input id="cfg-share" value="30%"></div>
-<div class="config-row"><b>生效方式</b><select id="cfg-effective"><option>确认日起生效，不倒算历史</option><option>次月起生效</option><option>指定日期生效</option></select></div>
 </div>
 <details class="advanced-box">
-<summary>高级模板（IT/恒生实施使用）</summary>
-<textarea id="rule-editor" class="code-editor" spellcheck="false">const managementFee = holdAmount * feeRate;
-const branchShare = managementFee * shareRatio;
-const amShare = managementFee - branchShare;
-
-return {
-  "归属口径": ruleType,
-  "管理费金额": managementFee,
-  "分公司分成": branchShare,
-  "资管留存": amShare,
-  "校验状态": shareRatio >= 0 && shareRatio <= 1 ? "通过" : "比例异常",
-  "生效规则": effectiveDate + "起生效，不倒算历史"
-};</textarea>
+<summary>AI生成脚本草稿（SQL / Python，由IT/恒生审核封装）</summary>
+<textarea id="rule-editor" class="code-editor" spellcheck="false">-- SQL草稿：仅允许在内网只读视图和测试库运行
+WITH confirmed_collab AS (
+  SELECT customer_id, product_code, branch, share_ratio
+  FROM group_crm_collaboration
+  WHERE approval_status = 'CONFIRMED'
+),
+fee_base AS (
+  SELECT t.customer_id, t.product_code,
+         t.avg_holding * p.management_fee_rate AS management_fee_base
+  FROM ta_avg_holding t
+  JOIN product_lifecycle p ON t.product_code = p.product_code
+  WHERE p.product_status = 'ACTIVE'
+)
+SELECT f.customer_id, f.product_code, c.branch,
+       f.management_fee_base,
+       f.management_fee_base * c.share_ratio AS branch_share,
+       f.management_fee_base * (1 - c.share_ratio) AS asset_management_share,
+       'collab_fee_split.v1' AS rule_version
+FROM fee_base f
+JOIN confirmed_collab c
+  ON f.customer_id = c.customer_id AND f.product_code = c.product_code;</textarea>
+<div class="script-note">脚本必须运行在内网沙箱；只读视图、字段白名单、SQL AST校验、Python资源限制、日志和版本发布由IT/恒生控制。</div>
 </details>
 <div class="logic-actions">
-<button id="run-rule" class="logic-button" type="button">运行试算</button>
+<button id="run-rule" class="logic-button" type="button">查看脚本输出字段</button>
 <button id="reset-rule" class="logic-button secondary" type="button">恢复样例</button>
-<span class="logic-hint">业务用户只操作表单；高级模板默认隐藏，供IT/恒生实施配置。</span>
+<span class="logic-hint">接入授权样本后再运行真实试算。</span>
 </div>
 </div>
 <div class="engine-panel">
-<h5>试算、核验与推送</h5>
+<h5>沙箱试算、核验与分发</h5>
 <div id="rule-result" class="logic-result"></div>
-<div id="rule-log" class="logic-log">点击“运行试算”后，平台输出管理费金额、分成结果、校验状态和生效规则；通过TA核验和审批后，再分发给资管CRM、集团CRM、BI、驾驶舱和智达。</div>
+<div id="rule-log" class="logic-log">当前原型只展示规则Skill如何转为SQL/Python任务及输出字段。真实金额试算必须接入运营TA、产品费率、协同确认和历史台账样本后执行。</div>
 <div class="push-list">
-<div class="push-item"><span>推送资管CRM</span><b class="push-state">销售归属/考核</b></div>
-<div class="push-item"><span>推送集团CRM</span><b class="push-state">协同报送结果</b></div>
-<div class="push-item"><span>推送BI/驾驶舱</span><b class="push-state">管理指标</b></div>
-<div class="push-item"><span>推送智达</span><b class="push-state">仅对客展示内容</b></div>
+<div class="push-item"><span>核验输出</span><b class="push-state">差异清单</b></div>
+<div class="push-item"><span>规则输出</span><b class="push-state">版本脚本</b></div>
+<div class="push-item"><span>业务输出</span><b class="push-state">金额/归属结果</b></div>
+<div class="push-item"><span>分发输出</span><b class="push-state">系统接口包</b></div>
 </div>
 <div class="pipeline">
-<div class="pipe-step"><div class="pipe-num">1</div><div><div class="pipe-title">配置规则草稿</div><div class="pipe-desc">市场部维护规则草稿，IT控制字段与权限</div></div><div class="pipe-state">编辑中</div></div>
-<div class="pipe-step"><div class="pipe-num">2</div><div><div class="pipe-title">样例试算</div><div class="pipe-desc">使用TA样例和历史台账跑通结果</div></div><div class="pipe-state">可运行</div></div>
+<div class="pipe-step"><div class="pipe-num">1</div><div><div class="pipe-title">编写规则Skill</div><div class="pipe-desc">市场部维护Markdown口径和版本说明</div></div><div class="pipe-state">编辑中</div></div>
+<div class="pipe-step"><div class="pipe-num">2</div><div><div class="pipe-title">AI生成SQL/Python</div><div class="pipe-desc">转为取数、计算、比对任务，进入测试分支</div></div><div class="pipe-state">可生成</div></div>
 <div class="pipe-step"><div class="pipe-num">3</div><div><div class="pipe-title">运营核验</div><div class="pipe-desc">差异定位、修正规则、确认权威口径</div></div><div class="pipe-state">待核验</div></div>
 <div class="pipe-step"><div class="pipe-num">4</div><div><div class="pipe-title">版本发布</div><div class="pipe-desc">生效日期、审批留痕、不倒算约束</div></div><div class="pipe-state">待发布</div></div>
 </div>
@@ -788,50 +846,51 @@ return {
 </div>
 </div>
 
-<h3>4.3 场景模拟：从销售展业到计算与推送</h3>
+<h3>4.3 真实数据模拟测试：生产链路联调与取证</h3>
 
-<p>以下模拟一笔典型展业链路：销售在小程序记录客户拜访和协同线索，计算引擎从各系统获取权威数据，完成规则试算和TA核验后，再向相关系统推送不同粒度的结果。</p>
+<p>本方案不建议继续保留“点击按钮跑一遍”的假链路模拟。真正有价值的验证，应选取脱敏真实样本，在测试环境或授权只读生产界面中完成端到端回放：用Computer Use操作真实CRM、集团CRM、智达或恒生页面进行截图取证，用接口、导出文件或数据库查询获取结果，再与运营TA和历史台账进行差异核验。</p>
 
 <div class="simulation-panel">
 <div class="sim-head">
-<div><h5>销售展业链路模拟器</h5><p>场景：兴业银行理财购买现金管理1号，福州分公司参与协同，需计算管理费分成并完成集团报送。</p></div>
-<div class="web-badge" id="sim-summary">待触发展业流程</div>
+<div><h5>真实数据联调测试台</h5><p>测试对象：服务记录、协同确认、产品主数据、TA交易保有、规则脚本、分发结果。</p></div>
+<div class="web-badge">测试环境优先</div>
 </div>
 <div class="sim-body">
 <div class="sim-lane">
-<div class="sim-lane-title">一、销售动作</div>
-<div class="sim-step" data-sim-step="1"><div class="sim-num">1</div><div><div class="sim-title">小程序记录拜访</div><div class="sim-desc">客户、联系人、随同拜访、服务内容、后续任务</div></div><div class="sim-status">待触发</div></div>
-<div class="sim-step" data-sim-step="2"><div class="sim-num">2</div><div><div class="sim-title">写入资管CRM/恒生</div><div class="sim-desc">服务记录、日报、客户标签、跟进任务</div></div><div class="sim-status">待写入</div></div>
-<div class="sim-step" data-sim-step="3"><div class="sim-num">3</div><div><div class="sim-title">发起协同确认</div><div class="sim-desc">同步至集团CRM，分公司确认人员比例</div></div><div class="sim-status">待确认</div></div>
+<div class="sim-lane-title">一、测试准备</div>
+<div class="sim-step"><div class="sim-num">1</div><div><div class="sim-title">确定真实样本</div><div class="sim-desc">客户+产品协同、交易流水优先、当日申赎、大额申赎、产品信息缺失</div></div><div class="sim-status">待提供</div></div>
+<div class="sim-step"><div class="sim-num">2</div><div><div class="sim-title">准备账号权限</div><div class="sim-desc">CRM、集团CRM、智达、恒生/TA查询、BI或导出报表</div></div><div class="sim-status">待确认</div></div>
+<div class="sim-step"><div class="sim-num">3</div><div><div class="sim-title">冻结基准口径</div><div class="sim-desc">运营TA字段、产品费率、协同确认结果、历史台账口径</div></div><div class="sim-status">待冻结</div></div>
 </div>
 <div class="sim-lane">
-<div class="sim-lane-title">二、计算引擎获取</div>
-<div class="sim-step" data-sim-step="4"><div class="sim-num">4</div><div><div class="sim-title">获取产品主数据</div><div class="sim-desc">产品全生命周期：产品要素、费率、合同、版本</div></div><div class="sim-status">待获取</div></div>
-<div class="sim-step" data-sim-step="5"><div class="sim-num">5</div><div><div class="sim-title">获取TA交易保有</div><div class="sim-desc">运营TA：交易、申赎、日均保有、费用基础金额</div></div><div class="sim-status">待获取</div></div>
-<div class="sim-step" data-sim-step="6"><div class="sim-num">6</div><div><div class="sim-title">执行规则试算</div><div class="sim-desc">客户+产品关系、协同比例、生效日、不倒算</div></div><div class="sim-status">待计算</div></div>
+<div class="sim-lane-title">二、Computer Use回放</div>
+<div class="sim-step"><div class="sim-num">4</div><div><div class="sim-title">操作真实界面</div><div class="sim-desc">在测试环境录入或查询服务记录、协同确认、材料分享、结果展示</div></div><div class="sim-status">需授权</div></div>
+<div class="sim-step"><div class="sim-num">5</div><div><div class="sim-title">截图与字段取证</div><div class="sim-desc">记录页面字段、时间、用户、状态、导出文件名和查询条件</div></div><div class="sim-status">留痕</div></div>
+<div class="sim-step"><div class="sim-num">6</div><div><div class="sim-title">禁止直接生产推送</div><div class="sim-desc">生产界面仅只读取证；写入、提交、推送必须在测试环境或经业务授权</div></div><div class="sim-status">控制</div></div>
 </div>
 <div class="sim-lane">
-<div class="sim-lane-title">三、核验与推送</div>
-<div class="sim-step" data-sim-step="7"><div class="sim-num">7</div><div><div class="sim-title">运营TA核验</div><div class="sim-desc">确认差异、锁定口径、形成可报送结果</div></div><div class="sim-status">待核验</div></div>
-<div class="sim-step" data-sim-step="8"><div class="sim-num">8</div><div><div class="sim-title">推送内部系统</div><div class="sim-desc">资管CRM、集团CRM、BI、驾驶舱、大屏</div></div><div class="sim-status">待推送</div></div>
-<div class="sim-step" data-sim-step="9"><div class="sim-num">9</div><div><div class="sim-title">推送对客展示</div><div class="sim-desc">智达仅接收可对客内容和服务标签</div></div><div class="sim-status">待推送</div></div>
+<div class="sim-lane-title">三、计算核验</div>
+<div class="sim-step"><div class="sim-num">7</div><div><div class="sim-title">脚本批量试算</div><div class="sim-desc">使用真实样本跑规则脚本，输出金额、归属、版本和异常原因</div></div><div class="sim-status">试算</div></div>
+<div class="sim-step"><div class="sim-num">8</div><div><div class="sim-title">TA与台账比对</div><div class="sim-desc">逐笔比对运营TA、历史Excel、集团CRM协同确认和CRM服务记录</div></div><div class="sim-status">核验</div></div>
+<div class="sim-step"><div class="sim-num">9</div><div><div class="sim-title">输出差异清单</div><div class="sim-desc">字段缺失、口径不一致、同步失败、权限缺口、人工补录事项</div></div><div class="sim-status">报告</div></div>
 </div>
 </div>
-<div class="sim-actions">
-<button id="sim-run" class="logic-button" type="button">模拟一次完整展业</button>
-<button id="sim-reset" class="logic-button secondary" type="button">重置链路</button>
+<div class="test-table">
+<div class="test-row"><b>样本选择</b><span>由市场部、销售、运营共同选取3-5个脱敏真实客户/产品样本。</span><span>至少覆盖普通服务记录、客户+产品协同、交易流水特殊归属、当日申赎和产品资料缺失。</span></div>
+<div class="test-row"><b>Computer Use执行</b><span>用真实系统页面完成查询、录入或只读回放，并自动保存截图、字段值、页面路径和时间戳。</span><span>生产环境默认只读；任何提交、上传、推送动作必须走明确授权和测试环境。</span></div>
+<div class="test-row"><b>数据校验</b><span>计算脚本结果与运营TA、历史台账、集团CRM协同确认、资管CRM服务记录逐项比对。</span><span>输出差异清单、责任系统、修复建议、是否阻断上线。</span></div>
 </div>
-<div class="sim-log" id="sim-log"><strong>链路说明</strong>计算引擎不替代恒生、集团CRM、智达或产品全生命周期系统；它通过接口获取权威数据和确认结果，完成资管侧计算与核验，再按用途推送不同结果。</div>
+<div class="sim-log"><strong>验收标准</strong>真实数据测试通过的标准不是页面能点通，而是同一笔样本在资管CRM、集团CRM、产品全生命周期、运营TA、BI/驾驶舱和智达之间字段一致、金额一致、版本可追溯、差异可解释。</div>
 </div>
 
 <div class="proto-callouts">
 <div class="proto-callout">
 <strong>前台：移动展业</strong>
-以微信小程序方式承载拜访计划、服务记录、客户反馈、协同线索、展业工具和营销材料，核心是沉淀销售过程数据并提升展业效率。
+以微信小程序方式承载拜访计划、服务记录、客户反馈、协同线索、展业工具和营销材料；真实测试时重点验证服务记录是否能进入资管CRM并被后续计算链路引用。
 </div>
 <div class="proto-callout">
-<strong>后台：计算引擎</strong>
-以Web规则配置工作台承载业务口径维护、样例试算、TA核验、版本审批和结果分发；高级模板只给IT/恒生做实施配置。
+<strong>后台：规则Skill与计算引擎</strong>
+以Markdown/Skill承载业务口径，AI生成脚本，内网沙箱运行真实样本试算；只有完成TA核验、差异闭环和审批后，才允许向其他系统分发。
 </div>
 </div>
 
@@ -1221,47 +1280,89 @@ return {
     button.addEventListener("click", () => switchMiniScreen(button.dataset.miniTarget));
   });
 
-  const sampleRule = `const managementFee = holdAmount * feeRate;
-const branchShare = managementFee * shareRatio;
-const amShare = managementFee - branchShare;
+  const sampleRule = `-- SQL草稿：仅允许在内网只读视图和测试库运行
+WITH confirmed_collab AS (
+  SELECT customer_id, product_code, branch, share_ratio
+  FROM group_crm_collaboration
+  WHERE approval_status = 'CONFIRMED'
+),
+fee_base AS (
+  SELECT t.customer_id, t.product_code,
+         t.avg_holding * p.management_fee_rate AS management_fee_base
+  FROM ta_avg_holding t
+  JOIN product_lifecycle p ON t.product_code = p.product_code
+  WHERE p.product_status = 'ACTIVE'
+)
+SELECT f.customer_id, f.product_code, c.branch,
+       f.management_fee_base,
+       f.management_fee_base * c.share_ratio AS branch_share,
+       f.management_fee_base * (1 - c.share_ratio) AS asset_management_share,
+       'collab_fee_split.v1' AS rule_version
+FROM fee_base f
+JOIN confirmed_collab c
+  ON f.customer_id = c.customer_id AND f.product_code = c.product_code;`;
 
-return {
-  "归属口径": ruleType,
-  "管理费金额": managementFee,
-  "分公司分成": branchShare,
-  "资管留存": amShare,
-  "校验状态": shareRatio >= 0 && shareRatio <= 1 ? "通过" : "比例异常",
-  "生效规则": effectiveDate + "起生效，不倒算历史"
-};`;
+  const aiRule = `# Python草稿：由Markdown/Skill生成，仅可在内网沙箱执行
+def run(ctx):
+    rows = ctx.read_view("confirmed_collab_with_ta_fee")
+    results = []
+    for row in rows:
+        if row["share_ratio"] < 0 or row["share_ratio"] > 1:
+            results.append({**row, "block_reason": "协同比例异常"})
+            continue
+        fee_base = row["avg_holding"] * row["management_fee_rate"]
+        branch_share = round(fee_base * row["share_ratio"], 2)
+        results.append({
+            "customer_id": row["customer_id"],
+            "product_code": row["product_code"],
+            "management_fee_base": fee_base,
+            "branch_share": branch_share,
+            "asset_management_share": round(fee_base - branch_share, 2),
+            "rule_version": "collab_fee_split.v1",
+            "verify_status": "WAIT_TA_VERIFY"
+        })
+    ctx.write_test_table("collab_fee_split_result_draft", results)
+    return results`;
 
-  const aiRule = `// AI根据业务口径生成的规则草稿，需市场部确认、运营TA核验、审批后发布。
-const managementFee = holdAmount * feeRate;
-const branchShare = Math.round(managementFee * shareRatio * 100) / 100;
-const amShare = Math.round((managementFee - branchShare) * 100) / 100;
-const validRatio = shareRatio >= 0 && shareRatio <= 1;
+  const sampleSpec = `---
+rule_id: collab_fee_split.v1
+name: 客户产品协同管理费分成规则
+owner: 兴证资管市场部
+scope: 客户+产品协同
+effective_from: 2026-07-01
+retroactive: false
+approval: 市场部确认 -> 运营TA核验 -> IT/恒生发布
+sources:
+  asset_crm: customer_id, product_code, service_record_id
+  group_crm: collaboration_id, branch, share_ratio, approval_status
+  product_lifecycle: product_code, management_fee_rate, product_status
+  ta: fund_account, avg_holding, confirmed_fee
+outputs:
+  - management_fee_base
+  - branch_share
+  - asset_management_share
+  - attribution_reason
+  - rule_version
+---
 
-return {
-  "归属口径": ruleType,
-  "计算基础": "日均保有 * 管理费率",
-  "管理费金额": managementFee,
-  "分公司分成": branchShare,
-  "资管留存": amShare,
-  "校验状态": validRatio ? "通过" : "比例异常",
-  "生效规则": effectiveDate + "起生效，不倒算历史",
-  "推送去向": "资管CRM、集团CRM、BI/驾驶舱"
-};`;
+## 计算规则
+1. 仅处理集团CRM或协同流程中已确认的客户+产品协同关系。
+2. 管理费基础金额 = 运营TA日均保有 * 产品全生命周期系统中的管理费率。
+3. 分公司分成 = 管理费基础金额 * 已确认协同比例。
+4. 如同一客户同一产品存在交易流水优先特殊归属，以特殊归属规则覆盖。
 
+## 校验规则
+- 协同比例必须在0到1之间。
+- 产品费率必须来自有效版本。
+- TA保有与历史台账差异超阈值时阻断发布。`;
+
+  const specEditor = document.getElementById("rule-spec");
   const editor = document.getElementById("rule-editor");
   const result = document.getElementById("rule-result");
   const log = document.getElementById("rule-log");
   const run = document.getElementById("run-rule");
   const reset = document.getElementById("reset-rule");
   const ai = document.getElementById("ai-generate-rule");
-  const cfgCustomer = document.getElementById("cfg-customer");
-  const cfgProduct = document.getElementById("cfg-product");
-  const cfgBranch = document.getElementById("cfg-branch");
-  const cfgShare = document.getElementById("cfg-share");
-  const cfgEffective = document.getElementById("cfg-effective");
 
   function formatValue(value) {
     if (typeof value === "number") {
@@ -1280,19 +1381,19 @@ return {
   function runRule() {
     if (!editor || !log) return;
     try {
-      const shareText = cfgShare ? cfgShare.value : "30%";
-      const parsedShare = Number.parseFloat(shareText.replace("%", "").trim());
-      const shareRatioValue = Number.isFinite(parsedShare) ? parsedShare / 100 : 0.3;
-      const effectiveText = cfgEffective ? cfgEffective.value : "确认日起生效，不倒算历史";
-      const fn = new Function("holdAmount", "feeRate", "shareRatio", "ruleType", "effectiveDate", editor.value);
-      const output = fn(10000000, 0.003, shareRatioValue, "客户+产品协同", "2026-06-25");
-      output["客户"] = cfgCustomer ? cfgCustomer.value : "兴业银行理财";
-      output["产品"] = cfgProduct ? cfgProduct.value : "现金管理1号";
-      output["协同单位"] = cfgBranch ? cfgBranch.value : "福州分公司";
-      output["生效方式"] = effectiveText;
+      // The report prototype must not fabricate production-like amounts.
+      // This previews the fields a real-data run should produce after authorized samples are connected.
+      const output = {
+        "规则Skill": "协同业务客户产品分成规则",
+        "脚本状态": editor.value.includes("return") ? "已生成草稿" : "待生成",
+        "输入样本": "待接入运营TA、产品费率、协同确认、CRM服务记录",
+        "输出字段": "管理费基础金额、分公司分成、资管留存、差异状态、生效规则、输出版本",
+        "核验状态": "待真实样本联调",
+        "Computer Use取证": "待测试环境账号和授权"
+      };
       renderResult(output);
       log.classList.remove("error");
-      log.textContent = "试算完成：结果可进入运营TA核验。正式发布前需完成字段口径确认、差异校验和审批留痕。";
+      log.textContent = "字段预览完成：当前页面不生成虚构金额。真实试算需接入授权样本，并通过Computer Use界面取证、接口/导出数据和运营TA逐项比对。";
     } catch (error) {
       if (result) result.innerHTML = "";
       log.classList.add("error");
@@ -1303,71 +1404,14 @@ return {
   if (run) run.addEventListener("click", runRule);
   if (reset && editor) reset.addEventListener("click", () => {
     editor.value = sampleRule;
-    if (cfgCustomer) cfgCustomer.value = "兴业银行理财";
-    if (cfgProduct) cfgProduct.value = "现金管理1号";
-    if (cfgBranch) cfgBranch.value = "福州分公司";
-    if (cfgShare) cfgShare.value = "30%";
-    if (cfgEffective) cfgEffective.value = "确认日起生效，不倒算历史";
+    if (specEditor) specEditor.value = sampleSpec;
     runRule();
   });
   if (ai && editor) ai.addEventListener("click", () => {
-    if (cfgCustomer) cfgCustomer.value = "兴业银行理财";
-    if (cfgProduct) cfgProduct.value = "现金管理1号";
-    if (cfgBranch) cfgBranch.value = "福州分公司";
-    if (cfgShare) cfgShare.value = "30%";
-    if (cfgEffective) cfgEffective.value = "确认日起生效，不倒算历史";
     editor.value = aiRule;
     runRule();
   });
   runRule();
-
-  const simRun = document.getElementById("sim-run");
-  const simReset = document.getElementById("sim-reset");
-  const simSummary = document.getElementById("sim-summary");
-  const simLog = document.getElementById("sim-log");
-  const simLabels = {
-    1: "已记录",
-    2: "已写入",
-    3: "已确认",
-    4: "已获取",
-    5: "已获取",
-    6: "已试算",
-    7: "已核验",
-    8: "已推送",
-    9: "已推送"
-  };
-
-  function resetSimulation() {
-    document.querySelectorAll("[data-sim-step]").forEach((step) => {
-      step.classList.remove("done", "active");
-      const status = step.querySelector(".sim-status");
-      const original = {
-        1: "待触发", 2: "待写入", 3: "待确认", 4: "待获取", 5: "待获取",
-        6: "待计算", 7: "待核验", 8: "待推送", 9: "待推送"
-      }[step.dataset.simStep] || "待处理";
-      if (status) status.textContent = original;
-    });
-    if (simSummary) simSummary.textContent = "待触发展业流程";
-    if (simLog) simLog.innerHTML = "<strong>链路说明</strong>计算引擎不替代恒生、集团CRM、智达或产品全生命周期系统；它通过接口获取权威数据和确认结果，完成资管侧计算与核验，再按用途推送不同结果。";
-  }
-
-  function runSimulation() {
-    resetSimulation();
-    document.querySelectorAll("[data-sim-step]").forEach((step) => {
-      const id = step.dataset.simStep;
-      step.classList.add("done");
-      const status = step.querySelector(".sim-status");
-      if (status) status.textContent = simLabels[id] || "完成";
-    });
-    if (simSummary) simSummary.textContent = "模拟完成：已获取并推送";
-    if (simLog) {
-      simLog.innerHTML = "<strong>模拟结果</strong>小程序产生服务记录并写入资管CRM/恒生；集团CRM返回协同确认；计算引擎获取产品全生命周期和运营TA数据完成试算；核验后向资管CRM推送销售归属，向集团CRM推送协同报送结果，向BI/驾驶舱推送管理指标，向智达推送可对客展示内容。";
-    }
-  }
-
-  if (simRun) simRun.addEventListener("click", runSimulation);
-  if (simReset) simReset.addEventListener("click", resetSimulation);
-  if (simRun) runSimulation();
 })();
 </script>
 </body>
